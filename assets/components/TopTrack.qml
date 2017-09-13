@@ -61,6 +61,7 @@ Container {
             }
             
             Label {
+                visible: root.playcount !== 0
                 text: root.playcount + " " + (qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged)
                 textStyle.color: ui.palette.secondaryTextOnPlain
                 textStyle.base: SystemDefaults.TextStyles.SmallText

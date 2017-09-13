@@ -4,7 +4,7 @@
 <context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="116"/>
+        <location filename="../src/applicationui.cpp" line="117"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -35,22 +35,22 @@
 <context>
     <name>ChartsPage</name>
     <message>
-        <location filename="../assets/pages/ChartsPage.qml" line="20"/>
+        <location filename="../assets/pages/ChartsPage.qml" line="21"/>
         <source>Charts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ChartsPage.qml" line="44"/>
+        <location filename="../assets/pages/ChartsPage.qml" line="45"/>
         <source>Top artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ChartsPage.qml" line="54"/>
+        <location filename="../assets/pages/ChartsPage.qml" line="55"/>
         <source>Top tags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ChartsPage.qml" line="49"/>
+        <location filename="../assets/pages/ChartsPage.qml" line="50"/>
         <source>Top tracks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,33 +113,33 @@
 <context>
     <name>PeriodsList</name>
     <message>
-        <location filename="../assets/components/PeriodsList.qml" line="81"/>
-        <source>Overall</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/components/PeriodsList.qml" line="76"/>
+        <location filename="../assets/components/PeriodsList.qml" line="5"/>
         <source>7 day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/components/PeriodsList.qml" line="77"/>
+        <location filename="../assets/components/PeriodsList.qml" line="6"/>
         <source>1 month</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/components/PeriodsList.qml" line="78"/>
+        <location filename="../assets/components/PeriodsList.qml" line="7"/>
         <source>3 month</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/components/PeriodsList.qml" line="79"/>
+        <location filename="../assets/components/PeriodsList.qml" line="8"/>
         <source>6 month</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/components/PeriodsList.qml" line="80"/>
+        <location filename="../assets/components/PeriodsList.qml" line="9"/>
         <source>12 month</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/components/PeriodsList.qml" line="10"/>
+        <source>Overall</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -201,9 +201,27 @@
     </message>
 </context>
 <context>
+    <name>TagPage</name>
+    <message>
+        <location filename="../assets/pages/TagPage.qml" line="41"/>
+        <source>Top Artists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/TagPage.qml" line="42"/>
+        <source>Top Albums</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/TagPage.qml" line="43"/>
+        <source>Top Tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TopAlbum</name>
     <message>
-        <location filename="../assets/components/TopAlbum.qml" line="65"/>
+        <location filename="../assets/components/TopAlbum.qml" line="66"/>
         <source>Scrobbles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -240,7 +258,7 @@
 <context>
     <name>TopTrack</name>
     <message>
-        <location filename="../assets/components/TopTrack.qml" line="64"/>
+        <location filename="../assets/components/TopTrack.qml" line="65"/>
         <source>Scrobbles</source>
         <translation type="unfinished"></translation>
     </message>

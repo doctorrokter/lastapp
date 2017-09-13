@@ -25,6 +25,7 @@ LastFM::LastFM(QObject* parent) : QObject(parent) {
     m_pUser = new UserController(this);
     m_pArtist = new ArtistController(this);
     m_pChart = new ChartController(this);
+    m_pTag = new TagController(this);
 }
 
 LastFM::~LastFM() {
@@ -92,6 +93,8 @@ UserController* LastFM::getUserController() const { return m_pUser; }
 ArtistController* LastFM::getArtistController() const { return m_pArtist; }
 
 ChartController* LastFM::getChartController() const { return m_pChart; }
+
+TagController* LastFM::getTagController() const { return m_pTag; }
 
     }
 }

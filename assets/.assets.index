@@ -1,7 +1,8 @@
 1
-40
+42
 components/CustomTitleBar.qml
 components/Friend.qml
+components/HorizontalList.qml
 components/ImageBackground.qml
 components/InputTitleBar.qml
 components/PeriodsList.qml
@@ -37,6 +38,7 @@ pages/Login.qml
 pages/MyProfilePage.qml
 pages/ScrobblesPage.qml
 pages/SettingsPage.qml
+pages/TagPage.qml
 pages/TopAlbumsPage.qml
 pages/TopArtistsPage.qml
 pages/TopTracksPage.qml

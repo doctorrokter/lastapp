@@ -34,4 +34,8 @@
 #define CHART_GET_TOP_TAGS "chart.getTopTags"
 #define CHART_GET_TOP_TRACKS "chart.getTopTracks"
 
+#define TAG_GET_TOP_ARTISTS "tag.getTopArtists"
+#define TAG_GET_TOP_ALBUMS "tag.getTopAlbums"
+#define TAG_GET_TOP_TRACKS "tag.getTopTracks"
+
 #endif /* LASTFMCOMMON_HPP_ */

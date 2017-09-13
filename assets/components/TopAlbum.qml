@@ -61,6 +61,7 @@ Container {
             }
             
             Label {
+                visible: root.playcount !== 0
                 verticalAlignment: VerticalAlignment.Bottom
                 text: root.playcount + " " + (qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged)
                 textStyle.color: ui.palette.textOnPrimary

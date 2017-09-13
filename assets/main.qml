@@ -143,10 +143,7 @@ TabbedPane {
             
             TopArtistsPage {
                 onArtistChosen: {
-                    var ap = artistPage.createObject();
-                    ap.name = name;
-                    ap.mbid = mbid;
-                    tabbedPane.activePane.push(ap);
+                    tabbedPane.openArtistPage(name, mbid);
                 }
             }
         },
@@ -192,10 +189,13 @@ TabbedPane {
             
             ChartsPage {
                 onArtistChosen: {
-                    var ap = artistPage.createObject();
-                    ap.name = name;
-                    ap.mbid = mbid;
-                    tabbedPane.activePane.push(ap);
+                    tabbedPane.openArtistPage(name, mbid);
+                }
+                
+                onTagChosen: {
+                    var tp = tagPage.createObject();
+                    tp.tag = tag;
+                    tabbedPane.activePane.push(tp);
                 }
             }
         },
@@ -239,10 +239,7 @@ TabbedPane {
                 }
                 
                 onArtistChosen: {
-                    var ap = artistPage.createObject();
-                    ap.name = name;
-                    ap.mbid = mbid;
-                    tabbedPane.activePane.push(ap);
+                    tabbedPane.openArtistPage(name, mbid);
                 }
             }
         },
@@ -250,6 +247,15 @@ TabbedPane {
         ComponentDefinition {
             id: artistTopTracksPage
             ArtistTopTracks {}
+        },
+        
+        ComponentDefinition {
+            id: tagPage
+            TagPage {
+                onArtistChosen: {
+                    tabbedPane.openArtistPage(name, mbid);
+                }
+            }
         },
         
         ComponentDefinition {
@@ -261,6 +267,12 @@ TabbedPane {
             id: helpPage
             HelpPage {}
         }
-        
     ]
+    
+    function openArtistPage(name, mbid) {
+        var ap = artistPage.createObject();
+        ap.name = name;
+        ap.mbid = mbid;
+        tabbedPane.activePane.push(ap);
+    }
 }

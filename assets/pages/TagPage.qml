@@ -5,27 +5,26 @@ import "../components"
 Page {
     id: root
     
+    property string tag: ""
     property variant charts: {
         TOP_ARTISTS: "topartists",
-        TOP_TRACKS: "toptracks",
-        TOP_TAGS: "toptags"
+        TOP_ALBUMS: "topalbums",
+        TOP_TRACKS: "toptracks"
     }
     property int page: 0
     property int limit: 50
     property bool hasNext: true
     
     signal artistChosen(string name, string mbid)
-    signal tagChosen(string tag)
     
     titleBar: CustomTitleBar {
-        title: qsTr("Charts") + Retranslate.onLocaleOrLanguageChanged
+        title: root.tag
         
         scrollBehavior: TitleBarScrollBehavior.NonSticky
     }
     
     actionBarAutoHideBehavior: ActionBarAutoHideBehavior.HideOnScroll
     actionBarVisibility: ChromeVisibility.Overlay
-    
     
     Container {
         horizontalAlignment: HorizontalAlignment.Fill
@@ -36,30 +35,16 @@ Page {
         Container {
             horizontalAlignment: HorizontalAlignment.Fill
             
-            SegmentedControl {
-                id: chartSegments
-                
-                horizontalAlignment: HorizontalAlignment.Fill
+            HorizontalList {
+                id: segments
                 options: [
-                    Option {
-                        text: qsTr("Top artists") + Retranslate.onLocaleOrLanguageChanged
-                        value: root.charts.TOP_ARTISTS
-                    },
-                    
-                    Option {
-                        text: qsTr("Top tracks") + Retranslate.onLocaleOrLanguageChanged
-                        value: root.charts.TOP_TRACKS
-                    },
-                    
-                    Option {
-                        text: qsTr("Top tags") + Retranslate.onLocaleOrLanguageChanged
-                        value: root.charts.TOP_TAGS
-                    }
+                    {title: qsTr("Top Artists") + Retranslate.onLocaleOrLanguageChanged, value: root.charts.TOP_ARTISTS},
+                    {title: qsTr("Top Albums") + Retranslate.onLocaleOrLanguageChanged, value: root.charts.TOP_ALBUMS},
+                    {title: qsTr("Top Tracks") + Retranslate.onLocaleOrLanguageChanged, value: root.charts.TOP_TRACKS}
                 ]
                 
-                onSelectedOptionChanged: {
-                    root.clear();
-                    root.loadChart(selectedOption.value);
+                onChosen: {
+                    root.reload(period);
                 }
             }
             
@@ -73,31 +58,17 @@ Page {
                 layout: gridListLayout
                 scrollRole: ScrollRole.Main
                 
-                attachedObjects: [
-                    ListScrollStateHandler {
-                        onAtEndChanged: {
-                            if (atEnd && !spinner.running) {
-                                root.loadChart(chartSegments.selectedOption.value);
-                            }
-                        }
-                    }
-                ]
-                
                 function itemType(data, indexPath) {
                     return data.type;
                 }
                 
                 onTriggered: {
                     var data = dataModel.data(indexPath);
-                    switch (chartSegments.selectedOption.value) {
-                        case root.charts.TOP_ARTISTS:
+                    switch (data.type) {
+                        case "artist":
                             root.artistChosen(data.name, data.mbid);
                             break;
-                        case root.charts.TOP_TAGS:
-                            root.tagChosen(data.name);
-                            break;
                     }
-                    
                 }
                 
                 listItemComponents: [
@@ -108,11 +79,29 @@ Page {
                             
                             TopArtist {
                                 name: ListItemData.name
-                                playcount: ListItemData.playcount
+                                playcount: ListItemData.playcount || 0
                                 url: ListItemData.url
                                 image: ListItemData.image.filter(function(i) {
                                         return i.size === "large";
                                 })[0]["#text"]
+                            }
+                        }
+                    },
+                    
+                    ListItemComponent {
+                        type: "album"
+                        CustomListItem {
+                            dividerVisible: false
+                            
+                            TopAlbum {
+                                name: ListItemData.name
+                                playcount: ListItemData.playcount || 0
+                                url: ListItemData.url
+                                mbid: ListItemData.mbid
+                                image: ListItemData.image.filter(function(i) {
+                                        return i.size === "large";
+                                })[0]["#text"]
+                            artist: ListItemData.artist
                             }
                         }
                     },
@@ -123,20 +112,13 @@ Page {
                             TopTrack {
                                 mbid: ListItemData.mbid
                                 name: ListItemData.name
-                                playcount: ListItemData.playcount
-                                url: ListItemData.url
                                 artist: ListItemData.artist
+                                url: ListItemData.url
+                                playcount: ListItemData.playcount || 0
                                 image: ListItemData.image.filter(function(i) {
-                                        return i.size === "medium";
+                                        return i.size === "large";
                                 })[0]["#text"]
                             }
-                        }
-                    },
-                    
-                    ListItemComponent {
-                        type: "tag"
-                        StandardListItem {
-                            title: ListItemData.name
                         }
                     }
                 ]
@@ -152,7 +134,7 @@ Page {
     }
     
     onCreationCompleted: {
-        _chart.chartLoaded.connect(root.setChartData);
+        _tag.chartLoaded.connect(root.chartLoaded);
     }
     
     attachedObjects: [
@@ -175,38 +157,17 @@ Page {
         }
     ]
     
-    function setChartData(chartData) {
+    onTagChanged: {
+        clear();
+        segments.choose([0]);
+    }
+    
+    function chartLoaded(chart) {
         spinner.stop();
-        if (chartData.length < root.limit) {
+        if (chart.length < root.limit) {
             root.hasNext = false;
         }
-        dataModel.append(chartData);
-    }
-    
-    function loadChart(selectedChart) {
-        spinner.start();
-        switch (selectedChart) {
-            case root.charts.TOP_ARTISTS:
-                listView.layout = gridListLayout;
-                _chart.getTopArtists(++root.page, root.limit);
-                break;
-            case root.charts.TOP_TRACKS:
-                listView.layout = stackListLayout;
-                _chart.getTopTracks(++root.page, root.limit);
-                break;
-            case root.charts.TOP_TAGS:
-                listView.layout = stackListLayout;
-                _chart.getTopTags(++root.page, root.limit);
-                break;
-            default:
-                console.debug("Unknown chart type");
-                break;
-                
-        }
-    }
-    
-    function cleanUp() {
-        _chart.chartLoaded.disconnect(root.setChartData);
+        dataModel.append(chart);
     }
     
     function clear() {
@@ -215,9 +176,33 @@ Page {
         root.hasNext = true;
     }
     
-    function init() {
+    function reload(segment) {
         clear();
-        var selectedChart = chartSegments.selectedOption.value;
-        root.loadChart(selectedChart);
+        load(segment);
+    }
+    
+    function load(segment) {
+        spinner.start();
+        switch (segment) {
+            case root.charts.TOP_ARTISTS:
+                listView.layout = gridListLayout;
+                _tag.getTopArtists(root.tag, ++root.page, root.limit);
+                break;
+            case root.charts.TOP_ALBUMS:
+                listView.layout = gridListLayout;
+                _tag.getTopAlbums(root.tag, ++root.page, root.limit);
+                break;
+            case root.charts.TOP_TRACKS:
+                listView.layout = stackListLayout;
+                _tag.getTopTracks(root.tag, ++root.page, root.limit);
+                break;
+            default:
+                console.debug("Unknown chart type");
+                break;
+        }
+    }
+    
+    function cleanUp() {
+        _tag.chartLoaded.disconnect(root.chartLoaded);
     }
 }

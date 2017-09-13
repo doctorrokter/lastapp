@@ -38,6 +38,7 @@ config_pri_assets {
     OTHER_FILES += \
         $$quote($$BASEDIR/assets/components/CustomTitleBar.qml) \
         $$quote($$BASEDIR/assets/components/Friend.qml) \
+        $$quote($$BASEDIR/assets/components/HorizontalList.qml) \
         $$quote($$BASEDIR/assets/components/ImageBackground.qml) \
         $$quote($$BASEDIR/assets/components/InputTitleBar.qml) \
         $$quote($$BASEDIR/assets/components/PeriodsList.qml) \
@@ -73,6 +74,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/MyProfilePage.qml) \
         $$quote($$BASEDIR/assets/pages/ScrobblesPage.qml) \
         $$quote($$BASEDIR/assets/pages/SettingsPage.qml) \
+        $$quote($$BASEDIR/assets/pages/TagPage.qml) \
         $$quote($$BASEDIR/assets/pages/TopAlbumsPage.qml) \
         $$quote($$BASEDIR/assets/pages/TopArtistsPage.qml) \
         $$quote($$BASEDIR/assets/pages/TopTracksPage.qml)
@@ -86,6 +88,7 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/lastfm/ArtistController.cpp) \
         $$quote($$BASEDIR/src/lastfm/ChartController.cpp) \
         $$quote($$BASEDIR/src/lastfm/LastFM.cpp) \
+        $$quote($$BASEDIR/src/lastfm/TagController.cpp) \
         $$quote($$BASEDIR/src/lastfm/TrackController.cpp) \
         $$quote($$BASEDIR/src/lastfm/UserController.cpp) \
         $$quote($$BASEDIR/src/main.cpp) \
@@ -100,6 +103,7 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/lastfm/ChartController.hpp) \
         $$quote($$BASEDIR/src/lastfm/LastFM.hpp) \
         $$quote($$BASEDIR/src/lastfm/LastFMCommon.hpp) \
+        $$quote($$BASEDIR/src/lastfm/TagController.hpp) \
         $$quote($$BASEDIR/src/lastfm/TrackController.hpp) \
         $$quote($$BASEDIR/src/lastfm/UserController.hpp) \
         $$quote($$BASEDIR/src/services/ImageService.hpp)
