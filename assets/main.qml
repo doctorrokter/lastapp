@@ -159,7 +159,15 @@ TabbedPane {
                 page.destroy();
             }
             
-            TopAlbumsPage {}
+            TopAlbumsPage {
+                onAlbumChosen: {
+                    var ap = albumPage.createObject();
+                    ap.artist = artist;
+                    ap.mbid = mbid;
+                    ap.name = name;
+                    tabbedPane.activePane.push(ap);
+                }
+            }
         },
         
         NavigationPane {
@@ -193,9 +201,7 @@ TabbedPane {
                 }
                 
                 onTagChosen: {
-                    var tp = tagPage.createObject();
-                    tp.tag = tag;
-                    tabbedPane.activePane.push(tp);
+                    tabbedPane.openTagPage(tag);
                 }
             }
         },
@@ -241,6 +247,10 @@ TabbedPane {
                 onArtistChosen: {
                     tabbedPane.openArtistPage(name, mbid);
                 }
+                
+                onTagChosen: {
+                    tabbedPane.openTagPage(tag);
+                }
             }
         },
         
@@ -254,6 +264,19 @@ TabbedPane {
             TagPage {
                 onArtistChosen: {
                     tabbedPane.openArtistPage(name, mbid);
+                }
+            }
+        },
+        
+        ComponentDefinition {
+            id: albumPage
+            AlbumPage {
+                onArtistChosen: {
+                    tabbedPane.openArtistPage(name, mbid);
+                }    
+                
+                onTagChosen: {
+                    tabbedPane.openTagPage(tag);
                 }
             }
         },
@@ -274,5 +297,11 @@ TabbedPane {
         ap.name = name;
         ap.mbid = mbid;
         tabbedPane.activePane.push(ap);
+    }
+    
+    function openTagPage(tag) {
+        var tp = tagPage.createObject();
+        tp.tag = tag;
+        tabbedPane.activePane.push(tp);
     }
 }

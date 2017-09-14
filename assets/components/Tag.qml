@@ -6,6 +6,8 @@ Container {
     property string name: "heavy metal"
     property string url: ""
     
+    signal chosen(string name)
+    
     leftPadding: ui.du(0.5)
     topPadding: ui.du(0.5)
     rightPadding: ui.du(0.5)
@@ -20,4 +22,12 @@ Container {
         text: root.name
         textStyle.color: Color.White
     }
+    
+    gestureHandlers: [
+        TapHandler {
+            onTapped: {
+                root.chosen(root.name);
+            }
+        }
+    ]
 }

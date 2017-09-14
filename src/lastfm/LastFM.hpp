@@ -17,6 +17,7 @@
 #include "ArtistController.hpp"
 #include "ChartController.hpp"
 #include "TagController.hpp"
+#include "AlbumController.hpp"
 
 using namespace bb::lastfm::controllers;
 
@@ -30,6 +31,7 @@ class LastFM: public QObject {
     Q_PROPERTY(ArtistController* artist READ getArtistController)
     Q_PROPERTY(ChartController* chart READ getChartController)
     Q_PROPERTY(TagController* tag READ getTagController)
+    Q_PROPERTY(AlbumController* album READ getAlbumController)
 public:
     LastFM(QObject* parent = 0);
     virtual ~LastFM();
@@ -41,6 +43,7 @@ public:
     Q_INVOKABLE ArtistController* getArtistController() const;
     Q_INVOKABLE ChartController* getChartController() const;
     Q_INVOKABLE TagController* getTagController() const;
+    Q_INVOKABLE AlbumController* getAlbumController() const;
 
     Q_SIGNALS:
         void accessTokenObtained(const QString& name, const QString& accessToken);
@@ -57,6 +60,7 @@ private:
     ArtistController* m_pArtist;
     ChartController* m_pChart;
     TagController* m_pTag;
+    AlbumController* m_pAlbum;
 };
     }
 }

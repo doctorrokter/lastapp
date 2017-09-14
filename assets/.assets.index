@@ -1,5 +1,6 @@
 1
-42
+44
+components/BioContainer.qml
 components/CustomTitleBar.qml
 components/Friend.qml
 components/HorizontalList.qml
@@ -29,6 +30,7 @@ images/Lastfm_logo.png
 images/me.png
 images/opac_bg.png
 main.qml
+pages/AlbumPage.qml
 pages/ArtistPage.qml
 pages/ArtistTopTracks.qml
 pages/ChartsPage.qml

@@ -74,6 +74,14 @@
     <!-- <copyright></copyright> -->
 
     <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
+    <splashScreens>
+       <image>splash_1440_x_1440.png</image>
+       <image>splash_720_x_720.png</image>
+       <image>splash_768_x_1280.png</image>
+       <image>splash_720_x_1280.png</image>
+       <image>splash_1280_x_768.png</image>
+       <image>splash_1280_x_720.png</image>
+    </splashScreens>
     <authorId>gYAAgJBERbiwoSHtjskM8WvopKU</authorId>
     <author>Mikhail Chachkouski</author>
     <buildIdFile>buildnum</buildIdFile>
@@ -90,6 +98,10 @@
     <!--  The icon for the application, which should be 114x114. -->
     <icon>
         <image>icon.png</image>
+        <image>icon_144_x_144.png</image>
+        <image>icon_110_x_110.png</image>
+        <image>icon_96_x_96.png</image>
+        <image>icon_90_x_90.png</image>
     </icon>
 
     <asset path="icon.png">icon.png</asset>
@@ -99,6 +111,16 @@
     <asset path="translations" dest="qm">
         <include name="*.qm"/>
     </asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/icons/icon_144_x_144.png">icon_144_x_144.png</asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/icons/icon_110_x_110.png">icon_110_x_110.png</asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/icons/icon_96_x_96.png">icon_96_x_96.png</asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/icons/icon_90_x_90.png">icon_90_x_90.png</asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_1440_x_1440.png">splash_1440_x_1440.png</asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_720_x_720.png">splash_720_x_720.png</asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_768_x_1280.png">splash_768_x_1280.png</asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_720_x_1280.png">splash_720_x_1280.png</asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_1280_x_768.png">splash_1280_x_768.png</asset>
+    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_1280_x_720.png">splash_1280_x_720.png</asset>
 
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

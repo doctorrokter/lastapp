@@ -5,6 +5,8 @@ ScrollView {
     
     property variant tags: []
     
+    signal chosen(string name)
+    
     horizontalAlignment: HorizontalAlignment.Fill
     scrollViewProperties.scrollMode: ScrollMode.Horizontal
     
@@ -30,7 +32,11 @@ ScrollView {
     attachedObjects: [
         ComponentDefinition {
             id: tag
-            Tag {}
+            Tag {
+                onChosen: {
+                    scrollView.chosen(name);
+                }
+            }
         }
     ]
     

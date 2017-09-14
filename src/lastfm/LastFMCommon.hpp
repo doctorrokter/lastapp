@@ -38,4 +38,6 @@
 #define TAG_GET_TOP_ALBUMS "tag.getTopAlbums"
 #define TAG_GET_TOP_TRACKS "tag.getTopTracks"
 
+#define ALBUM_GET_INFO "album.getInfo"
+
 #endif /* LASTFMCOMMON_HPP_ */

@@ -26,6 +26,7 @@ LastFM::LastFM(QObject* parent) : QObject(parent) {
     m_pArtist = new ArtistController(this);
     m_pChart = new ChartController(this);
     m_pTag = new TagController(this);
+    m_pAlbum = new AlbumController(this);
 }
 
 LastFM::~LastFM() {
@@ -34,6 +35,8 @@ LastFM::~LastFM() {
     m_pUser->deleteLater();
     m_pArtist->deleteLater();
     m_pChart->deleteLater();
+    m_pTag->deleteLater();
+    m_pAlbum->deleteLater();
 }
 
 void LastFM::authenticate(const QString& username, const QString& password) {
@@ -95,6 +98,8 @@ ArtistController* LastFM::getArtistController() const { return m_pArtist; }
 ChartController* LastFM::getChartController() const { return m_pChart; }
 
 TagController* LastFM::getTagController() const { return m_pTag; }
+
+AlbumController* LastFM::getAlbumController() const { return m_pAlbum; }
 
     }
 }

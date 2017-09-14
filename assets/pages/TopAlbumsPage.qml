@@ -5,6 +5,8 @@ import "../components"
 Page {
     id: root
     
+    signal albumChosen(variant artist, string name, string mbid)
+    
     titleBar: CustomTitleBar {
         title: qsTr("Top Albums") + Retranslate.onLocaleOrLanguageChanged
         
@@ -68,6 +70,11 @@ Page {
                         }
                     }
                 ]
+                
+                onTriggered: {
+                    var data = mainDataModel.data(indexPath);
+                    root.albumChosen(data.artist, data.name, data.mbid);
+                }
                 
                 listItemComponents: [
                     ListItemComponent {

@@ -2,9 +2,23 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>AlbumPage</name>
+    <message>
+        <location filename="../assets/pages/AlbumPage.qml" line="117"/>
+        <source>Tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/AlbumPage.qml" line="133"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="187"/>
+        <source>page...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="117"/>
+        <location filename="../src/applicationui.cpp" line="118"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -12,23 +26,26 @@
 <context>
     <name>ArtistPage</name>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="103"/>
-        <source>Bio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="148"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="111"/>
         <source>Top tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="162"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="125"/>
         <source>More top tracks...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="179"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="142"/>
         <source>Similar artists</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BioContainer</name>
+    <message>
+        <location filename="../assets/components/BioContainer.qml" line="18"/>
+        <source>Bio</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -229,7 +246,7 @@
 <context>
     <name>TopAlbumsPage</name>
     <message>
-        <location filename="../assets/pages/TopAlbumsPage.qml" line="9"/>
+        <location filename="../assets/pages/TopAlbumsPage.qml" line="11"/>
         <source>Top Albums</source>
         <translation type="unfinished"></translation>
     </message>

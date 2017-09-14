@@ -36,6 +36,7 @@ simulator {
 
 config_pri_assets {
     OTHER_FILES += \
+        $$quote($$BASEDIR/assets/components/BioContainer.qml) \
         $$quote($$BASEDIR/assets/components/CustomTitleBar.qml) \
         $$quote($$BASEDIR/assets/components/Friend.qml) \
         $$quote($$BASEDIR/assets/components/HorizontalList.qml) \
@@ -65,6 +66,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/me.png) \
         $$quote($$BASEDIR/assets/images/opac_bg.png) \
         $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/pages/AlbumPage.qml) \
         $$quote($$BASEDIR/assets/pages/ArtistPage.qml) \
         $$quote($$BASEDIR/assets/pages/ArtistTopTracks.qml) \
         $$quote($$BASEDIR/assets/pages/ChartsPage.qml) \
@@ -85,6 +87,7 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/Logger.cpp) \
         $$quote($$BASEDIR/src/applicationui.cpp) \
         $$quote($$BASEDIR/src/config/AppConfig.cpp) \
+        $$quote($$BASEDIR/src/lastfm/AlbumController.cpp) \
         $$quote($$BASEDIR/src/lastfm/ArtistController.cpp) \
         $$quote($$BASEDIR/src/lastfm/ChartController.cpp) \
         $$quote($$BASEDIR/src/lastfm/LastFM.cpp) \
@@ -99,6 +102,7 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/Logger.hpp) \
         $$quote($$BASEDIR/src/applicationui.hpp) \
         $$quote($$BASEDIR/src/config/AppConfig.hpp) \
+        $$quote($$BASEDIR/src/lastfm/AlbumController.hpp) \
         $$quote($$BASEDIR/src/lastfm/ArtistController.hpp) \
         $$quote($$BASEDIR/src/lastfm/ChartController.hpp) \
         $$quote($$BASEDIR/src/lastfm/LastFM.hpp) \

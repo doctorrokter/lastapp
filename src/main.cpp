@@ -28,6 +28,7 @@
 #include "lastfm/UserController.hpp"
 #include "lastfm/ArtistController.hpp"
 #include "lastfm/TagController.hpp"
+#include "lastfm/AlbumController.hpp"
 #include "services/ImageService.hpp"
 
 using namespace bb::cascades;
@@ -39,11 +40,13 @@ Q_DECL_EXPORT int main(int argc, char **argv) {
     qRegisterMetaType<UserController*>("UserController*");
     qRegisterMetaType<ArtistController*>("ArtistController*");
     qRegisterMetaType<TagController*>("TagController*");
+    qRegisterMetaType<AlbumController*>("AlbumController*");
     qRegisterMetaType<ImageService*>("ImageService*");
     qmlRegisterUncreatableType<TrackController>("lastFM.controllers", 1, 0, "TrackController", "test");
     qmlRegisterUncreatableType<UserController>("lastFM.controllers", 1, 0, "UserController", "test");
     qmlRegisterUncreatableType<ArtistController>("lastFM.controllers", 1, 0, "ArtistController", "test");
     qmlRegisterUncreatableType<ArtistController>("lastFM.controllers", 1, 0, "TagController", "test");
+    qmlRegisterUncreatableType<AlbumController>("lastFM.controllers", 1, 0, "AlbumController", "test");
 
     Application app(argc, argv);
     ApplicationUI appui;
