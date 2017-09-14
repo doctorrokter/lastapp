@@ -1,5 +1,6 @@
 1
-44
+45
+components/AlbumTrackListItem.qml
 components/BioContainer.qml
 components/CustomTitleBar.qml
 components/Friend.qml

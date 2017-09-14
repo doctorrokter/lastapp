@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../assets/pages/AlbumPage.qml" line="133"/>
-        <location filename="../assets/pages/AlbumPage.qml" line="187"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="194"/>
         <source>page...</source>
         <translation type="unfinished"></translation>
     </message>

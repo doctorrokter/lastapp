@@ -175,6 +175,13 @@ Page {
         }
     }
     
+    attachedObjects: [
+        ComponentDefinition {
+            id: albumTrackListItem
+            AlbumTrackListItem {}
+        }
+    ]
+    
     onCreationCompleted: {
         _album.infoLoaded.connect(root.setAlbum);
     }
@@ -195,13 +202,22 @@ Page {
         backgroundImage.maxWidth = mainLUH.layoutFrame.width;
     }
     
+    onTracksChanged: {
+        tracks.forEach(function(tr, index) {
+            var atli = albumTrackListItem.createObject();
+            atli.name = tr.name;    
+            atli.number = index + 1;
+            topTracksMainContainer.add(atli);
+        });
+    }
+    
     function setAlbum(album) {
         _album.infoLoaded.disconnect(root.setAlbum);
-        root.mbid = album.mbid;
+        root.mbid = album.mbid || "";
         root.name = album.name;
         root.playcount = album.playcount;
         root.listeners = album.listeners;
-        root.userplaycount = album.userplaycount === undefined ? 0 : album.userplaycount;
+        root.userplaycount = album.userplaycount || 0;
         root.tags = album.tags.tag;
         root.images = album.image;
         root.tracks = album.tracks.track;
