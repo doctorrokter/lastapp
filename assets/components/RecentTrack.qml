@@ -37,6 +37,7 @@ Container {
         
         Label {
             text: root.name
+            margin.leftOffset: ui.du(1)
         }
         
         Container {
@@ -51,6 +52,7 @@ Container {
                 text: root.artist
                 textStyle.color: ui.palette.secondaryTextOnPlain
                 verticalAlignment: VerticalAlignment.Center
+                margin.leftOffset: ui.du(1)
                 layoutProperties: StackLayoutProperties {
                     spaceQuota: 1
                 }

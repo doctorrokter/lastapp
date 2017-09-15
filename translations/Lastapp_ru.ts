@@ -201,7 +201,7 @@
 <context>
     <name>RecentTrack</name>
     <message>
-        <location filename="../assets/components/RecentTrack.qml" line="60"/>
+        <location filename="../assets/components/RecentTrack.qml" line="62"/>
         <source>Now playing</source>
         <translation type="unfinished"></translation>
     </message>

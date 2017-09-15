@@ -12,6 +12,7 @@
 #include <QUrl>
 #include <bb/data/JsonDataAccess>
 #include <QVariantMap>
+#include "LastFM.hpp"
 
 using namespace bb::cascades;
 using namespace bb::data;
@@ -41,12 +42,9 @@ namespace bb {
             }
 
             void ChartController::invoke(const QString& method, const int& page, const int& limit) {
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", method);
+                QUrl url = LastFM::defaultUrl(method);
                 url.addQueryItem("page", QString::number(page));
                 url.addQueryItem("limit", QString::number(limit));
-                url.addQueryItem("api_key", API_KEY);
-                url.addQueryItem("format", "json");
 
                 logger.info(url);
 

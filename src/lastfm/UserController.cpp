@@ -13,6 +13,7 @@
 #include <QVariantMap>
 #include <bb/data/JsonDataAccess>
 #include <bb/cascades/QmlDocument>
+#include "LastFM.hpp"
 
 using namespace bb::cascades;
 using namespace bb::data;
@@ -34,13 +35,10 @@ namespace bb {
             void UserController::getRecentTracks(const QString& user, const int& page, const int& limit) {
                 QNetworkRequest req;
 
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", USER_GET_RECENT_TRACKS);
+                QUrl url = LastFM::defaultUrl(USER_GET_RECENT_TRACKS);
                 url.addQueryItem("user", user);
                 url.addQueryItem("page", QString::number(page));
                 url.addQueryItem("limit", QString::number(limit));
-                url.addQueryItem("format", "json");
-                url.addQueryItem("api_key", API_KEY);
 
                 req.setUrl(url);
                 req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -71,14 +69,11 @@ namespace bb {
             void UserController::getTopArtists(const QString& user, const int& page, const int& limit, const QString& period) {
                 QNetworkRequest req;
 
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", USER_GET_TOP_ARTISTS);
+                QUrl url = LastFM::defaultUrl(USER_GET_TOP_ARTISTS);
                 url.addQueryItem("user", user);
                 url.addQueryItem("page", QString::number(page));
                 url.addQueryItem("limit", QString::number(limit));
                 url.addQueryItem("period", period);
-                url.addQueryItem("format", "json");
-                url.addQueryItem("api_key", API_KEY);
 
                 req.setUrl(url);
                 req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -110,14 +105,11 @@ namespace bb {
             void UserController::getTopAlbums(const QString& user, const int& page, const int& limit, const QString& period) {
                 QNetworkRequest req;
 
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", USER_GET_TOP_ALBUMS);
+                QUrl url = LastFM::defaultUrl(USER_GET_TOP_ALBUMS);
                 url.addQueryItem("user", user);
                 url.addQueryItem("page", QString::number(page));
                 url.addQueryItem("limit", QString::number(limit));
                 url.addQueryItem("period", period);
-                url.addQueryItem("format", "json");
-                url.addQueryItem("api_key", API_KEY);
 
                 req.setUrl(url);
                 req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -149,14 +141,11 @@ namespace bb {
             void UserController::getTopTracks(const QString& user, const int& page, const int& limit, const QString& period) {
                 QNetworkRequest req;
 
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", USER_GET_TOP_TRACKS);
+                QUrl url = LastFM::defaultUrl(USER_GET_TOP_TRACKS);
                 url.addQueryItem("user", user);
                 url.addQueryItem("page", QString::number(page));
                 url.addQueryItem("limit", QString::number(limit));
                 url.addQueryItem("period", period);
-                url.addQueryItem("format", "json");
-                url.addQueryItem("api_key", API_KEY);
 
                 req.setUrl(url);
                 req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -188,13 +177,10 @@ namespace bb {
             void UserController::getFriends(const QString& user, const int& page, const int& limit) {
                 QNetworkRequest req;
 
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", USER_GET_FRIENDS);
+                QUrl url = LastFM::defaultUrl(USER_GET_FRIENDS);
                 url.addQueryItem("user", user);
                 url.addQueryItem("page", QString::number(page));
                 url.addQueryItem("limit", QString::number(limit));
-                url.addQueryItem("format", "json");
-                url.addQueryItem("api_key", API_KEY);
 
                 req.setUrl(url);
                 req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -223,11 +209,8 @@ namespace bb {
             }
 
             void UserController::getInfo(const QString& user) {
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", USER_GET_INFO);
+                QUrl url = LastFM::defaultUrl(USER_GET_INFO);
                 url.addQueryItem("user", user);
-                url.addQueryItem("api_key", API_KEY);
-                url.addQueryItem("format", "json");
 
                 logger.info(url);
 

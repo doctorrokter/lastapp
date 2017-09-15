@@ -14,6 +14,7 @@
 #include <QCryptographicHash>
 #include <QDebug>
 #include <bb/cascades/QmlDocument>
+#include "LastFM.hpp"
 
 using namespace bb::cascades;
 
@@ -36,7 +37,6 @@ void TrackController::updateNowPlaying(const QString& artist, const QString& tra
     req.setUrl(url);
     req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    QUrl body;
     QString sk = AppConfig::instance()->get(LAST_FM_KEY).toString();
     QString sig = QString("api_key").append(API_KEY)
                 .append("artist").append(artist.toUtf8())
@@ -46,10 +46,9 @@ void TrackController::updateNowPlaying(const QString& artist, const QString& tra
                 .append(SECRET);
     QString hash = QCryptographicHash::hash(sig.toAscii(), QCryptographicHash::Md5).toHex();
 
-    body.addQueryItem("method", TRACK_UPDATE_NOW_PLAYING);
+    QUrl body = LastFM::defaultBody(TRACK_UPDATE_NOW_PLAYING);
     body.addQueryItem("artist", artist.toUtf8());
     body.addQueryItem("track", track.toUtf8());
-    body.addQueryItem("api_key", API_KEY);
     body.addQueryItem("sk", sk);
     body.addQueryItem("api_sig", hash);
 
@@ -78,7 +77,6 @@ void TrackController::scrobble(const QString& artist, const QString& track, cons
     req.setUrl(url);
     req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    QUrl body;
     QString sk = AppConfig::instance()->get(LAST_FM_KEY).toString();
     QString sig = QString("api_key").append(API_KEY)
                     .append("artist").append(artist.toUtf8())
@@ -89,11 +87,10 @@ void TrackController::scrobble(const QString& artist, const QString& track, cons
                     .append(SECRET);
     QString hash = QCryptographicHash::hash(sig.toAscii(), QCryptographicHash::Md5).toHex();
 
-    body.addQueryItem("method", TRACK_SCROBBLE);
+    QUrl body = LastFM::defaultBody(TRACK_SCROBBLE);
     body.addQueryItem("artist", artist.toUtf8());
     body.addQueryItem("track", track.toUtf8());
     body.addQueryItem("timestamp", QString::number(timestamp));
-    body.addQueryItem("api_key", API_KEY);
     body.addQueryItem("sk", sk);
     body.addQueryItem("api_sig", hash);
 
@@ -112,7 +109,6 @@ void TrackController::love(const QString& artist, const QString& track) {
     req.setUrl(url);
     req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    QUrl body;
     QString sk = AppConfig::instance()->get(LAST_FM_KEY).toString();
     QString sig = QString("api_key").append(API_KEY)
                         .append("artist").append(artist.toUtf8())
@@ -122,10 +118,9 @@ void TrackController::love(const QString& artist, const QString& track) {
                         .append(SECRET);
     QString hash = QCryptographicHash::hash(sig.toAscii(), QCryptographicHash::Md5).toHex();
 
-    body.addQueryItem("method", TRACK_LOVE);
+    QUrl body = LastFM::defaultBody(TRACK_LOVE);
     body.addQueryItem("artist", artist.toUtf8());
     body.addQueryItem("track", track.toUtf8());
-    body.addQueryItem("api_key", API_KEY);
     body.addQueryItem("sk", sk);
     body.addQueryItem("api_sig", hash);
 

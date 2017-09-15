@@ -39,6 +39,22 @@ LastFM::~LastFM() {
     m_pAlbum->deleteLater();
 }
 
+QUrl LastFM::defaultUrl(const QString& method) {
+    QUrl url(API_ROOT);
+    url.addQueryItem("method", method);
+    url.addQueryItem("api_key", API_KEY);
+    url.addQueryItem("format", "json");
+    return url;
+}
+
+QUrl LastFM::defaultBody(const QString& method) {
+    QUrl body;
+    body.addQueryItem("method", method);
+    body.addQueryItem("api_key", API_KEY);
+    body.addQueryItem("format", "json");
+    return body;
+}
+
 void LastFM::authenticate(const QString& username, const QString& password) {
     QNetworkRequest req;
 

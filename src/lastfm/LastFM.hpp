@@ -18,6 +18,7 @@
 #include "ChartController.hpp"
 #include "TagController.hpp"
 #include "AlbumController.hpp"
+#include <QUrl>
 
 using namespace bb::lastfm::controllers;
 
@@ -35,6 +36,9 @@ class LastFM: public QObject {
 public:
     LastFM(QObject* parent = 0);
     virtual ~LastFM();
+
+    static QUrl defaultUrl(const QString& method);
+    static QUrl defaultBody(const QString& method);
 
     Q_INVOKABLE void authenticate(const QString& username, const QString& password);
 

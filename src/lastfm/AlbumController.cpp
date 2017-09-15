@@ -11,6 +11,7 @@
 #include <QUrl>
 #include <QNetworkRequest>
 #include <bb/data/JsonDataAccess>
+#include "LastFM.hpp"
 
 using namespace bb::cascades;
 using namespace bb::data;
@@ -28,8 +29,7 @@ namespace bb {
             AlbumController::~AlbumController() {}
 
             void AlbumController::getInfo(const QString& artist, const QString& album, const QString& mbid, const int& autocorrect, const QString& username, const QString& lang) {
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", ALBUM_GET_INFO);
+                QUrl url = LastFM::defaultUrl(ALBUM_GET_INFO);
                 if (mbid.isEmpty()) {
                     url.addQueryItem("artist", artist);
                     url.addQueryItem("album", album);
@@ -41,8 +41,6 @@ namespace bb {
                     url.addQueryItem("username", username);
                 }
                 url.addQueryItem("lang", lang);
-                url.addQueryItem("api_key", API_KEY);
-                url.addQueryItem("format", "json");
 
                 logger.info(url);
 

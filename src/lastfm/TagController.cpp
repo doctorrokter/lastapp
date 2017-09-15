@@ -10,6 +10,7 @@
 #include <QNetworkRequest>
 #include "LastFMCommon.hpp"
 #include <bb/data/JsonDataAccess>
+#include "LastFM.hpp"
 
 using namespace bb::data;
 
@@ -38,13 +39,10 @@ namespace bb {
             }
 
             void TagController::invoke(const QString& method, const QString& tag, const int& page, const int& limit) {
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", method);
+                QUrl url = LastFM::defaultUrl(method);
                 url.addQueryItem("tag", tag);
                 url.addQueryItem("page", QString::number(page));
                 url.addQueryItem("limit", QString::number(limit));
-                url.addQueryItem("api_key", API_KEY);
-                url.addQueryItem("format", "json");
 
                 logger.info(url);
 

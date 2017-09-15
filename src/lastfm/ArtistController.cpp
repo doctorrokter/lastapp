@@ -11,6 +11,7 @@
 #include <bb/data/JsonDataAccess>
 #include "LastFMCommon.hpp"
 #include <bb/cascades/QmlDocument>
+#include "LastFM.hpp"
 
 using namespace bb::cascades;
 using namespace bb::data;
@@ -30,12 +31,9 @@ namespace bb {
             }
 
             void ArtistController::getInfo(const QString& artist, const QString& mbid, const QString& lang, const int& autocorrect, const QString username) {
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", ARTIST_GET_INFO);
+                QUrl url = LastFM::defaultUrl(ARTIST_GET_INFO);
                 url.addQueryItem("lang", lang);
                 url.addQueryItem("autocorrect", QString::number(autocorrect));
-                url.addQueryItem("api_key", API_KEY);
-                url.addQueryItem("format", "json");
 
                 if (!mbid.isEmpty()) {
                     url.addQueryItem("mbid", mbid);
@@ -73,13 +71,10 @@ namespace bb {
             }
 
             void ArtistController::getTopTracks(const QString& artist, const QString& mbid, const int& autocorrect, const int& page, const int& limit) {
-                QUrl url(API_ROOT);
-                url.addQueryItem("method", ARTIST_GET_TOP_TRACKS);
+                QUrl url = LastFM::defaultUrl(ARTIST_GET_TOP_TRACKS);
                 url.addQueryItem("page", QString::number(page));
                 url.addQueryItem("limit", QString::number(limit));
                 url.addQueryItem("autocorrect", QString::number(autocorrect));
-                url.addQueryItem("api_key", API_KEY);
-                url.addQueryItem("format", "json");
 
                 if (!mbid.isEmpty()) {
                     url.addQueryItem("mbid", mbid);
