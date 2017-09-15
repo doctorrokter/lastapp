@@ -160,7 +160,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="188"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="197"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>

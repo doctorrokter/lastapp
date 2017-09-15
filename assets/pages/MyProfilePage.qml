@@ -162,6 +162,13 @@ Page {
                     minHeight: ui.du(35 - avatarContainer.padding * 2)
                 }
             }
+            
+            ActivityIndicator {
+                id: spinner
+                verticalAlignment: VerticalAlignment.Center
+                horizontalAlignment: HorizontalAlignment.Center
+                minWidth: ui.du(20)
+            }
         }        
     }
     
@@ -177,10 +184,12 @@ Page {
     }
     
     function init() {
+        spinner.start();
         _user.getInfo(_appConfig.get("lastfm_name"));
     }
     
     function setUser(user) {
+        spinner.stop();
         root.name = user.name || "";
         root.realname = user.realname || "";
         root.images = user.image;
