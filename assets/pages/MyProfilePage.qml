@@ -181,12 +181,12 @@ Page {
     }
     
     function setUser(user) {
-        root.name = user.name;
-        root.realname = user.realname;
+        root.name = user.name || "";
+        root.realname = user.realname || "";
         root.images = user.image;
-        root.playcount = user.playcount;
-        root.country = user.country;
-        root.playlists = user.playlists;
+        root.playcount = user.playcount || 0;
+        root.country = user.country || (qsTr("Not provided") + Retranslate.onLocaleOrLanguageChanged);
+        root.playlists = user.playlists || 0;
         root.registered = user.registered.unixtime;
     }
     

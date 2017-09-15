@@ -83,7 +83,7 @@
 <context>
     <name>FriendsPage</name>
     <message>
-        <location filename="../assets/pages/FriendsPage.qml" line="10"/>
+        <location filename="../assets/pages/FriendsPage.qml" line="14"/>
         <source>Friends</source>
         <translation type="unfinished"></translation>
     </message>
@@ -157,6 +157,11 @@
     <message>
         <location filename="../assets/pages/MyProfilePage.qml" line="132"/>
         <source>LOVED TRACKS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/MyProfilePage.qml" line="188"/>
+        <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -364,6 +369,11 @@
     <message>
         <location filename="../assets/pages/UserPage.qml" line="132"/>
         <source>LOVED TRACKS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="197"/>
+        <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

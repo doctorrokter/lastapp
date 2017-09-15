@@ -4,6 +4,10 @@ import "../components"
 Page {
     id: root
     
+    property int page: 0
+    property int limit: 50
+    property bool hasNext: true
+    
     signal userChosen(string user)
     
     titleBar: CustomTitleBar {
@@ -17,12 +21,10 @@ Page {
         horizontalAlignment: HorizontalAlignment.Fill
         verticalAlignment: VerticalAlignment.Fill
         
+        layout: DockLayout {}
+        
         ListView {
             id: friendsList
-            
-            property int page: 0
-            property int limit: 50
-            property bool hasNext: true
             
             dataModel: ArrayDataModel {
                 id: friendsDataModel
@@ -34,6 +36,16 @@ Page {
                 var data = friendsDataModel.data(indexPath);
                 root.userChosen(data.name);
             }
+            
+            attachedObjects: [
+                ListScrollStateHandler {
+                    onAtEndChanged: {
+                        if (atEnd && root.hasNext && !spinner.running) {
+                            root.load();
+                        }
+                    }
+                }
+            ]
             
             listItemComponents: [
                 ListItemComponent {
@@ -52,6 +64,13 @@ Page {
                 }
             ]
         }
+        
+        ActivityIndicator {
+            id: spinner
+            verticalAlignment: VerticalAlignment.Center
+            horizontalAlignment: HorizontalAlignment.Center
+            minWidth: ui.du(20)
+        }
     }
     
     onCreationCompleted: {
@@ -59,21 +78,22 @@ Page {
     }
     
     function load() {
-        _user.getFriends(_appConfig.get("lastfm_name"), ++friendsList.page, friendsList.limit);
+        spinner.start();
+        _user.getFriends(_appConfig.get("lastfm_name"), ++root.page, root.limit);
     }
     
     function friendsLoaded(friends) {
-        console.debug(friends);
-        if (friends.length < friendsList.limit) {
-            friendsList.hasNext = false;
+        spinner.stop();
+        if (friends.length < root.limit) {
+            root.hasNext = false;
         }
         friendsDataModel.append(friends);
     }
     
     function clear() {
         friendsDataModel.clear();
-        friendsList.page = 0;
-        friendsList.hasNext = true;
+        root.page = 0;
+        root.hasNext = true;
     }
     
     function init() {
