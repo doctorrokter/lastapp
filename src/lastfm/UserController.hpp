@@ -29,6 +29,7 @@ namespace bb {
                 Q_INVOKABLE void getTopAlbums(const QString& user, const int& page = 1, const int& limit = 50, const QString& period = "overall");
                 Q_INVOKABLE void getTopTracks(const QString& user, const int& page = 1, const int& limit = 50, const QString& period = "overall");
                 Q_INVOKABLE void getFriends(const QString& user, const int& page = 1, const int& limit = 50);
+                Q_INVOKABLE void getInfo(const QString& user);
 
                 Q_SIGNALS:
                     void recentTracksLoaded(const QVariantList& recentTracks);
@@ -36,6 +37,7 @@ namespace bb {
                     void topAlbumsLoaded(const QVariantList& topAlbums, const QString& period);
                     void topTracksLoaded(const QVariantList& topTracks, const QString& period);
                     void friendsLoaded(const QVariantList& friends);
+                    void infoLoaded(const QVariantMap& info);
 
             private slots:
                 void onRecentTracksLoaded();
@@ -43,6 +45,7 @@ namespace bb {
                 void onTopAlbumsLoaded();
                 void onTopTracksLoaded();
                 void onFriendsLoaded();
+                void onInfoLoaded();
                 void onError(QNetworkReply::NetworkError error);
 
             private:

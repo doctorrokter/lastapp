@@ -4,6 +4,8 @@ import "../components"
 Page {
     id: root
     
+    signal userChosen(string user)
+    
     titleBar: CustomTitleBar {
         title: qsTr("Friends") + Retranslate.onLocaleOrLanguageChanged
     }
@@ -27,6 +29,11 @@ Page {
             }
             
             scrollRole: ScrollRole.Main
+            
+            onTriggered: {
+                var data = friendsDataModel.data(indexPath);
+                root.userChosen(data.name);
+            }
             
             listItemComponents: [
                 ListItemComponent {

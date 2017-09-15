@@ -83,7 +83,7 @@
 <context>
     <name>FriendsPage</name>
     <message>
-        <location filename="../assets/pages/FriendsPage.qml" line="8"/>
+        <location filename="../assets/pages/FriendsPage.qml" line="10"/>
         <source>Friends</source>
         <translation type="unfinished"></translation>
     </message>
@@ -124,6 +124,39 @@
     <message>
         <location filename="../assets/pages/Login.qml" line="77"/>
         <source>No internet connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MyProfilePage</name>
+    <message>
+        <location filename="../assets/pages/MyProfilePage.qml" line="84"/>
+        <source>registered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/MyProfilePage.qml" line="102"/>
+        <source>COUNTRY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/MyProfilePage.qml" line="107"/>
+        <source>SCROBBLES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/MyProfilePage.qml" line="112"/>
+        <source>PLAYLISTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/MyProfilePage.qml" line="127"/>
+        <source>ARTISTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/MyProfilePage.qml" line="132"/>
+        <source>LOVED TRACKS</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -298,6 +331,39 @@
     <message>
         <location filename="../assets/pages/TopTracksPage.qml" line="116"/>
         <source>Reload</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserPage</name>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="84"/>
+        <source>registered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="102"/>
+        <source>COUNTRY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="107"/>
+        <source>SCROBBLES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="112"/>
+        <source>PLAYLISTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="127"/>
+        <source>ARTISTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="132"/>
+        <source>LOVED TRACKS</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

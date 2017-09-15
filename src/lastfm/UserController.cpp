@@ -222,6 +222,39 @@ namespace bb {
                 reply->deleteLater();
             }
 
+            void UserController::getInfo(const QString& user) {
+                QUrl url(API_ROOT);
+                url.addQueryItem("method", USER_GET_INFO);
+                url.addQueryItem("user", user);
+                url.addQueryItem("api_key", API_KEY);
+                url.addQueryItem("format", "json");
+
+                logger.info(url);
+
+                QNetworkRequest req;
+                req.setUrl(url);
+                req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                QNetworkReply* reply = m_pNetwork->get(req);
+                bool res = QObject::connect(reply, SIGNAL(finished()), this, SLOT(onInfoLoaded()));
+                Q_ASSERT(res);
+                res = QObject::connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(onError(QNetworkReply::NetworkError)));
+                Q_ASSERT(res);
+                Q_UNUSED(res);
+            }
+
+            void UserController::onInfoLoaded() {
+                QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
+
+                if (reply->error() == QNetworkReply::NoError) {
+                    JsonDataAccess jda;
+                    QVariantMap user = jda.loadFromBuffer(reply->readAll()).toMap().value("user").toMap();
+                    emit infoLoaded(user);
+                }
+
+                reply->deleteLater();
+            }
+
             void UserController::onError(QNetworkReply::NetworkError e) {
                 QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
                 logger.error(e);

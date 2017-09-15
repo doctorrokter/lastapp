@@ -17,7 +17,7 @@ Page {
     
     actionBarAutoHideBehavior: ActionBarAutoHideBehavior.HideOnScroll
     actionBarVisibility: ChromeVisibility.Overlay
-        
+    
     ScrollView {
         scrollRole: ScrollRole.Main
         
@@ -43,19 +43,19 @@ Page {
             Container {
                 horizontalAlignment: HorizontalAlignment.Fill
                 verticalAlignment: VerticalAlignment.Fill
-            
+                
                 layout: DockLayout {}
-            
+                
                 Container {
                     horizontalAlignment: HorizontalAlignment.Fill
                     verticalAlignment: VerticalAlignment.Fill
-            
+                    
                     background: ui.palette.background
-            
+                    
                     margin.topOffset: ui.du(40)
-                
+                    
                     Divider {}
-            
+                    
                     Container {
                         topPadding: ui.du(5)
                         leftPadding: ui.du(2)
@@ -65,7 +65,7 @@ Page {
                             textStyle.base: SystemDefaults.TextStyles.TitleText
                             textStyle.fontWeight: FontWeight.Bold
                         }
-                
+                        
                         Container {
                             layout: StackLayout {
                                 orientation: LayoutOrientation.LeftToRight
@@ -86,9 +86,9 @@ Page {
                                 textStyle.color: ui.palette.secondaryTextOnPlain
                             }
                         }
-                        
+                    
                     }
-            
+                    
                     Divider {}
                     
                     Container {
@@ -176,10 +176,10 @@ Page {
         backgroundImage.maxWidth = mainLUH.layoutFrame.width;
     }
     
-    function init() {
-        _user.getInfo(_appConfig.get("lastfm_name"));
+    onNameChanged: {
+        _user.getInfo(root.name);
     }
-    
+        
     function setUser(user) {
         root.name = user.name;
         root.realname = user.realname;
@@ -195,5 +195,9 @@ Page {
                 return i.size === size;
         })[0];
         return img === undefined ? "" : img["#text"];
+    }
+    
+    function cleanUp() {
+        _user.infoLoaded.disconnect(root.setUser);
     }
 }

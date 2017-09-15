@@ -231,7 +231,13 @@ TabbedPane {
                 page.destroy();
             }
             
-            FriendsPage {}
+            FriendsPage {
+                onUserChosen: {
+                    var up = userPage.createObject();
+                    up.name = user;
+                    tabbedPane.activePane.push(up);
+                }
+            }
         },
         
         ComponentDefinition {
@@ -279,6 +285,11 @@ TabbedPane {
                     tabbedPane.openTagPage(tag);
                 }
             }
+        },
+        
+        ComponentDefinition {
+            id: userPage
+            UserPage {}
         },
         
         ComponentDefinition {

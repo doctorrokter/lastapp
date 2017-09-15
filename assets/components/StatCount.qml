@@ -5,6 +5,7 @@ Container {
 
     property string title: "LISTENING"
     property int count: 0
+    property string value: ""
     
     horizontalAlignment: HorizontalAlignment.Fill
     
@@ -20,7 +21,7 @@ Container {
     Container {
         horizontalAlignment: HorizontalAlignment.Center
         Label {
-            text: root.count
+            text: root.value !== "" ? root.value : root.count
             textStyle.fontWeight: FontWeight.Bold
         }    
     }                            

@@ -1,5 +1,5 @@
 1
-45
+46
 components/AlbumTrackListItem.qml
 components/BioContainer.qml
 components/CustomTitleBar.qml
@@ -45,3 +45,4 @@ pages/TagPage.qml
 pages/TopAlbumsPage.qml
 pages/TopArtistsPage.qml
 pages/TopTracksPage.qml
+pages/UserPage.qml
