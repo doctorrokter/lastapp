@@ -40,6 +40,19 @@
         <source>Similar artists</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../assets/pages/ArtistPage.qml" line="279"/>
+        <source>listeners</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ArtistTopTracks</name>
+    <message>
+        <location filename="../assets/pages/ArtistTopTracks.qml" line="53"/>
+        <source>listeners</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BioContainer</name>
@@ -319,14 +332,6 @@
     </message>
 </context>
 <context>
-    <name>TopTrackListItem</name>
-    <message>
-        <location filename="../assets/components/TopTrackListItem.qml" line="47"/>
-        <source>listeners</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>TopTracksPage</name>
     <message>
         <location filename="../assets/pages/TopTracksPage.qml" line="8"/>
@@ -372,8 +377,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="197"/>
+        <location filename="../assets/pages/UserPage.qml" line="149"/>
+        <source>Top tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="238"/>
         <source>Not provided</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="255"/>
+        <source>scrobbles</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

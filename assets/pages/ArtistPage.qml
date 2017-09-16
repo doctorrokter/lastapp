@@ -273,9 +273,10 @@ Page {
         sorted.forEach(function(t, index) {
             var ttli = topTrackListItem.createObject();
             ttli.number = index + 1;
-            ttli.name = t.name;
-            ttli.listeners = t.listeners;
-            ttli.maxListeners = maxListeners;
+            ttli.title = t.name;
+            ttli.count = t.listeners;
+            ttli.maxCount = maxListeners;
+            ttli.subtitle = t.listeners + " " + (qsTr("listeners") + Retranslate.onLocaleOrLanguageChanged);
             topTracksMainContainer.add(ttli);  
         });
     }

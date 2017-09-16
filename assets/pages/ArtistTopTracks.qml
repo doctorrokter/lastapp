@@ -46,10 +46,11 @@ Page {
             listItemComponents: [
                 ListItemComponent {
                     TopTrackListItem {
-                        listeners: ListItemData.listeners
-                        maxListeners: ListItemData.maxListeners
-                        name: ListItemData.name
+                        count: ListItemData.listeners
+                        maxCount: ListItemData.maxListeners
+                        title: ListItemData.name
                         number: ListItemData.number
+                        subtitle: ListItemData.listeners + " " + (qsTr("listeners") + Retranslate.onLocaleOrLanguageChanged)
                     }
                 }
             ]

@@ -4,9 +4,10 @@ CustomListItem {
     id: root
     
     property int number: 1
-    property string name: "The Tropper"
-    property int listeners: 1500
-    property int maxListeners: 1500
+    property int count: 1500
+    property int maxCount: 1500
+    property string title: ""
+    property string subtitle: ""
     
     Container {
         horizontalAlignment: HorizontalAlignment.Fill
@@ -37,14 +38,15 @@ CustomListItem {
                 
                 Container {
                     Label {
-                        text: root.name
+                        text: root.title
+                        multiline: true
                     }
                 }
                 
                 Container {
                     margin.topOffset: ui.du(1)
                     Label {
-                        text: root.listeners + " " + (qsTr("listeners") + Retranslate.onLocaleOrLanguageChanged)
+                        text: root.subtitle
                         textStyle.color: ui.palette.secondaryTextOnPlain
                         textStyle.base: SystemDefaults.TextStyles.SubtitleText
                     }
@@ -56,10 +58,10 @@ CustomListItem {
                     background:  ui.palette.secondaryTextOnPlain
                     
                     preferredWidth: {
-                        if (root.maxListeners === root.listeners) {
+                        if (root.maxCount === root.count) {
                             return trackLUH.layoutFrame.width;
                         } else {
-                            var percents = (root.listeners * 100) / root.maxListeners;
+                            var percents = (root.count * 100) / root.maxCount;
                             return (trackLUH.layoutFrame.width * percents) / 100;
                         }
                     }

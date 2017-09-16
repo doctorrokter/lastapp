@@ -135,6 +135,34 @@ Page {
                     }
                     
                     Divider {}
+                    
+                    Container {
+                        id: topTracksContainer
+                        
+                        horizontalAlignment: HorizontalAlignment.Fill
+                        
+                        Container {
+                            leftPadding: ui.du(2)
+                            rightPadding: ui.du(2)
+                            
+                            Label {
+                                text: qsTr("Top tracks") + Retranslate.onLocaleOrLanguageChanged
+                                textStyle.base: SystemDefaults.TextStyles.PrimaryText
+                                textStyle.fontWeight: FontWeight.Bold
+                            }
+                        }
+                        
+                        Container {
+                            id: topTracksMainContainer
+                            
+                            margin.topOffset: ui.du(2)
+                        }
+                    }
+                    
+                    Container {
+                        minHeight: ui.du(12)
+                        horizontalAlignment: HorizontalAlignment.Fill
+                    }
                 }
             }
             
@@ -172,8 +200,18 @@ Page {
         }        
     }
     
+    attachedObjects: [
+        ComponentDefinition {
+            id: topTrackComponent
+            TopTrackListItem {}
+        }
+    ]
+    
     onCreationCompleted: {
         _user.infoLoaded.connect(root.setUser);
+        _user.topTracksLoaded.connect(root.setTopTrack);
+        _user.lovedTracksLoaded.connect(root.setLovedTracks);
+        _user.topArtistsLoaded.connect(root.setTopArtists);
     }
     
     onImagesChanged: {
@@ -186,6 +224,9 @@ Page {
     onNameChanged: {
         spinner.start();
         _user.getInfo(root.name);
+        _user.getTopTracks(root.name, 1, 10, "7day");
+        _user.getLovedTracks(root.name, 1, 1);
+        _user.getTopArtists(root.name, 1, 1);
     }
         
     function setUser(user) {
@@ -199,6 +240,36 @@ Page {
         root.registered = user.registered.unixtime;
     }
     
+    function setTopTrack(tracks, period, username) {
+        if (root.name === username) {
+            var sorted = tracks.sort(function(a, b) {
+                return a.playcount < b.playcount;
+            });
+            var maxPlaycount = sorted[0].playcount;
+            sorted.forEach(function(tr, index) {
+                var topTrackObj = topTrackComponent.createObject();
+                topTrackObj.number = index + 1;
+                topTrackObj.title = tr.artist.name + " - " + tr.name;
+                topTrackObj.count = tr.playcount;
+                topTrackObj.maxCount = maxPlaycount;
+                topTrackObj.subtitle = tr.playcount + " " + (qsTr("scrobbles") + Retranslate.onLocaleOrLanguageChanged);
+                topTracksMainContainer.add(topTrackObj);  
+            });
+        }
+    }
+    
+    function setLovedTracks(tracks, user, total) {
+        if (root.name === user) {
+            root.lovedTracks = total;
+        }
+    }
+    
+    function setTopArtists(artists, period, user, total) {
+        if (root.name === user) {
+            root.artists = total;
+        }
+    }
+    
     function getImage(size) {
         var img = root.images.filter(function(i) {
                 return i.size === size;
@@ -208,5 +279,8 @@ Page {
     
     function cleanUp() {
         _user.infoLoaded.disconnect(root.setUser);
+        _user.topTracksLoaded.disconnect(root.setTopTrack);
+        _user.lovedTracksLoaded.disconnect(root.setLovedTracks);
+        _user.topArtistsLoaded.disconnect(root.setTopArtists);
     }
 }
