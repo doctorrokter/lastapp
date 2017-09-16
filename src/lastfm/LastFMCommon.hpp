@@ -27,6 +27,7 @@
 #define USER_GET_TOP_TRACKS "user.getTopTracks"
 #define USER_GET_FRIENDS "user.getFriends"
 #define USER_GET_INFO "user.getInfo"
+#define USER_GET_LOVED_TRACKS "user.getLovedTracks"
 
 #define ARTIST_GET_INFO "artist.getInfo"
 #define ARTIST_GET_TOP_TRACKS "artist.getTopTracks"

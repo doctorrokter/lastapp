@@ -53,6 +53,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/TopArtist.qml) \
         $$quote($$BASEDIR/assets/components/TopTrack.qml) \
         $$quote($$BASEDIR/assets/components/TopTrackListItem.qml) \
+        $$quote($$BASEDIR/assets/components/UserTopTrack.qml) \
         $$quote($$BASEDIR/assets/components/WebImageView.qml) \
         $$quote($$BASEDIR/assets/images/Lastfm_logo.png) \
         $$quote($$BASEDIR/assets/images/concert_bg.jpg) \

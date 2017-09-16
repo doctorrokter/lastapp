@@ -160,7 +160,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="197"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="208"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>
@@ -374,6 +374,14 @@
     <message>
         <location filename="../assets/pages/UserPage.qml" line="197"/>
         <source>Not provided</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserTopTrack</name>
+    <message>
+        <location filename="../assets/components/UserTopTrack.qml" line="36"/>
+        <source>TOP TRACK</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

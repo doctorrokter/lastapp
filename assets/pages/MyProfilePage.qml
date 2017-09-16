@@ -135,6 +135,10 @@ Page {
                     }
                     
                     Divider {}
+                    
+                    UserTopTrack {
+                        id: topTrackContainer
+                    }
                 }
             }
             
@@ -174,11 +178,14 @@ Page {
     
     onCreationCompleted: {
         _user.infoLoaded.connect(root.setUser);
+        _user.topTracksLoaded.connect(root.setTopTrack);
+        _user.lovedTracksLoaded.connect(root.setLovedTracks);
+        _user.topArtistsLoaded.connect(root.setTopArtists);
     }
     
     onImagesChanged: {
-        avatar.image = getImage("large");
-        backgroundImage.image = getImage("extralarge");
+        avatar.image = getImage(root.images, "large");
+        backgroundImage.image = getImage(root.images, "extralarge");
         backgroundImage.maxHeight = mainLUH.layoutFrame.height / 2;
         backgroundImage.maxWidth = mainLUH.layoutFrame.width;
     }
@@ -186,21 +193,49 @@ Page {
     function init() {
         spinner.start();
         _user.getInfo(_appConfig.get("lastfm_name"));
+        _user.getTopTracks(_appConfig.get("lastfm_name"), 1, 1, "7day");
+        _user.getLovedTracks(_appConfig.get("lastfm_name"), 1, 1);
+        _user.getTopArtists(_appConfig.get("lastfm_name"), 1, 1);
     }
     
     function setUser(user) {
-        spinner.stop();
-        root.name = user.name || "";
-        root.realname = user.realname || "";
-        root.images = user.image;
-        root.playcount = user.playcount || 0;
-        root.country = user.country || (qsTr("Not provided") + Retranslate.onLocaleOrLanguageChanged);
-        root.playlists = user.playlists || 0;
-        root.registered = user.registered.unixtime;
+        if (root.name === "" || user.name === root.name) {
+            spinner.stop();
+            root.name = user.name || "";
+            root.realname = user.realname || "";
+            root.images = user.image;
+            root.playcount = user.playcount || 0;
+            root.country = user.country || (qsTr("Not provided") + Retranslate.onLocaleOrLanguageChanged);
+            root.playlists = user.playlists || 0;
+            root.registered = user.registered.unixtime;
+        }
     }
     
-    function getImage(size) {
-        var img = root.images.filter(function(i) {
+    function setTopTrack(tracks, period, username) {
+        if (root.name === username) {
+            if (tracks.length !== 0) {
+                var track = tracks[0];
+                topTrackContainer.name = track.name;
+                topTrackContainer.artist = track.artist.name;
+                topTrackContainer.image = root.getImage(track.image, "large");
+            }
+        }
+    }
+    
+    function setLovedTracks(tracks, user, total) {
+        if (root.name === user) {
+            root.lovedTracks = total;
+        }
+    }
+    
+    function setTopArtists(artists, period, user, total) {
+        if (root.name === user) {
+            root.artists = total;
+        }
+    }
+    
+    function getImage(imgs, size) {
+        var img = imgs.filter(function(i) {
                 return i.size === size;
         })[0];
         return img === undefined ? "" : img["#text"];

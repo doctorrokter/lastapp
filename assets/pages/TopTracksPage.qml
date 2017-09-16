@@ -87,7 +87,7 @@ Page {
                     _user.getTopTracks(_appConfig.get("lastfm_name"), ++mainListView.page, mainListView.limit, period);
                 }
                 
-                function topTracksLoaded(tracks, period) {
+                function topTracksLoaded(tracks, period, user) {
                     spinner.stop();
                     if (tracks.length < mainListView.limit) {
                         mainListView.hasNext = false;

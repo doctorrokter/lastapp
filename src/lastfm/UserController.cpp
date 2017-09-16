@@ -96,7 +96,8 @@ namespace bb {
                     JsonDataAccess jda;
                     QVariantMap response = jda.loadFromBuffer(reply->readAll()).toMap().value("topartists").toMap();
                     QVariantList artists = response.value("artist").toList();
-                    emit topArtistsLoaded(artists, reply->property("period").toString());
+                    QVariantMap attr = response.value("@attr").toMap();
+                    emit topArtistsLoaded(artists, reply->property("period").toString(), attr.value("user").toString(), attr.value("total").toInt());
                 }
 
                 reply->deleteLater();
@@ -154,6 +155,7 @@ namespace bb {
 
                 QNetworkReply* reply = m_pNetwork->get(req);
                 reply->setProperty("period", period);
+                reply->setProperty("user", user);
                 bool res = QObject::connect(reply, SIGNAL(finished()), this, SLOT(onTopTracksLoaded()));
                 Q_ASSERT(res);
                 res = QObject::connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(onError(QNetworkReply::NetworkError)));
@@ -168,7 +170,7 @@ namespace bb {
                     JsonDataAccess jda;
                     QVariantMap response = jda.loadFromBuffer(reply->readAll()).toMap().value("toptracks").toMap();
                     QVariantList artists = response.value("track").toList();
-                    emit topTracksLoaded(artists, reply->property("period").toString());
+                    emit topTracksLoaded(artists, reply->property("period").toString(), reply->property("user").toString());
                 }
 
                 reply->deleteLater();
@@ -233,6 +235,38 @@ namespace bb {
                     JsonDataAccess jda;
                     QVariantMap user = jda.loadFromBuffer(reply->readAll()).toMap().value("user").toMap();
                     emit infoLoaded(user);
+                }
+
+                reply->deleteLater();
+            }
+
+            void UserController::getLovedTracks(const QString& user, const int& page, const int& limit) {
+                QUrl url = LastFM::defaultUrl(USER_GET_LOVED_TRACKS);
+                url.addQueryItem("user", user);
+                url.addQueryItem("page", QString::number(page));
+                url.addQueryItem("limit", QString::number(limit));
+
+                QNetworkRequest req;
+                req.setUrl(url);
+                req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                QNetworkReply* reply = m_pNetwork->get(req);
+                bool res = QObject::connect(reply, SIGNAL(finished()), this, SLOT(onLovedTracksLoaded()));
+                Q_ASSERT(res);
+                res = QObject::connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(onError(QNetworkReply::NetworkError)));
+                Q_ASSERT(res);
+                Q_UNUSED(res);
+            }
+
+            void UserController::onLovedTracksLoaded() {
+                QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
+
+                if (reply->error() == QNetworkReply::NoError) {
+                    JsonDataAccess jda;
+                    QVariantMap response = jda.loadFromBuffer(reply->readAll()).toMap().value("lovedtracks").toMap();
+                    QVariantList tracks = response.value("track").toList();
+                    QVariantMap attr = response.value("@attr").toMap();
+                    emit lovedTracksLoaded(tracks, attr.value("user").toString(), attr.value("total").toInt());
                 }
 
                 reply->deleteLater();
