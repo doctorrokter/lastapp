@@ -36,12 +36,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="142"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="135"/>
         <source>Similar artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="280"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="261"/>
         <source>listeners</source>
         <translation type="unfinished"></translation>
     </message>
@@ -373,42 +373,47 @@
 <context>
     <name>UserPage</name>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="84"/>
+        <location filename="../assets/pages/UserPage.qml" line="86"/>
         <source>registered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="102"/>
+        <location filename="../assets/pages/UserPage.qml" line="104"/>
         <source>COUNTRY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="107"/>
+        <location filename="../assets/pages/UserPage.qml" line="109"/>
         <source>SCROBBLES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="112"/>
+        <location filename="../assets/pages/UserPage.qml" line="114"/>
         <source>PLAYLISTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="127"/>
+        <location filename="../assets/pages/UserPage.qml" line="129"/>
         <source>ARTISTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="132"/>
+        <location filename="../assets/pages/UserPage.qml" line="134"/>
         <source>LOVED TRACKS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="149"/>
+        <location filename="../assets/pages/UserPage.qml" line="151"/>
         <source>Top tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="238"/>
+        <location filename="../assets/pages/UserPage.qml" line="166"/>
+        <source>Top artists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/UserPage.qml" line="251"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>

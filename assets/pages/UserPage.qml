@@ -15,6 +15,8 @@ Page {
     property int artists: 0
     property int lovedTracks: 0
     
+    signal artistChosen(string name, string mbid)
+    
     actionBarAutoHideBehavior: ActionBarAutoHideBehavior.HideOnScroll
     actionBarVisibility: ChromeVisibility.Overlay
     
@@ -159,6 +161,16 @@ Page {
                         }
                     }
                     
+                    ArtistsCarousel {
+                        id: userArtists
+                        title: qsTr("Top artists") + Retranslate.onLocaleOrLanguageChanged
+                        margin.topOffset: ui.du(2)
+                        
+                        onArtistChosen: {
+                            root.artistChosen(name, mbid);
+                        }
+                    }
+                    
                     Container {
                         minHeight: ui.du(12)
                         horizontalAlignment: HorizontalAlignment.Fill
@@ -227,6 +239,7 @@ Page {
         _user.getTopTracks(root.name, 1, 10, "7day");
         _user.getLovedTracks(root.name, 1, 1);
         _user.getTopArtists(root.name, 1, 1);
+        _user.getTopArtists(root.name, 1, 20, "7day");
     }
         
     function setUser(user) {
@@ -268,6 +281,10 @@ Page {
     function setTopArtists(artists, period, user, total) {
         if (root.name === user) {
             root.artists = total;
+        }
+        
+        if (period === "7day") {
+            userArtists.artists = artists;
         }
     }
     

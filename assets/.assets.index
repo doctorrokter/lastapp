@@ -1,6 +1,7 @@
 1
-52
+53
 components/AlbumTrackListItem.qml
+components/ArtistsCarousel.qml
 components/BioContainer.qml
 components/CustomTitleBar.qml
 components/Friend.qml

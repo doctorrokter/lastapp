@@ -37,6 +37,7 @@ simulator {
 config_pri_assets {
     OTHER_FILES += \
         $$quote($$BASEDIR/assets/components/AlbumTrackListItem.qml) \
+        $$quote($$BASEDIR/assets/components/ArtistsCarousel.qml) \
         $$quote($$BASEDIR/assets/components/BioContainer.qml) \
         $$quote($$BASEDIR/assets/components/CustomTitleBar.qml) \
         $$quote($$BASEDIR/assets/components/Friend.qml) \

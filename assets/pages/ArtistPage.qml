@@ -130,34 +130,14 @@ Page {
                         }
                     }
                     
-                    Container {
-                        horizontalAlignment: HorizontalAlignment.Fill
+                    ArtistsCarousel {
+                        id: similarContainer
+                        title: qsTr("Similar artists") + Retranslate.onLocaleOrLanguageChanged
                         margin.topOffset: ui.du(2)
                         
-                        Container {
-                            leftPadding: ui.du(2)
-                            rightPadding: ui.du(2)
-                            
-                            Label {
-                                text: qsTr("Similar artists") + Retranslate.onLocaleOrLanguageChanged
-                                textStyle.base: SystemDefaults.TextStyles.PrimaryText
-                                textStyle.fontWeight: FontWeight.Bold
-                            }
+                        onArtistChosen: {
+                            root.artistChosen(name, mbid);
                         }
-                        
-                        ScrollView {
-                            margin.topOffset: ui.du(2)
-                            scrollViewProperties.scrollMode: ScrollMode.Horizontal
-                            
-                            Container {
-                                id: similarContainer
-                                
-                                layout: StackLayout {
-                                    orientation: LayoutOrientation.LeftToRight
-                                }
-                            }
-                        }
-                        
                     }
                     
                     Container {
@@ -251,17 +231,18 @@ Page {
         root.bio = artist.bio.content || "";
         
         var similarArtists = artist.similar.artist;
-        similarArtists.forEach(function(a, index) {
-            var sa = topArtist.createObject();
-            if (index > 0) {
-                sa.margin.leftOffset = ui.du(0.5);
-            }
-            sa.name = a.name;
-            sa.image = a.image.filter(function(i) {
-                return i.size === "large";
-            })[0]["#text"];
-            similarContainer.add(sa);
-        });
+        similarContainer.artists = similarArtists;
+//        similarArtists.forEach(function(a, index) {
+//            var sa = topArtist.createObject();
+//            if (index > 0) {
+//                sa.margin.leftOffset = ui.du(0.5);
+//            }
+//            sa.name = a.name;
+//            sa.image = a.image.filter(function(i) {
+//                return i.size === "large";
+//            })[0]["#text"];
+//            similarContainer.add(sa);
+//        });
     }
     
     function setTopTracks(tracks) {
