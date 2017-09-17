@@ -204,6 +204,11 @@ Page {
         ComponentDefinition {
             id: topTrackComponent
             TopTrackListItem {}
+        },
+        
+        ComponentDefinition {
+            id: topTrack
+            TopTrack {}
         }
     ]
     
@@ -215,8 +220,8 @@ Page {
     }
     
     onImagesChanged: {
-        avatar.image = getImage("large");
-        backgroundImage.image = getImage("extralarge");
+        avatar.image = getImage(root.images, "large");
+        backgroundImage.image = getImage(root.images, "extralarge");
         backgroundImage.maxHeight = mainLUH.layoutFrame.height / 2;
         backgroundImage.maxWidth = mainLUH.layoutFrame.width;
     }
@@ -247,13 +252,14 @@ Page {
             });
             var maxPlaycount = sorted[0].playcount;
             sorted.forEach(function(tr, index) {
-                var topTrackObj = topTrackComponent.createObject();
-                topTrackObj.number = index + 1;
-                topTrackObj.title = tr.artist.name + " - " + tr.name;
-                topTrackObj.count = tr.playcount;
+                var topTrackObj = topTrack.createObject();
+                topTrackObj.mbid = tr.mbid || "";
+                topTrackObj.name = tr.name;
+                topTrackObj.artist = tr.artist;
+                topTrackObj.playcount = tr.playcount;
                 topTrackObj.maxCount = maxPlaycount;
-                topTrackObj.subtitle = tr.playcount + " " + (qsTr("scrobbles") + Retranslate.onLocaleOrLanguageChanged);
-                topTracksMainContainer.add(topTrackObj);  
+                topTrackObj.image = root.getImage(tr.image, "medium");
+                topTracksMainContainer.add(topTrackObj); 
             });
         }
     }
@@ -270,8 +276,8 @@ Page {
         }
     }
     
-    function getImage(size) {
-        var img = root.images.filter(function(i) {
+    function getImage(imgs, size) {
+        var img = imgs.filter(function(i) {
                 return i.size === size;
         })[0];
         return img === undefined ? "" : img["#text"];

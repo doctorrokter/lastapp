@@ -173,7 +173,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="208"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="209"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>
@@ -326,7 +326,7 @@
 <context>
     <name>TopTrack</name>
     <message>
-        <location filename="../assets/components/TopTrack.qml" line="65"/>
+        <location filename="../assets/components/TopTrack.qml" line="66"/>
         <source>Scrobbles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -382,13 +382,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="238"/>
+        <location filename="../assets/pages/UserPage.qml" line="243"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>UserTopArtist</name>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="255"/>
-        <source>scrobbles</source>
+        <location filename="../assets/components/UserTopArtist.qml" line="36"/>
+        <source>TOP ARTIST</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

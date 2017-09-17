@@ -11,6 +11,7 @@ Container {
         url: ""
     }
     property int playcount: 0
+    property int maxCount: 0
     property string image: ""
     property string url: ""
     
@@ -68,5 +69,28 @@ Container {
                 verticalAlignment: VerticalAlignment.Center
             }
         }
+        
+        Container {
+            visible: root.maxCount !== 0
+            margin.topOffset: ui.du(1)
+            margin.rightOffset: ui.du(1)
+            minHeight: ui.du(0.75)
+            background:  ui.palette.secondaryTextOnPlain
+            
+            preferredWidth: {
+                if (root.maxCount === root.playcount) {
+                    return trackLUH.layoutFrame.width;
+                } else {
+                    var percents = (root.playcount * 100) / root.maxCount;
+                    return (trackLUH.layoutFrame.width * percents) / 100;
+                }
+            }
+        }
     }
+    
+    attachedObjects: [
+        LayoutUpdateHandler {
+            id: trackLUH
+        }
+    ]
 }

@@ -1,5 +1,5 @@
 1
-47
+48
 components/AlbumTrackListItem.qml
 components/BioContainer.qml
 components/CustomTitleBar.qml
@@ -17,6 +17,7 @@ components/TopAlbum.qml
 components/TopArtist.qml
 components/TopTrack.qml
 components/TopTrackListItem.qml
+components/UserTopArtist.qml
 components/UserTopTrack.qml
 components/WebImageView.qml
 images/concert_bg.jpg
