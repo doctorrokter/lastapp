@@ -141,6 +141,14 @@
     </message>
 </context>
 <context>
+    <name>LovedTracksPage</name>
+    <message>
+        <location filename="../assets/pages/LovedTracksPage.qml" line="12"/>
+        <source>Loved Tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MyProfilePage</name>
     <message>
         <location filename="../assets/pages/MyProfilePage.qml" line="84"/>
@@ -427,16 +435,21 @@
     </message>
     <message>
         <location filename="../assets/main.qml" line="82"/>
-        <source>Charts</source>
+        <source>Loved Tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/main.qml" line="91"/>
-        <source>My Profile</source>
+        <source>Charts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/main.qml" line="100"/>
+        <source>My Profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="109"/>
         <source>Friends</source>
         <translation type="unfinished"></translation>
     </message>

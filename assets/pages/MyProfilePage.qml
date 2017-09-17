@@ -185,8 +185,8 @@ Page {
     }
     
     onImagesChanged: {
-        avatar.image = getImage(root.images, "large");
-        backgroundImage.image = getImage(root.images, "extralarge");
+        avatar.image = _imageService.getImage(root.images, "large");
+        backgroundImage.image = _imageService.getImage(root.images, "extralarge");
         backgroundImage.maxHeight = mainLUH.layoutFrame.height / 2;
         backgroundImage.maxWidth = mainLUH.layoutFrame.width;
     }
@@ -219,7 +219,7 @@ Page {
                 topTrackContainer.visible = true;
                 topTrackContainer.name = track.name;
                 topTrackContainer.artist = track.artist.name;
-                topTrackContainer.image = root.getImage(track.image, "large");
+                topTrackContainer.image = _imageService.getImage(track.image, "large");
             }
         }
     }
@@ -234,12 +234,5 @@ Page {
         if (root.name === user) {
             root.artists = total;
         }
-    }
-    
-    function getImage(imgs, size) {
-        var img = imgs.filter(function(i) {
-                return i.size === size;
-        })[0];
-        return img === undefined ? "" : img["#text"];
-    }
+    }    
 }

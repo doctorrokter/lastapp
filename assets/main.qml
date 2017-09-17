@@ -79,6 +79,15 @@ TabbedPane {
     }
     
     Tab {
+        title: qsTr("Loved Tracks") + Retranslate.onLocaleOrLanguageChanged
+        imageSource: "asset:///images/heart_filled.png"
+        
+        onTriggered: {
+            tabbedPane.changePane(lovedTracksPane);
+        }
+    }
+    
+    Tab {
         title: qsTr("Charts") + Retranslate.onLocaleOrLanguageChanged
         imageSource: "asset:///images/ic_chart.png"
         
@@ -182,6 +191,20 @@ TabbedPane {
             }
             
             TopTracksPage {}
+        },
+        
+        NavigationPane {
+            id: lovedTracksPane
+            
+            onPopTransitionEnded: {
+                Application.menuEnabled = true;
+                if (page.cleanUp !== undefined) {
+                    page.cleanUp();
+                }
+                page.destroy();
+            }
+            
+            LovedTracksPage {}  
         },
         
         NavigationPane {

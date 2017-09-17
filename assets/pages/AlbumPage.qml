@@ -196,8 +196,8 @@ Page {
     }
     
     onImagesChanged: {
-        avatar.image = getImage("large");
-        backgroundImage.image = getImage("extralarge");
+        avatar.image = _imageService.getImage(root.images, "large");
+        backgroundImage.image = _imageService.getImage(root.images, "extralarge");
         backgroundImage.maxHeight = mainLUH.layoutFrame.height / 2;
         backgroundImage.maxWidth = mainLUH.layoutFrame.width;
     }
@@ -222,12 +222,5 @@ Page {
         root.images = album.image;
         root.tracks = album.tracks.track;
         root.bio = album.wiki === undefined ? "" : album.wiki.content;
-    }
-    
-    function getImage(size) {
-        var img = root.images.filter(function(i) {
-                return i.size === size;
-        })[0];
-        return img === undefined ? "" : img["#text"];
     }
 }

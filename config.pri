@@ -58,6 +58,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/WebImageView.qml) \
         $$quote($$BASEDIR/assets/images/Lastfm_logo.png) \
         $$quote($$BASEDIR/assets/images/concert_bg.jpg) \
+        $$quote($$BASEDIR/assets/images/heart_filled.png) \
         $$quote($$BASEDIR/assets/images/ic_all.png) \
         $$quote($$BASEDIR/assets/images/ic_cd.png) \
         $$quote($$BASEDIR/assets/images/ic_chart.png) \
@@ -76,6 +77,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/HelpPage.qml) \
         $$quote($$BASEDIR/assets/pages/Login.qml) \
+        $$quote($$BASEDIR/assets/pages/LovedTracksPage.qml) \
         $$quote($$BASEDIR/assets/pages/MyProfilePage.qml) \
         $$quote($$BASEDIR/assets/pages/ScrobblesPage.qml) \
         $$quote($$BASEDIR/assets/pages/SettingsPage.qml) \

@@ -11,6 +11,7 @@
 #include <QObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QVariantList>
 #include "../Logger.hpp"
 
 class ImageService: public QObject {
@@ -20,6 +21,7 @@ public:
     virtual ~ImageService();
 
     Q_INVOKABLE void loadImage(const QString& remotePath);
+    Q_INVOKABLE QString getImage(const QVariantList& images, const QString& size);
 
     Q_SIGNALS:
         void imageLoaded(const QString& remotePath, const QString& localPath);

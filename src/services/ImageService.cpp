@@ -9,6 +9,7 @@
 #include <QUrl>
 #include <QNetworkRequest>
 #include <QStringList>
+#include <QVariantMap>
 #include <QDir>
 #include <QFile>
 #include "../Common.hpp"
@@ -81,6 +82,16 @@ void ImageService::onImageLoaded() {
     }
 
     reply->deleteLater();
+}
+
+QString ImageService::getImage(const QVariantList& images, const QString& size) {
+    foreach(QVariant imgVar, images) {
+        QVariantMap imgMap = imgVar.toMap();
+        if (imgMap.value("size").toString() == size) {
+            return imgMap.value("#text", "").toString();
+        }
+    }
+    return "";
 }
 
 void ImageService::onError(QNetworkReply::NetworkError e) {

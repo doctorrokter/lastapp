@@ -8,10 +8,8 @@ Page {
     property int limit: 50
     property bool hasNext: true
     
-    signal userChosen(string user)
-    
     titleBar: CustomTitleBar {
-        title: qsTr("Friends") + Retranslate.onLocaleOrLanguageChanged
+        title: qsTr("Loved Tracks") + Retranslate.onLocaleOrLanguageChanged
     }
     
     actionBarAutoHideBehavior: ActionBarAutoHideBehavior.HideOnScroll
@@ -24,29 +22,23 @@ Page {
         layout: DockLayout {}
         
         ListView {
-            id: friendsList
-            
-            dataModel: ArrayDataModel {
-                id: friendsDataModel
-            }
+            id: listView
             
             scrollRole: ScrollRole.Main
-            
-            onTriggered: {
-                var data = friendsDataModel.data(indexPath);
-                root.userChosen(data.name);
+            dataModel: ArrayDataModel {
+                id: dataModel
             }
             
             attachedObjects: [
                 ListScrollStateHandler {
                     onAtEndChanged: {
                         if (atEnd) {
-                            friendsList.margin.bottomOffset = ui.du(12);    
+                            listView.margin.bottomOffset = ui.du(12);    
                         } else {
-                            friendsList.margin.bottomOffset = 0;
+                            listView.margin.bottomOffset = 0;
                         }
                         
-                        if (atEnd && root.hasNext && !spinner.running) {
+                        if (atEnd && !spinner.running && root.hasNext) {
                             root.load();
                         }
                     }
@@ -56,15 +48,14 @@ Page {
             listItemComponents: [
                 ListItemComponent {
                     CustomListItem {
-                        Friend {
+                        RecentTrack {
+                            nowplaying: false
+                            mbid: ListItemData.mbid || ""
                             name: ListItemData.name
-                            realname: ListItemData.realname || ""
-                            url: ListItemData.url
-                            country: ListItemData.country || ""
-                            playcount: ListItemData.playcount
-                            image: ListItemData.image.filter(function(i) {
-                                return i.size === "medium";
-                            })[0]["#text"];
+                            artist: ListItemData.artist.name
+                            url: ListItemData.url || ""
+                            image: _imageService.getImage(ListItemData.image, "medium")
+                            date: Qt.formatDate(new Date(ListItemData.date.uts * 1000), "MMM dd, yyyy")
                         }
                     }
                 }
@@ -80,30 +71,30 @@ Page {
     }
     
     onCreationCompleted: {
-        _user.friendsLoaded.connect(root.friendsLoaded);
+        _user.lovedTracksLoaded.connect(root.setLovedTracks);
     }
     
-    function load() {
-        spinner.start();
-        _user.getFriends(_appConfig.get("lastfm_name"), ++root.page, root.limit);
-    }
-    
-    function friendsLoaded(friends) {
+    function setLovedTracks(tracks, user, total) {
         spinner.stop();
-        if (friends.length < root.limit) {
+        if (tracks.length < root.limit) {
             root.hasNext = false;
         }
-        friendsDataModel.append(friends);
-    }
-    
-    function clear() {
-        friendsDataModel.clear();
-        root.page = 0;
-        root.hasNext = true;
+        dataModel.append(tracks);
     }
     
     function init() {
         clear();
         load();
+    }
+    
+    function clear() {
+        dataModel.clear();
+        root.page = 0;
+        root.hasNext = true;
+    }
+    
+    function load() {
+        spinner.start();
+        _user.getLovedTracks(_appConfig.get("lastfm_name"), ++root.page, root.limit);
     }
 }
