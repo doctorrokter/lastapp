@@ -60,6 +60,19 @@ Page {
                                 return false;
                             }
                         }
+                        
+                        contextActions: [
+                            ActionSet {
+                                ActionItem {
+                                    title: qsTr("Love Track") + Retranslate.onLocaleOrLanguageChanged
+                                    imageSource: "asset:///images/heart_filled.png"
+                                    
+                                    onTriggered: {
+                                        _track.love(ListItemData.artist["#text"], ListItemData.name);
+                                    }
+                                }
+                            }
+                        ]
                     }
                 }
             ]

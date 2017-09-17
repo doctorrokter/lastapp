@@ -202,11 +202,6 @@ Page {
     
     attachedObjects: [
         ComponentDefinition {
-            id: topTrackComponent
-            TopTrackListItem {}
-        },
-        
-        ComponentDefinition {
             id: topTrack
             TopTrack {}
         }

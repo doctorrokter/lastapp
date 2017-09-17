@@ -43,6 +43,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/HorizontalList.qml) \
         $$quote($$BASEDIR/assets/components/ImageBackground.qml) \
         $$quote($$BASEDIR/assets/components/InputTitleBar.qml) \
+        $$quote($$BASEDIR/assets/components/LoveTrackActionItem.qml) \
         $$quote($$BASEDIR/assets/components/PeriodsList.qml) \
         $$quote($$BASEDIR/assets/components/RecentTrack.qml) \
         $$quote($$BASEDIR/assets/components/StatCount.qml) \

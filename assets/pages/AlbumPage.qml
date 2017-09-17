@@ -207,6 +207,7 @@ Page {
             var atli = albumTrackListItem.createObject();
             atli.name = tr.name;    
             atli.number = index + 1;
+            atli.artist = root.artist.name;
             topTracksMainContainer.add(atli);
         });
     }

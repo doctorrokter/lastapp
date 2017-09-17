@@ -41,7 +41,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="279"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="280"/>
         <source>listeners</source>
         <translation type="unfinished"></translation>
     </message>
@@ -49,7 +49,7 @@
 <context>
     <name>ArtistTopTracks</name>
     <message>
-        <location filename="../assets/pages/ArtistTopTracks.qml" line="53"/>
+        <location filename="../assets/pages/ArtistTopTracks.qml" line="54"/>
         <source>listeners</source>
         <translation type="unfinished"></translation>
     </message>
@@ -137,6 +137,14 @@
     <message>
         <location filename="../assets/pages/Login.qml" line="77"/>
         <source>No internet connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LoveTrackActionItem</name>
+    <message>
+        <location filename="../assets/components/LoveTrackActionItem.qml" line="9"/>
+        <source>Love Track</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -240,7 +248,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ScrobblesPage.qml" line="81"/>
+        <location filename="../assets/pages/ScrobblesPage.qml" line="67"/>
+        <source>Love Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ScrobblesPage.qml" line="94"/>
         <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
@@ -352,7 +365,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/TopTracksPage.qml" line="116"/>
+        <location filename="../assets/pages/TopTracksPage.qml" line="125"/>
         <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
@@ -395,7 +408,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="243"/>
+        <location filename="../assets/pages/UserPage.qml" line="238"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>
@@ -419,7 +432,12 @@
 <context>
     <name>bb::lastfm::controllers::TrackController</name>
     <message>
-        <location filename="../src/lastfm/TrackController.cpp" line="195"/>
+        <location filename="../src/lastfm/TrackController.cpp" line="199"/>
+        <source>Track loved!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lastfm/TrackController.cpp" line="212"/>
         <source>Track unloved</source>
         <translation type="unfinished"></translation>
     </message>

@@ -93,4 +93,13 @@ Container {
             id: trackLUH
         }
     ]
+    
+    contextActions: [
+        ActionSet {
+            LoveTrackActionItem {
+                artist: root.artist.name
+                track: root.name
+            }
+        }
+    ]
 }

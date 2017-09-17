@@ -1,5 +1,5 @@
 1
-51
+52
 components/AlbumTrackListItem.qml
 components/BioContainer.qml
 components/CustomTitleBar.qml
@@ -7,6 +7,7 @@ components/Friend.qml
 components/HorizontalList.qml
 components/ImageBackground.qml
 components/InputTitleBar.qml
+components/LoveTrackActionItem.qml
 components/PeriodsList.qml
 components/RecentTrack.qml
 components/StatCount.qml

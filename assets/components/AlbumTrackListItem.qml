@@ -4,7 +4,8 @@ CustomListItem {
     id: root
     
     property int number: 1
-    property string name: "The Tropper"
+    property string name: ""
+    property string artist: ""
     
     Container {
         horizontalAlignment: HorizontalAlignment.Fill
@@ -41,4 +42,13 @@ CustomListItem {
             }
         }
     }
+    
+    contextActions: [
+        ActionSet {
+            LoveTrackActionItem {
+                artist: root.artist
+                track: root.name
+            }
+        }
+    ]
 }

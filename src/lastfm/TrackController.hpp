@@ -34,7 +34,7 @@ public:
     Q_SIGNALS:
         void nowPlayingUpdated();
         void scrobbled();
-        void loved();
+        void loved(const QString& artist, const QString& track);
         void unloved(const QString& artist, const QString& track);
 
 private slots:

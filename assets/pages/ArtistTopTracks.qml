@@ -4,7 +4,7 @@ import "../components"
 Page {
     id: root
     
-    property string name: "Iron Maiden"
+    property string name: ""
     property string mbid: ""
     property int page: 0
     property int limit: 100
@@ -46,6 +46,7 @@ Page {
             listItemComponents: [
                 ListItemComponent {
                     TopTrackListItem {
+                        artist: ListItemData.artist.name
                         count: ListItemData.listeners
                         maxCount: ListItemData.maxListeners
                         title: ListItemData.name

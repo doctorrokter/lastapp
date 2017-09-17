@@ -54,6 +54,9 @@ void TrackController::updateNowPlaying(const QString& artist, const QString& tra
     body.addQueryItem("sk", sk);
     body.addQueryItem("api_sig", hash);
 
+    logger.info(url);
+    logger.info(body);
+
     QNetworkReply* reply = m_pNetwork->post(req, body.encodedQuery());
     bool res = QObject::connect(reply, SIGNAL(finished()), this, SLOT(onNowPlayingUpdated()));
     Q_ASSERT(res);
@@ -96,6 +99,9 @@ void TrackController::scrobble(const QString& artist, const QString& track, cons
     body.addQueryItem("sk", sk);
     body.addQueryItem("api_sig", hash);
 
+    logger.info(url);
+    logger.info(body);
+
     QNetworkReply* reply = m_pNetwork->post(req, body.encodedQuery());
     bool res = QObject::connect(reply, SIGNAL(finished()), this, SLOT(onScrobbled()));
     Q_ASSERT(res);
@@ -126,7 +132,12 @@ void TrackController::love(const QString& artist, const QString& track) {
     body.addQueryItem("sk", sk);
     body.addQueryItem("api_sig", hash);
 
+    logger.info(url);
+    logger.info(body);
+
     QNetworkReply* reply = m_pNetwork->post(req, body.encodedQuery());
+    reply->setProperty("artist", artist);
+    reply->setProperty("track", track);
     bool res = QObject::connect(reply, SIGNAL(finished()), this, SLOT(onLoved()));
     Q_ASSERT(res);
     res = QObject::connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(onError(QNetworkReply::NetworkError)));
@@ -155,6 +166,9 @@ void TrackController::unlove(const QString& artist, const QString& track) {
     req.setUrl(url);
     req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
+    logger.info(url);
+    logger.info(body);
+
     QNetworkReply* reply = m_pNetwork->post(req, body.encodedQuery());
     reply->setProperty("artist", artist);
     reply->setProperty("track", track);
@@ -181,17 +195,20 @@ void TrackController::onLoved() {
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
 
     if (reply->error() == QNetworkReply::NoError) {
-        qDebug() << reply->readAll() << endl;
+        logger.info(reply->readAll());
+        m_toast.setBody(tr("Track loved!"));
+        m_toast.show();
+        emit loved(reply->property("artist").toString(), reply->property("track").toString());
     }
 
     reply->deleteLater();
-    emit loved();
 }
 
 void TrackController::onUnloved() {
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
 
     if (reply->error() == QNetworkReply::NoError) {
+        logger.info(reply->readAll());
         m_toast.setBody(tr("Track unloved"));
         m_toast.show();
         emit unloved(reply->property("artist").toString(), reply->property("track").toString());

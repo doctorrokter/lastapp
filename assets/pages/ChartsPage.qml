@@ -130,6 +130,15 @@ Page {
                                         return i.size === "medium";
                                 })[0]["#text"]
                             }
+                            
+                            contextActions: [
+                                ActionSet {
+                                    LoveTrackActionItem {
+                                        artist: ListItemData.artist.name
+                                        track: ListItemData.name
+                                    }
+                                }
+                            ]
                         }
                     },
                     

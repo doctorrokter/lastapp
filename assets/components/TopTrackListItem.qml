@@ -6,6 +6,7 @@ CustomListItem {
     property int number: 1
     property int count: 1500
     property int maxCount: 1500
+    property string artist: ""
     property string title: ""
     property string subtitle: ""
     
@@ -75,4 +76,13 @@ CustomListItem {
             }
         }
     }
+    
+    contextActions: [
+        ActionSet {
+            LoveTrackActionItem {
+                artist: root.artist
+                track: root.title
+            }
+        }
+    ]
 }

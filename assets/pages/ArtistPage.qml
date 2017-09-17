@@ -272,6 +272,7 @@ Page {
         var maxListeners = sorted[0].listeners;
         sorted.forEach(function(t, index) {
             var ttli = topTrackListItem.createObject();
+            ttli.artist = t.artist.name;
             ttli.number = index + 1;
             ttli.title = t.name;
             ttli.count = t.listeners;
