@@ -20,6 +20,7 @@
 #define TRACK_UPDATE_NOW_PLAYING "track.updateNowPlaying"
 #define TRACK_SCROBBLE "track.scrobble"
 #define TRACK_LOVE "track.love"
+#define TRACK_UNLOVE "track.unlove"
 
 #define USER_GET_RECENT_TRACKS "user.getRecentTracks"
 #define USER_GET_TOP_ARTISTS "user.getTopArtists"

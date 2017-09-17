@@ -12,6 +12,10 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include "../Logger.hpp"
+#include <bb/system/SystemToast>
+
+using namespace bb::system;
 
 namespace bb {
     namespace lastfm {
@@ -25,20 +29,25 @@ public:
     Q_INVOKABLE void updateNowPlaying(const QString& artist, const QString& track);
     Q_INVOKABLE void scrobble(const QString& artist, const QString& track, const int& timestamp);
     Q_INVOKABLE void love(const QString& artist, const QString& track);
+    Q_INVOKABLE void unlove(const QString& artist, const QString& track);
 
     Q_SIGNALS:
         void nowPlayingUpdated();
         void scrobbled();
         void loved();
+        void unloved(const QString& artist, const QString& track);
 
 private slots:
     void onNowPlayingUpdated();
     void onScrobbled();
     void onLoved();
+    void onUnloved();
     void onError(QNetworkReply::NetworkError e);
 
 private:
+    static Logger logger;
     QNetworkAccessManager* m_pNetwork;
+    SystemToast m_toast;
 };
         }
     }

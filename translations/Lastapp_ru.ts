@@ -18,7 +18,7 @@
 <context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="118"/>
+        <location filename="../src/applicationui.cpp" line="119"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -145,6 +145,11 @@
     <message>
         <location filename="../assets/pages/LovedTracksPage.qml" line="12"/>
         <source>Loved Tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/LovedTracksPage.qml" line="64"/>
+        <source>Unlove Track</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -408,6 +413,14 @@
     <message>
         <location filename="../assets/components/UserTopTrack.qml" line="36"/>
         <source>TOP TRACK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>bb::lastfm::controllers::TrackController</name>
+    <message>
+        <location filename="../src/lastfm/TrackController.cpp" line="195"/>
+        <source>Track unloved</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

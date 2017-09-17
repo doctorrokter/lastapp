@@ -1,5 +1,5 @@
 1
-50
+51
 components/AlbumTrackListItem.qml
 components/BioContainer.qml
 components/CustomTitleBar.qml
@@ -21,6 +21,7 @@ components/UserTopArtist.qml
 components/UserTopTrack.qml
 components/WebImageView.qml
 images/concert_bg.jpg
+images/heart_empty.png
 images/heart_filled.png
 images/ic_all.png
 images/ic_cd.png

@@ -57,6 +57,19 @@ Page {
                             image: _imageService.getImage(ListItemData.image, "medium")
                             date: Qt.formatDate(new Date(ListItemData.date.uts * 1000), "MMM dd, yyyy")
                         }
+                        
+                        contextActions: [
+                            ActionSet {
+                                ActionItem {
+                                    title: qsTr("Unlove Track") + Retranslate.onLocaleOrLanguageChanged
+                                    imageSource: "asset:///images/heart_empty.png"
+                                    
+                                    onTriggered: {
+                                        _track.unlove(ListItemData.artist.name, ListItemData.name);
+                                    }
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -72,6 +85,16 @@ Page {
     
     onCreationCompleted: {
         _user.lovedTracksLoaded.connect(root.setLovedTracks);
+        _track.unloved.connect(root.onUnloved);
+    }
+    
+    function onUnloved(artist, track) {
+        for (var i = 0; i < dataModel.size(); i++) {
+            var t = dataModel.value(i);
+            if (t.artist.name === artist && t.name === track) {
+                dataModel.removeAt(i);
+            }
+        }
     }
     
     function setLovedTracks(tracks, user, total) {

@@ -83,6 +83,7 @@ ApplicationUI::ApplicationUI(): QObject() {
     rootContext->setContextProperty("_chart", m_pLastFM->getChartController());
     rootContext->setContextProperty("_tag", m_pLastFM->getTagController());
     rootContext->setContextProperty("_album", m_pLastFM->getAlbumController());
+    rootContext->setContextProperty("_track", m_pLastFM->getTrackController());
     rootContext->setContextProperty("_imageService", m_pImageService);
     rootContext->setContextProperty("_lang", lang);
 
