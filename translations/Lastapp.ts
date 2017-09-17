@@ -120,23 +120,28 @@
 <context>
     <name>Login</name>
     <message>
-        <location filename="../assets/pages/Login.qml" line="44"/>
+        <location filename="../assets/pages/Login.qml" line="46"/>
         <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/Login.qml" line="53"/>
+        <location filename="../assets/pages/Login.qml" line="55"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/Login.qml" line="68"/>
+        <location filename="../assets/pages/Login.qml" line="70"/>
         <source>Sign in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/Login.qml" line="77"/>
+        <location filename="../assets/pages/Login.qml" line="79"/>
         <source>No internet connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/Login.qml" line="102"/>
+        <source>Auth failed. Check your credentials.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

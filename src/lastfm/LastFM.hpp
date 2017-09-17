@@ -19,6 +19,7 @@
 #include "TagController.hpp"
 #include "AlbumController.hpp"
 #include <QUrl>
+#include "../Logger.hpp"
 
 using namespace bb::lastfm::controllers;
 
@@ -58,6 +59,8 @@ private slots:
     void onError(QNetworkReply::NetworkError e);
 
 private:
+    static Logger logger;
+
     QNetworkAccessManager* m_pNetwork;
     TrackController* m_pTrack;
     UserController* m_pUser;

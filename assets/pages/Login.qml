@@ -1,6 +1,8 @@
 import bb.cascades 1.4
 
 Page {
+    id: root
+    
     ScrollView {
         horizontalAlignment: HorizontalAlignment.Fill
         verticalAlignment: VerticalAlignment.Fill
@@ -87,6 +89,17 @@ Page {
                 horizontalAlignment: HorizontalAlignment.Center
                 minWidth: ui.du(20)
             }
+        }
+    }
+    
+    onCreationCompleted: {
+        _lastFM.authFinished.connect(root.authFinished);
+    }
+    
+    function authFinished(message, success) {
+        spinner.stop();
+        if (!success) {
+            _app.toast(qsTr("Auth failed. Check your credentials.") + Retranslate.onLocaleOrLanguageChanged);
         }
     }
 }

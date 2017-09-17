@@ -19,6 +19,8 @@ using namespace bb::data;
 namespace bb {
     namespace lastfm {
 
+        Logger LastFM::logger = Logger::getLogger("LastFM");
+
 LastFM::LastFM(QObject* parent) : QObject(parent) {
     m_pNetwork = QmlDocument::defaultDeclarativeEngine()->networkAccessManager();
     m_pTrack = new TrackController(this);
@@ -99,10 +101,10 @@ void LastFM::onAuthenticate() {
 
 void LastFM::onError(QNetworkReply::NetworkError e) {
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
-    qDebug() << "===>>> LastFM#onError " << e << endl;
-    qDebug() << "===>>> LastFM#onError " << reply->errorString() << endl;
-    emit authFinished(reply->errorString(), false);
+    logger.error(e);
+    logger.error(reply->errorString());
     reply->deleteLater();
+    emit authFinished(reply->errorString(), false);
 }
 
 TrackController* LastFM::getTrackController() const { return m_pTrack; }
