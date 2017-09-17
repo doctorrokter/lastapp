@@ -68,6 +68,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/ic_concerts.png) \
         $$quote($$BASEDIR/assets/images/ic_contact.png) \
         $$quote($$BASEDIR/assets/images/ic_favorite.png) \
+        $$quote($$BASEDIR/assets/images/ic_feedback.png) \
         $$quote($$BASEDIR/assets/images/ic_groups_white.png) \
         $$quote($$BASEDIR/assets/images/ic_reload.png) \
         $$quote($$BASEDIR/assets/images/me.png) \

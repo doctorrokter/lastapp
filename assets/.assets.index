@@ -1,5 +1,5 @@
 1
-53
+54
 components/AlbumTrackListItem.qml
 components/ArtistsCarousel.qml
 components/BioContainer.qml
@@ -31,6 +31,7 @@ images/ic_chart.png
 images/ic_concerts.png
 images/ic_contact.png
 images/ic_favorite.png
+images/ic_feedback.png
 images/ic_groups_white.png
 images/ic_reload.png
 images/Lastfm_logo.png

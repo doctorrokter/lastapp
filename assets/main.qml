@@ -40,6 +40,17 @@ TabbedPane {
                 Application.menuEnabled = false;
             }
         }
+        
+        actions: [
+            ActionItem {
+                title: qsTr("Send feedback") + Retranslate.onLocaleOrLanguageChanged
+                imageSource: "asset:///images/ic_feedback.png"
+                
+                onTriggered: {
+                    invokeFeedback.trigger(invokeFeedback.query.invokeActionId);
+                }
+            }
+        ]
     }
 
     Tab {
@@ -125,6 +136,15 @@ TabbedPane {
     }
         
     attachedObjects: [
+        Invocation {
+            id: invokeFeedback
+            query {
+                uri: "mailto:lastapp.bbapp@gmail.com?subject=Last.app:%20Feedback"
+                invokeActionId: "bb.action.SENDEMAIL"
+                invokeTargetId: "sys.pim.uib.email.hybridcomposer"
+            }
+        },
+        
         NavigationPane {
             id: scrobblesPane
             
