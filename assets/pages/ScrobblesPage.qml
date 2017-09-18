@@ -9,6 +9,8 @@ Page {
     property int limit: 50
     property bool hasNext: true
     
+    signal trackChosen(string name, string mbid, variant artist)
+    
     titleBar: CustomTitleBar {
         title: qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged
     } 
@@ -40,6 +42,11 @@ Page {
                     }
                 }
             ]
+            
+            onTriggered: {
+                var data = dataModel.data(indexPath);
+                root.trackChosen(data.name, data.mbid, {name: data.artist["#text"]});
+            }
             
             listItemComponents: [
                 ListItemComponent {

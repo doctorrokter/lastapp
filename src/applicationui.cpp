@@ -39,6 +39,11 @@ ApplicationUI::ApplicationUI(): QObject() {
     m_pImageService = new ImageService(this);
     m_pNetworkConf = new QNetworkConfigurationManager(this);
     m_pToast = new SystemToast(this);
+    m_pNpc = new NowPlayingController(this);
+
+    bool result = QObject::connect(m_pNpc, SIGNAL(metaDataChanged(QVariantMap)), this, SLOT(nowPlayingChanged(QVariantMap)));
+    Q_ASSERT(result);
+    Q_UNUSED(result);
 
     QString theme = AppConfig::instance()->get("theme").toString();
     if (theme.compare("") != 0) {
@@ -100,6 +105,7 @@ ApplicationUI::~ApplicationUI() {
     m_pNetworkConf->deleteLater();
     m_pToast->deleteLater();
     m_pLastFM->deleteLater();
+    m_pNpc->deleteLater();
     AppConfig::instance()->deleteLater();
 }
 
@@ -134,6 +140,17 @@ void ApplicationUI::renderMain() {
 
 void ApplicationUI::toast(const QString& message) {
     m_pToast->setBody(message);
+    m_pToast->show();
+}
+
+void ApplicationUI::nowPlayingChanged(QVariantMap metadata) {
+    m_pToast->setBody(
+            metadata[MetaData::Artist].toString()
+            .append(" - ")
+            .append(metadata[MetaData::Title].toString())
+            .append(", ")
+            .append(metadata[MetaData::Album].toString())
+            );
     m_pToast->show();
 }
 

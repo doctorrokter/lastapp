@@ -21,6 +21,7 @@
 #define TRACK_SCROBBLE "track.scrobble"
 #define TRACK_LOVE "track.love"
 #define TRACK_UNLOVE "track.unlove"
+#define TRACK_GET_INFO "track.getInfo"
 
 #define USER_GET_RECENT_TRACKS "user.getRecentTracks"
 #define USER_GET_TOP_ARTISTS "user.getTopArtists"

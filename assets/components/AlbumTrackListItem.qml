@@ -5,7 +5,12 @@ CustomListItem {
     
     property int number: 1
     property string name: ""
-    property string artist: ""
+    property variant artist: {
+        name: ""
+    }
+    property string mbid: ""
+    
+    signal trackChosen(string name, string mbid, variant artist);
     
     Container {
         horizontalAlignment: HorizontalAlignment.Fill
@@ -46,8 +51,16 @@ CustomListItem {
     contextActions: [
         ActionSet {
             LoveTrackActionItem {
-                artist: root.artist
+                artist: root.artist.name
                 track: root.name
+            }
+        }
+    ]
+    
+    gestureHandlers: [
+        TapHandler {
+            onTapped: {
+                root.trackChosen(root.name, root.mbid, root.artist);
             }
         }
     ]

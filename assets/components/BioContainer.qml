@@ -6,6 +6,7 @@ Container {
     property string bio: ""
     property bool expanded: false
     property double maxHeightBio: 35
+    property string title: ""
     
     leftPadding: ui.du(2)
     rightPadding: ui.du(2)
@@ -15,7 +16,7 @@ Container {
     horizontalAlignment: HorizontalAlignment.Fill
     
     Label {
-        text: qsTr("Bio") + Retranslate.onLocaleOrLanguageChanged
+        text: bioContainer.title === "" ? qsTr("Bio") + Retranslate.onLocaleOrLanguageChanged : bioContainer.title
         textStyle.base: SystemDefaults.TextStyles.PrimaryText
         textStyle.fontWeight: FontWeight.Bold
     }

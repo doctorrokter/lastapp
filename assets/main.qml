@@ -156,7 +156,11 @@ TabbedPane {
                 page.destroy();
             }
             
-            ScrobblesPage {}    
+            ScrobblesPage {
+                onTrackChosen: {
+                    tabbedPane.openTrackPage(name, mbid, artist);
+                }
+            }    
         },
         
         NavigationPane {
@@ -210,7 +214,11 @@ TabbedPane {
                 page.destroy();
             }
             
-            TopTracksPage {}
+            TopTracksPage {
+                onTrackChosen: {
+                    tabbedPane.openTrackPage(name, mbid, artist);
+                }
+            }
         },
         
         NavigationPane {
@@ -224,7 +232,11 @@ TabbedPane {
                 page.destroy();
             }
             
-            LovedTracksPage {}  
+            LovedTracksPage {
+                onTrackChosen: {
+                    tabbedPane.openTrackPage(name, mbid, artist);
+                }
+            }  
         },
         
         NavigationPane {
@@ -327,7 +339,20 @@ TabbedPane {
                 onTagChosen: {
                     tabbedPane.openTagPage(tag);
                 }
+                
+                onTrackChosen: {
+                    tabbedPane.openTrackPage(name, mbid, artist);
+                }
             }
+        },
+        
+        ComponentDefinition {
+            id: trackPage
+            TrackPage {
+                onTagChosen: {
+                    tabbedPane.openTagPage(tag);
+                }
+            }    
         },
         
         ComponentDefinition {
@@ -345,6 +370,14 @@ TabbedPane {
             HelpPage {}
         }
     ]
+    
+    function openTrackPage(name, mbid, artist) {
+//        var tp = trackPage.createObject();
+//        tp.mbid = mbid;
+//        tp.name = name;
+//        tp.artist = artist;
+//        tabbedPane.activePane.push(tp);
+    }
     
     function openArtistPage(name, mbid) {
         var ap = artistPage.createObject();

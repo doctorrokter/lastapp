@@ -4,13 +4,13 @@
 <context>
     <name>AlbumPage</name>
     <message>
-        <location filename="../assets/pages/AlbumPage.qml" line="117"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="118"/>
         <source>Tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/AlbumPage.qml" line="133"/>
-        <location filename="../assets/pages/AlbumPage.qml" line="194"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="134"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="199"/>
         <source>page...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18,7 +18,7 @@
 <context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="119"/>
+        <location filename="../src/applicationui.cpp" line="125"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -57,7 +57,7 @@
 <context>
     <name>BioContainer</name>
     <message>
-        <location filename="../assets/components/BioContainer.qml" line="18"/>
+        <location filename="../assets/components/BioContainer.qml" line="19"/>
         <source>Bio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -156,12 +156,12 @@
 <context>
     <name>LovedTracksPage</name>
     <message>
-        <location filename="../assets/pages/LovedTracksPage.qml" line="12"/>
+        <location filename="../assets/pages/LovedTracksPage.qml" line="14"/>
         <source>Loved Tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/LovedTracksPage.qml" line="64"/>
+        <location filename="../assets/pages/LovedTracksPage.qml" line="71"/>
         <source>Unlove Track</source>
         <translation type="unfinished"></translation>
     </message>
@@ -256,12 +256,12 @@
 <context>
     <name>ScrobblesPage</name>
     <message>
-        <location filename="../assets/pages/ScrobblesPage.qml" line="13"/>
+        <location filename="../assets/pages/ScrobblesPage.qml" line="15"/>
         <source>Scrobbles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ScrobblesPage.qml" line="67"/>
+        <location filename="../assets/pages/ScrobblesPage.qml" line="74"/>
         <source>Love Track</source>
         <translation type="unfinished"></translation>
     </message>
@@ -363,8 +363,16 @@
 <context>
     <name>TopTracksPage</name>
     <message>
-        <location filename="../assets/pages/TopTracksPage.qml" line="8"/>
+        <location filename="../assets/pages/TopTracksPage.qml" line="10"/>
         <source>Top Tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackPage</name>
+    <message>
+        <location filename="../assets/pages/TrackPage.qml" line="100"/>
+        <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -435,12 +443,12 @@
 <context>
     <name>bb::lastfm::controllers::TrackController</name>
     <message>
-        <location filename="../src/lastfm/TrackController.cpp" line="199"/>
+        <location filename="../src/lastfm/TrackController.cpp" line="239"/>
         <source>Track loved!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lastfm/TrackController.cpp" line="212"/>
+        <location filename="../src/lastfm/TrackController.cpp" line="252"/>
         <source>Track unloved</source>
         <translation type="unfinished"></translation>
     </message>

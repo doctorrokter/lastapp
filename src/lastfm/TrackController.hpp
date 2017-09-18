@@ -30,18 +30,21 @@ public:
     Q_INVOKABLE void scrobble(const QString& artist, const QString& track, const int& timestamp);
     Q_INVOKABLE void love(const QString& artist, const QString& track);
     Q_INVOKABLE void unlove(const QString& artist, const QString& track);
+    Q_INVOKABLE void getInfo(const QString& track, const QString& artist, const QString& mbid = "", const QString& username = "", const int& autocorrect = 1);
 
     Q_SIGNALS:
         void nowPlayingUpdated();
         void scrobbled();
         void loved(const QString& artist, const QString& track);
         void unloved(const QString& artist, const QString& track);
+        void infoLoaded(const QVariantMap& track);
 
 private slots:
     void onNowPlayingUpdated();
     void onScrobbled();
     void onLoved();
     void onUnloved();
+    void onInfoLoaded();
     void onError(QNetworkReply::NetworkError e);
 
 private:

@@ -23,6 +23,7 @@
 #include "lastfm/LastFM.hpp"
 #include "services/ImageService.hpp"
 #include "Logger.hpp"
+#include <bb/multimedia/NowPlayingController>
 
 namespace bb
 {
@@ -36,6 +37,7 @@ class QTranslator;
 
 using namespace bb::cascades;
 using namespace bb::system;
+using namespace bb::multimedia;
 using namespace bb::lastfm;
 
 /*!
@@ -60,6 +62,7 @@ private slots:
     void onSystemLanguageChanged();
     void storeAccessToken(const QString& name, const QString& accessToken);
     void onOnlineChanged(bool online);
+    void nowPlayingChanged(QVariantMap metadata);
 
 private:
     QTranslator* m_pTranslator;
@@ -70,6 +73,8 @@ private:
     LastFM* m_pLastFM;
     ImageService* m_pImageService;
     bool m_online;
+
+    NowPlayingController* m_pNpc;
 
     static Logger logger;
 

@@ -90,6 +90,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/TopAlbumsPage.qml) \
         $$quote($$BASEDIR/assets/pages/TopArtistsPage.qml) \
         $$quote($$BASEDIR/assets/pages/TopTracksPage.qml) \
+        $$quote($$BASEDIR/assets/pages/TrackPage.qml) \
         $$quote($$BASEDIR/assets/pages/UserPage.qml)
 }
 

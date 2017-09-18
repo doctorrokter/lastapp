@@ -4,6 +4,8 @@ import "../components"
 Page {
     id: root
     
+    signal trackChosen(string name, string mbid, variant artist)
+    
     titleBar: CustomTitleBar {
         title: qsTr("Top Tracks") + Retranslate.onLocaleOrLanguageChanged
         
@@ -54,6 +56,11 @@ Page {
                         }
                     }
                 ]
+                
+                onTriggered: {
+                    var data = dataModel.data(indexPath);
+                    root.trackChosen(data.name, data.mbid, data.artist);
+                }
                 
                 listItemComponents: [
                     ListItemComponent {

@@ -15,8 +15,10 @@
 #include <QDebug>
 #include <bb/cascades/QmlDocument>
 #include "LastFM.hpp"
+#include <bb/data/JsonDataAccess>
 
 using namespace bb::cascades;
+using namespace bb::data;
 
 namespace bb {
     namespace lastfm {
@@ -177,7 +179,45 @@ void TrackController::unlove(const QString& artist, const QString& track) {
     res = QObject::connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(onError(QNetworkReply::NetworkError)));
     Q_ASSERT(res);
     Q_UNUSED(res);
+}
 
+void TrackController::getInfo(const QString& track, const QString& artist, const QString& mbid, const QString& username, const int& autocorrect) {
+    QUrl url = LastFM::defaultUrl(TRACK_GET_INFO);
+    if (mbid.isEmpty()) {
+        url.addQueryItem("track", track);
+    } else {
+        url.addQueryItem("mbid", mbid);
+    }
+    url.addQueryItem("artist", artist);
+    url.addQueryItem("autocorrect", QString::number(autocorrect));
+    if (!username.isEmpty()) {
+        url.addQueryItem("username", username);
+    }
+
+    QNetworkRequest req;
+    req.setUrl(url);
+    req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    logger.info(url);
+
+    QNetworkReply* reply = m_pNetwork->get(req);
+    bool res = QObject::connect(reply, SIGNAL(finished()), this, SLOT(onInfoLoaded()));
+    Q_ASSERT(res);
+    res = QObject::connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(onError(QNetworkReply::NetworkError)));
+    Q_ASSERT(res);
+    Q_UNUSED(res);
+}
+
+void TrackController::onInfoLoaded() {
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
+
+    if (reply->error() == QNetworkReply::NoError) {
+        JsonDataAccess jda;
+        QVariantMap track = jda.loadFromBuffer(reply->readAll()).toMap().value("track").toMap();
+        emit infoLoaded(track);
+    }
+
+    reply->deleteLater();
 }
 
 void TrackController::onScrobbled() {

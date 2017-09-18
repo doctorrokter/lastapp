@@ -8,6 +8,8 @@ Page {
     property int limit: 50
     property bool hasNext: true
     
+    signal trackChosen(string name, string mbid, variant artist)
+    
     titleBar: CustomTitleBar {
         title: qsTr("Loved Tracks") + Retranslate.onLocaleOrLanguageChanged
     }
@@ -44,6 +46,11 @@ Page {
                     }
                 }
             ]
+            
+            onTriggered: {
+                var data = dataModel.data(indexPath);
+                root.trackChosen(data.name, data.mbid, data.artist);
+            }
             
             listItemComponents: [
                 ListItemComponent {

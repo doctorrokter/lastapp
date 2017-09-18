@@ -1,5 +1,4 @@
 import bb.cascades 1.4
-import chachkouski.util 1.0
 import "../components"
 
 Page {
@@ -15,19 +14,17 @@ Page {
     property int userplaycount: 0
     property variant tags: []
     property variant images: []
-    property variant tracks: []
     property string bio: ""
     
     signal tagChosen(string tag)
-    signal artistChosen(string name, string mbid)
-    signal trackChosen(string name, string mbid, variant artist)
-    
+    signal trackChosen(string name, string mbid)
+
     actionBarAutoHideBehavior: ActionBarAutoHideBehavior.HideOnScroll
     actionBarVisibility: ChromeVisibility.Overlay
     
     ScrollView {
         scrollRole: ScrollRole.Main
-    
+        
         Container {
             horizontalAlignment: HorizontalAlignment.Fill
             verticalAlignment: VerticalAlignment.Fill
@@ -52,7 +49,7 @@ Page {
                 verticalAlignment: VerticalAlignment.Fill
                 
                 layout: DockLayout {}
-            
+                
                 Container {
                     horizontalAlignment: HorizontalAlignment.Fill
                     verticalAlignment: VerticalAlignment.Fill
@@ -62,7 +59,7 @@ Page {
                     margin.topOffset: ui.du(28)
                     
                     Divider {}
-                
+                    
                     Container {
                         topPadding: ui.du(5)
                         leftPadding: ui.du(2)
@@ -100,44 +97,11 @@ Page {
                     
                     BioContainer {
                         id: bioContainer
+                        title: qsTr("Info") + Retranslate.onLocaleOrLanguageChanged
                         bio: root.bio
                     }  
                     
                     Divider {}
-                    
-                    Container {
-                        id: topTracksContainer
-                        
-                        horizontalAlignment: HorizontalAlignment.Fill
-                        
-                        Container {
-                            leftPadding: ui.du(2)
-                            rightPadding: ui.du(2)
-                            
-                            Label {
-                                text: qsTr("Tracks") + Retranslate.onLocaleOrLanguageChanged
-                                textStyle.base: SystemDefaults.TextStyles.PrimaryText
-                                textStyle.fontWeight: FontWeight.Bold
-                            }
-                        }
-                        
-                        Container {
-                            id: topTracksMainContainer
-                            
-                            margin.topOffset: ui.du(2)
-                        }
-                    }
-                    
-                    Header {
-                        id: header
-                        
-                        title: root.artist.name + " " + (qsTr("page...") + Retranslate.onLocaleOrLanguageChanged)
-                        mode: HeaderMode.Interactive
-                        
-                        onClicked: {
-                            root.artistChosen(root.artist.name, root.artist.mbid);
-                        }
-                    }
                     
                     Container {
                         minHeight: ui.du(12)
@@ -176,28 +140,12 @@ Page {
         }
     }
     
-    attachedObjects: [
-        ComponentDefinition {
-            id: albumTrackListItem
-            AlbumTrackListItem {
-                onTrackChosen: {
-                    root.trackChosen(name, mbid, artist);
-                }
-            }
-        }
-    ]
-    
     onCreationCompleted: {
-        _album.infoLoaded.connect(root.setAlbum);
+        _track.infoLoaded.connect(root.setTrack);
     }
     
     onNameChanged: {
-        _album.getInfo(root.artist.name, root.name, root.mbid, 1, _appConfig.get("lastfm_name"), _lang);
-    }
-    
-    onArtistChanged: {
-        header.title = artist.name + " " + (qsTr("page...") + Retranslate.onLocaleOrLanguageChanged);
-        artistName.text = artist.name;
+        _track.getInfo(root.name, root.artist.name, root.mbid, _appConfig.get("lastfm_name"));
     }
     
     onImagesChanged: {
@@ -207,26 +155,21 @@ Page {
         backgroundImage.maxWidth = mainLUH.layoutFrame.width;
     }
     
-    onTracksChanged: {
-        tracks.forEach(function(tr, index) {
-            var atli = albumTrackListItem.createObject();
-            atli.name = tr.name;    
-            atli.number = index + 1;
-            atli.artist = root.artist;
-            topTracksMainContainer.add(atli);
-        });
+    function setTrack(track) {
+        if (track !== undefined) {
+            root.listeners = track.listeners || 0;
+            root.playcount = track.playcount || 0;
+            root.tags = track.toptags || [];
+            if (track.wiki !== undefined) {
+                bioContainer.bio = track.wiki.content;
+            }
+            if (track.album !== undefined) {
+                root.images = track.album.image;
+            }
+        }
     }
     
-    function setAlbum(album) {
-        _album.infoLoaded.disconnect(root.setAlbum);
-        root.mbid = album.mbid || "";
-        root.name = album.name;
-        root.playcount = album.playcount;
-        root.listeners = album.listeners;
-        root.userplaycount = album.userplaycount || 0;
-        root.tags = album.tags.tag;
-        root.images = album.image;
-        root.tracks = album.tracks.track;
-        root.bio = album.wiki === undefined ? "" : album.wiki.content;
+    function cleanUp() {
+        _track.infoLoaded.disconnect(root.setTrack);
     }
 }

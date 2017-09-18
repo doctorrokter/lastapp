@@ -1,5 +1,5 @@
 1
-55
+56
 components/AlbumTrackListItem.qml
 components/ArtistsCarousel.qml
 components/BioContainer.qml
@@ -54,4 +54,5 @@ pages/TagPage.qml
 pages/TopAlbumsPage.qml
 pages/TopArtistsPage.qml
 pages/TopTracksPage.qml
+pages/TrackPage.qml
 pages/UserPage.qml
