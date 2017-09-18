@@ -138,7 +138,6 @@ Page {
                     
                     UserTopTrack {
                         id: topTrackContainer
-                        visible: false
                     }
                 }
             }
@@ -216,7 +215,6 @@ Page {
         if (root.name === username) {
             if (tracks.length !== 0) {
                 var track = tracks[0];
-                topTrackContainer.visible = true;
                 topTrackContainer.name = track.name;
                 topTrackContainer.artist = track.artist.name;
                 topTrackContainer.image = _imageService.getImage(track.image, "large");

@@ -108,7 +108,7 @@ Page {
                             rightPadding: ui.du(2)
                             
                             Label {
-                                text: qsTr("Top tracks") + Retranslate.onLocaleOrLanguageChanged
+                                text: qsTr("Top Tracks") + Retranslate.onLocaleOrLanguageChanged
                                 textStyle.base: SystemDefaults.TextStyles.PrimaryText
                                 textStyle.fontWeight: FontWeight.Bold
                             }
@@ -132,7 +132,7 @@ Page {
                     
                     ArtistsCarousel {
                         id: similarContainer
-                        title: qsTr("Similar artists") + Retranslate.onLocaleOrLanguageChanged
+                        title: qsTr("Similar Artists") + Retranslate.onLocaleOrLanguageChanged
                         margin.topOffset: ui.du(2)
                         
                         onArtistChosen: {

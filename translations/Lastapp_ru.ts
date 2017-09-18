@@ -27,7 +27,7 @@
     <name>ArtistPage</name>
     <message>
         <location filename="../assets/pages/ArtistPage.qml" line="111"/>
-        <source>Top tracks</source>
+        <source>Top Tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <location filename="../assets/pages/ArtistPage.qml" line="135"/>
-        <source>Similar artists</source>
+        <source>Similar Artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -71,17 +71,17 @@
     </message>
     <message>
         <location filename="../assets/pages/ChartsPage.qml" line="45"/>
-        <source>Top artists</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/pages/ChartsPage.qml" line="55"/>
-        <source>Top tags</source>
+        <source>Top Artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/pages/ChartsPage.qml" line="50"/>
-        <source>Top tracks</source>
+        <source>Top Tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChartsPage.qml" line="55"/>
+        <source>Top Tags</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -199,7 +199,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="209"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="208"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>
@@ -246,6 +246,14 @@
     </message>
 </context>
 <context>
+    <name>ReloadActionItem</name>
+    <message>
+        <location filename="../assets/components/ReloadActionItem.qml" line="6"/>
+        <source>Reload</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ScrobblesPage</name>
     <message>
         <location filename="../assets/pages/ScrobblesPage.qml" line="13"/>
@@ -255,11 +263,6 @@
     <message>
         <location filename="../assets/pages/ScrobblesPage.qml" line="67"/>
         <source>Love Track</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/pages/ScrobblesPage.qml" line="94"/>
-        <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -348,11 +351,6 @@
         <source>Top Artists</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../assets/pages/TopArtistsPage.qml" line="138"/>
-        <source>Reload</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>TopTrack</name>
@@ -367,11 +365,6 @@
     <message>
         <location filename="../assets/pages/TopTracksPage.qml" line="8"/>
         <source>Top Tracks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/pages/TopTracksPage.qml" line="125"/>
-        <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

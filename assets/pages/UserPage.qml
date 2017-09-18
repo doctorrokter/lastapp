@@ -239,7 +239,7 @@ Page {
         _user.getTopTracks(root.name, 1, 10, "7day");
         _user.getLovedTracks(root.name, 1, 1);
         _user.getTopArtists(root.name, 1, 1);
-        _user.getTopArtists(root.name, 1, 20, "7day");
+        _user.getTopArtists(root.name, 1, 50, "7day");
     }
         
     function setUser(user) {

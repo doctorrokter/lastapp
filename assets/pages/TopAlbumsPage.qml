@@ -132,6 +132,14 @@ Page {
         }
     }
     
+    actions: [
+        ReloadActionItem {
+            onTriggered: {
+                root.init();
+            }
+        }
+    ]
+    
     function clear() {
         mainDataModel.clear();
         mainListView.page = 0;

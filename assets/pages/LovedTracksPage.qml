@@ -83,6 +83,14 @@ Page {
         }
     }
     
+    actions: [
+        ReloadActionItem {
+            onTriggered: {
+                root.init();
+            }
+        }
+    ]
+    
     onCreationCompleted: {
         _user.lovedTracksLoaded.connect(root.setLovedTracks);
         _track.unloved.connect(root.onUnloved);

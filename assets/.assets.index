@@ -1,5 +1,5 @@
 1
-54
+55
 components/AlbumTrackListItem.qml
 components/ArtistsCarousel.qml
 components/BioContainer.qml
@@ -11,6 +11,7 @@ components/InputTitleBar.qml
 components/LoveTrackActionItem.qml
 components/PeriodsList.qml
 components/RecentTrack.qml
+components/ReloadActionItem.qml
 components/StatCount.qml
 components/Stats.qml
 components/Tag.qml

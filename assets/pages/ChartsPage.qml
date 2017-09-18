@@ -42,17 +42,17 @@ Page {
                 horizontalAlignment: HorizontalAlignment.Fill
                 options: [
                     Option {
-                        text: qsTr("Top artists") + Retranslate.onLocaleOrLanguageChanged
+                        text: qsTr("Top Artists") + Retranslate.onLocaleOrLanguageChanged
                         value: root.charts.TOP_ARTISTS
                     },
                     
                     Option {
-                        text: qsTr("Top tracks") + Retranslate.onLocaleOrLanguageChanged
+                        text: qsTr("Top Tracks") + Retranslate.onLocaleOrLanguageChanged
                         value: root.charts.TOP_TRACKS
                     },
                     
                     Option {
-                        text: qsTr("Top tags") + Retranslate.onLocaleOrLanguageChanged
+                        text: qsTr("Top Tags") + Retranslate.onLocaleOrLanguageChanged
                         value: root.charts.TOP_TAGS
                     }
                 ]

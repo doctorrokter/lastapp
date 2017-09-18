@@ -119,25 +119,10 @@ Page {
     }
     
     actions: [
-        ActionItem {
-            id: reloadAction
-            imageSource: "asset:///images/ic_reload.png"
-            title: qsTr("Reload") + Retranslate.onLocaleOrLanguageChanged
-            
+        ReloadActionItem {
             onTriggered: {
                 root.init();
             }
-            
-            shortcuts: [
-                Shortcut {
-                    id: reloadShortcut
-                    key: "r"
-                    
-                    onTriggered: {
-                        reloadAction.triggered();
-                    }
-                }
-            ]
         }
     ]
     
