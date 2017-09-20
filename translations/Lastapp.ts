@@ -18,7 +18,7 @@
 <context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="125"/>
+        <location filename="../src/applicationui.cpp" line="136"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -261,7 +261,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ScrobblesPage.qml" line="74"/>
+        <location filename="../assets/pages/ScrobblesPage.qml" line="72"/>
         <source>Love Track</source>
         <translation type="unfinished"></translation>
     </message>

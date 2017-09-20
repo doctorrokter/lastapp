@@ -56,9 +56,7 @@ Page {
                             name: ListItemData.name
                             artist: ListItemData.artist["#text"]
                             date: ListItemData.date === undefined ? "" : Qt.formatDateTime(new Date(ListItemData.date.uts * 1000), "MMM dd, yyyy HH:mm")
-                            image: ListItemData.image.filter(function(i) {
-                                return i.size === "small";
-                            })[0]["#text"];
+                            image: _imageService.getImage(ListItemData.image, "large")
                             url: ListItemData.url
                             nowplaying: {
                                 if (ListItemData["@attr"] !== undefined) {

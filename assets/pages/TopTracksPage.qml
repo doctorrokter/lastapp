@@ -71,9 +71,7 @@ Page {
                                 artist: ListItemData.artist
                                 url: ListItemData.url
                                 playcount: ListItemData.playcount
-                                image: ListItemData.image.filter(function(i) {
-                                        return i.size === "large";
-                                })[0]["#text"]
+                                image: _imageService.getImage(ListItemData.image, "large")
                             }
                             
                             contextActions: [

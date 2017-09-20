@@ -28,6 +28,9 @@
 #include "Common.hpp"
 #include <QDir>
 
+#define LASTAPP_SERVICE "chachkouski.LastappService.start"
+#define START_APP_ACTION "chachkouski.LastappService.START"
+
 using namespace bb::cascades;
 
 Logger ApplicationUI::logger = Logger::getLogger("ApplicationUI");
@@ -39,11 +42,7 @@ ApplicationUI::ApplicationUI(): QObject() {
     m_pImageService = new ImageService(this);
     m_pNetworkConf = new QNetworkConfigurationManager(this);
     m_pToast = new SystemToast(this);
-    m_pNpc = new NowPlayingController(this);
-
-    bool result = QObject::connect(m_pNpc, SIGNAL(metaDataChanged(QVariantMap)), this, SLOT(nowPlayingChanged(QVariantMap)));
-    Q_ASSERT(result);
-    Q_UNUSED(result);
+    m_invokeManager = new InvokeManager(this);
 
     QString theme = AppConfig::instance()->get("theme").toString();
     if (theme.compare("") != 0) {
@@ -92,6 +91,12 @@ ApplicationUI::ApplicationUI(): QObject() {
     rootContext->setContextProperty("_imageService", m_pImageService);
     rootContext->setContextProperty("_lang", lang);
 
+    InvokeRequest request;
+    request.setTarget(LASTAPP_SERVICE);
+    request.setAction(START_APP_ACTION);
+    InvokeTargetReply* reply = m_invokeManager->invoke(request);
+    QObject::connect(reply, SIGNAL(finished()), this, SLOT(headlessInvoked()));
+
     if (AppConfig::instance()->get(LAST_FM_KEY).toString().compare("") == 0) {
         renderLogin();
     } else {
@@ -105,8 +110,14 @@ ApplicationUI::~ApplicationUI() {
     m_pNetworkConf->deleteLater();
     m_pToast->deleteLater();
     m_pLastFM->deleteLater();
-    m_pNpc->deleteLater();
+    m_invokeManager->deleteLater();
     AppConfig::instance()->deleteLater();
+}
+
+void ApplicationUI::headlessInvoked() {
+    InvokeTargetReply* reply = qobject_cast<InvokeTargetReply*>(QObject::sender());
+    logger.info(QString("Invoked headless success: ").append(reply->isFinished() ? QString::number(1) : QString::number(0)));
+    reply->deleteLater();
 }
 
 void ApplicationUI::onSystemLanguageChanged() {
@@ -140,17 +151,6 @@ void ApplicationUI::renderMain() {
 
 void ApplicationUI::toast(const QString& message) {
     m_pToast->setBody(message);
-    m_pToast->show();
-}
-
-void ApplicationUI::nowPlayingChanged(QVariantMap metadata) {
-    m_pToast->setBody(
-            metadata[MetaData::Artist].toString()
-            .append(" - ")
-            .append(metadata[MetaData::Title].toString())
-            .append(", ")
-            .append(metadata[MetaData::Album].toString())
-            );
     m_pToast->show();
 }
 

@@ -23,7 +23,9 @@
 #include "lastfm/LastFM.hpp"
 #include "services/ImageService.hpp"
 #include "Logger.hpp"
-#include <bb/multimedia/NowPlayingController>
+#include <bb/system/InvokeManager>
+#include <bb/system/InvokeRequest>
+#include <bb/system/InvokeTargetReply>
 
 namespace bb
 {
@@ -37,7 +39,6 @@ class QTranslator;
 
 using namespace bb::cascades;
 using namespace bb::system;
-using namespace bb::multimedia;
 using namespace bb::lastfm;
 
 /*!
@@ -62,7 +63,7 @@ private slots:
     void onSystemLanguageChanged();
     void storeAccessToken(const QString& name, const QString& accessToken);
     void onOnlineChanged(bool online);
-    void nowPlayingChanged(QVariantMap metadata);
+    void headlessInvoked();
 
 private:
     QTranslator* m_pTranslator;
@@ -74,8 +75,7 @@ private:
     ImageService* m_pImageService;
     bool m_online;
 
-    NowPlayingController* m_pNpc;
-
+    InvokeManager* m_invokeManager;
     static Logger logger;
 
     void renderLogin();

@@ -31,8 +31,23 @@
 #include "lastfm/AlbumController.hpp"
 #include "services/ImageService.hpp"
 
+#include "vendor/Console.hpp"
+
 using namespace bb::cascades;
 using namespace bb::lastfm::controllers;
+
+void myMessageOutput(QtMsgType type, const char* msg) {  // <-- ADD THIS
+    Q_UNUSED(type);
+    fprintf(stdout, "%s\n", msg);
+    fflush(stdout);
+
+    QSettings settings;
+    if (settings.value("sendToConsoleDebug", true).toBool()) {
+        Console* console = new Console();
+        console->sendMessage("ConsoleThis$$" + QString(msg));
+        console->deleteLater();
+    }
+}
 
 Q_DECL_EXPORT int main(int argc, char **argv) {
     qmlRegisterType<QTimer>("chachkouski.util", 1, 0, "Timer");
@@ -47,6 +62,8 @@ Q_DECL_EXPORT int main(int argc, char **argv) {
     qmlRegisterUncreatableType<ArtistController>("lastFM.controllers", 1, 0, "ArtistController", "test");
     qmlRegisterUncreatableType<ArtistController>("lastFM.controllers", 1, 0, "TagController", "test");
     qmlRegisterUncreatableType<AlbumController>("lastFM.controllers", 1, 0, "AlbumController", "test");
+
+    qInstallMsgHandler(myMessageOutput);
 
     Application app(argc, argv);
     ApplicationUI appui;

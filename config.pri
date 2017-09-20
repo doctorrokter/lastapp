@@ -107,7 +107,8 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/lastfm/TrackController.cpp) \
         $$quote($$BASEDIR/src/lastfm/UserController.cpp) \
         $$quote($$BASEDIR/src/main.cpp) \
-        $$quote($$BASEDIR/src/services/ImageService.cpp)
+        $$quote($$BASEDIR/src/services/ImageService.cpp) \
+        $$quote($$BASEDIR/src/vendor/Console.cpp)
 
     HEADERS += \
         $$quote($$BASEDIR/src/Common.hpp) \
@@ -122,7 +123,8 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/lastfm/TagController.hpp) \
         $$quote($$BASEDIR/src/lastfm/TrackController.hpp) \
         $$quote($$BASEDIR/src/lastfm/UserController.hpp) \
-        $$quote($$BASEDIR/src/services/ImageService.hpp)
+        $$quote($$BASEDIR/src/services/ImageService.hpp) \
+        $$quote($$BASEDIR/src/vendor/Console.hpp)
 }
 
 CONFIG += precompile_header
@@ -151,6 +153,11 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../src/services/*.cc) \
         $$quote($$BASEDIR/../src/services/*.cpp) \
         $$quote($$BASEDIR/../src/services/*.cxx) \
+        $$quote($$BASEDIR/../src/vendor/*.c) \
+        $$quote($$BASEDIR/../src/vendor/*.c++) \
+        $$quote($$BASEDIR/../src/vendor/*.cc) \
+        $$quote($$BASEDIR/../src/vendor/*.cpp) \
+        $$quote($$BASEDIR/../src/vendor/*.cxx) \
         $$quote($$BASEDIR/../assets/*.qml) \
         $$quote($$BASEDIR/../assets/*.js) \
         $$quote($$BASEDIR/../assets/*.qs) \

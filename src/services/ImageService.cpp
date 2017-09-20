@@ -44,7 +44,7 @@ void ImageService::loadImage(const QString& remotePath) {
             QNetworkRequest req;
             req.setUrl(url);
 
-            logger.info(url);
+//            logger.info(url);
 
             QNetworkReply* reply = m_pNetwork->get(req);
             reply->setProperty("remote_path", remotePath);
@@ -68,7 +68,7 @@ void ImageService::onImageLoaded() {
         QString localPath = reply->property("local_path").toString();
         QString filename = reply->property("filename").toString();
 
-        logger.info("Create file: " + localPath);
+//        logger.info("Create file: " + localPath);
 
         QFile file(localPath);
         if (file.open(QIODevice::WriteOnly)) {
