@@ -28,6 +28,7 @@ QVariant AppConfig::get(const QString name) const {
 
 void AppConfig::set(const QString name, const QVariant value) {
     m_settings.setValue(name, value);
+    m_settings.sync();
     emit settingsChanged();
 }
 

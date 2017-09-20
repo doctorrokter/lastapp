@@ -283,6 +283,16 @@
         <source>Dark theme</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../assets/pages/SettingsPage.qml" line="57"/>
+        <source>Behaviour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/SettingsPage.qml" line="69"/>
+        <source>Hub notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Stats</name>
