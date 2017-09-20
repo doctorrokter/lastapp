@@ -29,7 +29,7 @@ Page {
                 }
                 
                 Label {
-                    text: "Author:"
+                    text: qsTr("Author:") + Retranslate.onLocaleOrLanguageChanged
                     textStyle.base: textStyle.style
                 }
                 
@@ -52,15 +52,15 @@ Page {
             
             Container {
                 Label { 
-                    text: "App name: " + Application.applicationName
+                    text: (qsTr("App name: ") + Retranslate.onLocaleOrLanguageChanged) + Application.applicationName
                 }
                 
                 Label {
-                    text: "App version: " + Application.applicationVersion
+                    text: (qsTr("App version: ") + Retranslate.onLocaleOrLanguageChanged) + Application.applicationVersion
                 }
                 
                 Label {
-                    text: "OS version: " + platform.osVersion
+                    text: (qsTr("OS version: ") + Retranslate.onLocaleOrLanguageChanged) + platform.osVersion
                 }
             }
         }

@@ -279,12 +279,10 @@ Page {
     }
     
     function setTopArtists(artists, period, user, total) {
-        if (root.name === user) {
-            root.artists = total;
-        }
-        
         if (period === "7day") {
             userArtists.artists = artists;
+        } else if (root.name === user) {
+            root.artists = total;
         }
     }
     

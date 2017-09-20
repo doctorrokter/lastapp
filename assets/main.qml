@@ -357,7 +357,11 @@ TabbedPane {
         
         ComponentDefinition {
             id: userPage
-            UserPage {}
+            UserPage {
+                onArtistChosen: {
+                    tabbedPane.openArtistPage(name, mbid);
+                }
+            }
         },
         
         ComponentDefinition {

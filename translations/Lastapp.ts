@@ -108,6 +108,26 @@
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../assets/pages/HelpPage.qml" line="32"/>
+        <source>Author:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/HelpPage.qml" line="55"/>
+        <source>App name: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/HelpPage.qml" line="59"/>
+        <source>App version: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/HelpPage.qml" line="63"/>
+        <source>OS version: </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>InputTitleBar</name>

@@ -27,7 +27,7 @@ Container {
         preferredHeight: ui.du(10)
         opacity: 0.5
     }
-    
+
     Container {
         horizontalAlignment: HorizontalAlignment.Fill
         verticalAlignment: VerticalAlignment.Bottom
