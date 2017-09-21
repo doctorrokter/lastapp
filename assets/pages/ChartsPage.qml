@@ -11,7 +11,7 @@ Page {
         TOP_TAGS: "toptags"
     }
     property int page: 0
-    property int limit: 50
+    property int limit: 200
     property bool hasNext: true
     
     signal artistChosen(string name, string mbid)
