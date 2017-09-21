@@ -81,6 +81,11 @@ Page {
     
     onCreationCompleted: {
         _user.friendsLoaded.connect(root.friendsLoaded);
+        _user.error.connect(root.error);
+    }
+    
+    function error() {
+        spinner.stop();
     }
     
     function load() {

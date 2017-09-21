@@ -262,6 +262,7 @@ void TrackController::onError(QNetworkReply::NetworkError e) {
     logger.error(e);
     logger.error(reply->errorString());
     reply->deleteLater();
+    emit error();
 }
         }
     }

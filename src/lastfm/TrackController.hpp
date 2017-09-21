@@ -38,6 +38,7 @@ public:
         void loved(const QString& artist, const QString& track);
         void unloved(const QString& artist, const QString& track);
         void infoLoaded(const QVariantMap& track);
+        void error();
 
 private slots:
     void onNowPlayingUpdated();

@@ -181,6 +181,7 @@ Page {
         _user.topTracksLoaded.connect(root.setTopTrack);
         _user.lovedTracksLoaded.connect(root.setLovedTracks);
         _user.topArtistsLoaded.connect(root.setTopArtists);
+        _user.error.connect(root.error);
     }
     
     onImagesChanged: {
@@ -188,6 +189,10 @@ Page {
         backgroundImage.image = _imageService.getImage(root.images, "extralarge");
         backgroundImage.maxHeight = mainLUH.layoutFrame.height / 2;
         backgroundImage.maxWidth = mainLUH.layoutFrame.width;
+    }
+    
+    function error() {
+        spinner.stop();
     }
     
     function init() {

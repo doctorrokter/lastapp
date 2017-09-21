@@ -159,6 +159,7 @@ Page {
     
     onCreationCompleted: {
         _tag.chartLoaded.connect(root.chartLoaded);
+        _tag.error.connect(root.error);
     }
     
     attachedObjects: [
@@ -185,6 +186,10 @@ Page {
         clear();
         var selectedChart = segments.selectedOption.value;
         root.reload(selectedChart);
+    }
+    
+    function error() {
+        spinner.stop();
     }
     
     function chartLoaded(chart) {
@@ -229,5 +234,6 @@ Page {
     
     function cleanUp() {
         _tag.chartLoaded.disconnect(root.chartLoaded);
+        _tag.error.disconnect(root.error);
     }
 }

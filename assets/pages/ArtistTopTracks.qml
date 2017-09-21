@@ -67,10 +67,15 @@ Page {
     
     onCreationCompleted: {
         _artist.topTracksLoaded.connect(root.setTopTracks);
+        _artist.error.connect(root.error);
     }
     
     onNameChanged: {
         load();
+    }
+    
+    function error() {
+        spinner.stop();
     }
     
     function load() {
@@ -102,5 +107,6 @@ Page {
     
     function cleanUp() {
         _artist.topTracksLoaded.disconnect(root.setTopTracks);
+        _artist.error.disconnect(root.error);
     }
 }

@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../assets/pages/AlbumPage.qml" line="134"/>
-        <location filename="../assets/pages/AlbumPage.qml" line="223"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="197"/>
         <source>page...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -41,7 +41,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="285"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="258"/>
         <source>listeners</source>
         <translation type="unfinished"></translation>
     </message>
@@ -224,7 +224,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="208"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="213"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>
@@ -454,7 +454,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="251"/>
+        <location filename="../assets/pages/UserPage.qml" line="256"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>

@@ -100,7 +100,13 @@ Page {
     
     onCreationCompleted: {
         _user.lovedTracksLoaded.connect(root.setLovedTracks);
+        _user.error.connect(root.error);
         _track.unloved.connect(root.onUnloved);
+        _track.error.connect(root.error);
+    }
+    
+    function error() {
+        spinner.stop();
     }
     
     function onUnloved(artist, track) {

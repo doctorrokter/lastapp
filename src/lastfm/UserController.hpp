@@ -40,6 +40,7 @@ namespace bb {
                     void friendsLoaded(const QVariantList& friends);
                     void infoLoaded(const QVariantMap& info);
                     void lovedTracksLoaded(const QVariantList& tracks, const QString& user, const int& total);
+                    void error();
 
             private slots:
                 void onRecentTracksLoaded();

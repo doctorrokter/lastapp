@@ -117,8 +117,13 @@ Page {
                     mainDataModel.append(artists);
                 }
                 
+                function error() {
+                    spinner.stop();
+                }
+                
                 onCreationCompleted: {
                     _user.topArtistsLoaded.connect(mainListView.topArtistsLoaded);
+                    _user.error.connect(mainListView.error);
                 }
             }
             

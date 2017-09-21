@@ -162,6 +162,7 @@ Page {
     
     onCreationCompleted: {
         _chart.chartLoaded.connect(root.setChartData);
+        _chart.error.connect(root.error);
     }
     
     attachedObjects: [
@@ -183,6 +184,10 @@ Page {
             id: stackListLayout
         }
     ]
+    
+    function error() {
+        spinner.stop();
+    }
     
     function setChartData(chartData) {
         spinner.stop();
@@ -216,6 +221,7 @@ Page {
     
     function cleanUp() {
         _chart.chartLoaded.disconnect(root.setChartData);
+        _chart.error.disconnect(root.error);
     }
     
     function clear() {

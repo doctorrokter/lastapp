@@ -29,6 +29,7 @@ namespace bb {
                 Q_SIGNALS:
                     void infoLoaded(const QVariantMap& info);
                     void topTracksLoaded(const QVariantList& topTracks);
+                    void error();
 
             private slots:
                 void onInfoLoaded();

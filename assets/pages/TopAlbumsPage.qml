@@ -118,8 +118,13 @@ Page {
                     mainDataModel.append(albums);
                 }
                 
+                function error() {
+                    spinner.stop();
+                }
+                
                 onCreationCompleted: {
                     _user.topAlbumsLoaded.connect(mainListView.topAlbumsLoaded);
+                    _user.error.connect(mainListView.error);
                 }
             }
             

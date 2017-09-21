@@ -30,6 +30,7 @@ namespace bb {
 
                 Q_SIGNALS:
                     void chartLoaded(const QVariantList& chartData);
+                    void error();
 
             private slots:
                 void onLoad();

@@ -72,6 +72,7 @@ namespace bb {
                 logger.error(e);
                 logger.error(reply->errorString());
                 reply->deleteLater();
+                emit error();
             }
 
         } /* namespace controllers */

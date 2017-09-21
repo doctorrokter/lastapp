@@ -109,8 +109,13 @@ Page {
                     mainDataModel.append(tracks);
                 }
                 
+                function error() {
+                    spinner.stop();
+                }
+                
                 onCreationCompleted: {
                     _user.topTracksLoaded.connect(mainListView.topTracksLoaded);
+                    _user.error.connect(mainListView.error);
                 }
             }
             

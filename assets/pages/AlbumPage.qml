@@ -146,33 +146,6 @@ Page {
                 }
             }
             
-//            Container {
-//                id: avatarContainer
-//                
-//                property double padding: 0.25
-//                
-//                verticalAlignment: VerticalAlignment.Top
-//                
-//                margin.topOffset: ui.du(5)
-//                margin.leftOffset: ui.du(2)
-//                
-//                leftPadding: ui.du(padding)
-//                topPadding: ui.du(padding)
-//                rightPadding: ui.du(padding)
-//                bottomPadding: ui.du(padding)
-//                
-//                background: Color.White
-//                
-//                maxWidth: ui.du(25)
-//                maxHeight: ui.du(25)
-//                
-//                WebImageView {
-//                    id: avatar
-//                    image: ""
-//                    minWidth: ui.du(25 - avatarContainer.padding * 2)
-//                    minHeight: ui.du(25 - avatarContainer.padding * 2)
-//                }
-//            }
             Container {
                 id: avatarContainer
                 
@@ -213,6 +186,7 @@ Page {
     
     onCreationCompleted: {
         _album.infoLoaded.connect(root.setAlbum);
+//        _album.error.connect(root.error);
     }
     
     onNameChanged: {
@@ -239,6 +213,10 @@ Page {
             atli.artist = root.artist;
             topTracksMainContainer.add(atli);
         });
+    }
+    
+    function error() {
+//        spinner.stop();
     }
     
     function setAlbum(album) {

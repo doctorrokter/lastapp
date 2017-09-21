@@ -224,11 +224,12 @@ Page {
         _user.topTracksLoaded.connect(root.setTopTrack);
         _user.lovedTracksLoaded.connect(root.setLovedTracks);
         _user.topArtistsLoaded.connect(root.setTopArtists);
+        _user.error.connect(root.error);
     }
     
     onImagesChanged: {
-        avatar.image = getImage(root.images, "large");
-        backgroundImage.image = getImage(root.images, "extralarge");
+        avatar.image = _imageService.getImage(root.images, "large");
+        backgroundImage.image = _imageService.getImage(root.images, "extralarge");
         backgroundImage.maxHeight = mainLUH.layoutFrame.height / 2;
         backgroundImage.maxWidth = mainLUH.layoutFrame.width;
     }
@@ -240,6 +241,10 @@ Page {
         _user.getLovedTracks(root.name, 1, 1);
         _user.getTopArtists(root.name, 1, 1);
         _user.getTopArtists(root.name, 1, 50, "7day");
+    }
+    
+    function error() {
+        spinner.stop();
     }
         
     function setUser(user) {
@@ -266,7 +271,7 @@ Page {
                 topTrackObj.artist = tr.artist;
                 topTrackObj.playcount = tr.playcount;
                 topTrackObj.maxCount = maxPlaycount;
-                topTrackObj.image = root.getImage(tr.image, "medium");
+                topTrackObj.image = _imageService.getImage(tr.image, "medium");
                 topTracksMainContainer.add(topTrackObj); 
             });
         }
@@ -286,17 +291,11 @@ Page {
         }
     }
     
-    function getImage(imgs, size) {
-        var img = imgs.filter(function(i) {
-                return i.size === size;
-        })[0];
-        return img === undefined ? "" : img["#text"];
-    }
-    
     function cleanUp() {
         _user.infoLoaded.disconnect(root.setUser);
         _user.topTracksLoaded.disconnect(root.setTopTrack);
         _user.lovedTracksLoaded.disconnect(root.setLovedTracks);
         _user.topArtistsLoaded.disconnect(root.setTopArtists);
+        _user.error.disconnect(root.error);
     }
 }

@@ -102,7 +102,12 @@ Page {
     
     onCreationCompleted: {
         _user.recentTracksLoaded.connect(root.recentTracksLoaded);
+        _user.error.connect(root.error);
         init();
+    }
+    
+    function error() {
+        spinner.stop();
     }
     
     function loadRecentTracks() {

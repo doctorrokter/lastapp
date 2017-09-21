@@ -28,6 +28,7 @@ namespace bb {
 
                 Q_SIGNALS:
                     void infoLoaded(const QVariantMap& info);
+                    void error();
 
             private slots:
                 void onInfoLoaded();

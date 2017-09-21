@@ -90,6 +90,7 @@ namespace bb {
                 logger.error(e);
                 logger.error(reply->errorString());
                 reply->deleteLater();
+                emit error();
             }
 
             void ChartController::prepareChartData(const QVariantList& source, QVariantList& chartData, const QString& type) {
