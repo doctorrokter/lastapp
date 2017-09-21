@@ -204,8 +204,8 @@ Page {
     }
     
     function setUser(user) {
-        if (root.name === "" || user.name === _appConfig.get("lastfm_name")) {
-            spinner.stop();
+        spinner.stop();
+        if (root.name === "" || user.name.toLowerCase() === _appConfig.get("lastfm_name").toLowerCase()) {
             root.name = user.name || "";
             root.realname = user.realname || "";
             root.images = user.image;
@@ -214,11 +214,10 @@ Page {
             root.playlists = user.playlists || 0;
             root.registered = user.registered.unixtime;
         }
-//        _user.getTopTracks(_appConfig.get("lastfm_name"), 1, 1, "7day");
     }
     
     function setTopTrack(tracks, period, username) {
-        if (username === _appConfig.get("lastfm_name")) {
+        if (username.toLowerCase() === _appConfig.get("lastfm_name").toLowerCase()) {
             if (tracks.length !== 0) {
                 var track = tracks[0];
                 topTrackContainer.name = track.name;
@@ -226,14 +225,12 @@ Page {
                 topTrackContainer.image = _imageService.getImage(track.image, "large");
             }
         }
-//        _user.getLovedTracks(_appConfig.get("lastfm_name"), 1, 1);
     }
     
     function setLovedTracks(tracks, user, total) {
-        if (user === _appConfig.get("lastfm_name")) {
+        if (user.toLowerCase() === _appConfig.get("lastfm_name").toLowerCase()) {
             root.lovedTracks = total;
         }
-//        _user.getTopArtists(_appConfig.get("lastfm_name"), 1, 1);
     }
     
     function setTopArtists(artists, period, user, total) {
