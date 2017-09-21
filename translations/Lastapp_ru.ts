@@ -160,7 +160,12 @@
         <translation type="unfinished">Нет интернет соединения</translation>
     </message>
     <message>
-        <location filename="../assets/pages/Login.qml" line="102"/>
+        <location filename="../assets/pages/Login.qml" line="86"/>
+        <source>Not registered yet?</source>
+        <translation type="unfinished">Ещё не зарегистрированы?</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/Login.qml" line="108"/>
         <source>Auth failed. Check your credentials.</source>
         <translation type="unfinished">Ошибка входа. Проверьте данные.</translation>
     </message>

@@ -80,6 +80,12 @@ Page {
                         }
                     }
                 }
+                
+                Label {
+                    horizontalAlignment: HorizontalAlignment.Center
+                    text: "<a style=\"color: white;\" href=\"https://www.last.fm/join\">" + (qsTr("Not registered yet?") + Retranslate.onLocaleOrLanguageChanged) + "</a>"
+                    textFormat: TextFormat.Html
+                }
             }
             
             ActivityIndicator {
