@@ -335,17 +335,17 @@
 <context>
     <name>TagPage</name>
     <message>
-        <location filename="../assets/pages/TagPage.qml" line="41"/>
+        <location filename="../assets/pages/TagPage.qml" line="44"/>
         <source>Top Artists</source>
         <translation type="unfinished">Топ Артисты</translation>
     </message>
     <message>
-        <location filename="../assets/pages/TagPage.qml" line="42"/>
+        <location filename="../assets/pages/TagPage.qml" line="49"/>
         <source>Top Albums</source>
         <translation type="unfinished">Топ Альбомы</translation>
     </message>
     <message>
-        <location filename="../assets/pages/TagPage.qml" line="43"/>
+        <location filename="../assets/pages/TagPage.qml" line="54"/>
         <source>Top Tracks</source>
         <translation type="unfinished">Топ Треки</translation>
     </message>

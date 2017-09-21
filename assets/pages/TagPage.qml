@@ -35,16 +35,30 @@ Page {
         Container {
             horizontalAlignment: HorizontalAlignment.Fill
             
-            HorizontalList {
+            SegmentedControl {
                 id: segments
+                
+                horizontalAlignment: HorizontalAlignment.Fill
                 options: [
-                    {title: qsTr("Top Artists") + Retranslate.onLocaleOrLanguageChanged, value: root.charts.TOP_ARTISTS},
-                    {title: qsTr("Top Albums") + Retranslate.onLocaleOrLanguageChanged, value: root.charts.TOP_ALBUMS},
-                    {title: qsTr("Top Tracks") + Retranslate.onLocaleOrLanguageChanged, value: root.charts.TOP_TRACKS}
+                    Option {
+                        text: qsTr("Top Artists") + Retranslate.onLocaleOrLanguageChanged
+                        value: root.charts.TOP_ARTISTS
+                    },
+                    
+                    Option {
+                        text: qsTr("Top Albums") + Retranslate.onLocaleOrLanguageChanged
+                        value: root.charts.TOP_ALBUMS
+                    },
+                    
+                    Option {
+                        text: qsTr("Top Tracks") + Retranslate.onLocaleOrLanguageChanged
+                        value: root.charts.TOP_TRACKS
+                    }
                 ]
                 
-                onChosen: {
-                    root.reload(period);
+                onSelectedOptionChanged: {
+                    root.clear();
+                    root.reload(selectedOption.value);
                 }
             }
             
@@ -61,6 +75,16 @@ Page {
                 function itemType(data, indexPath) {
                     return data.type;
                 }
+                
+                attachedObjects: [
+                    ListScrollStateHandler {
+                        onAtEndChanged: {
+                            if (atEnd && !spinner.running) {
+                                root.load(segments.selectedOption.value);
+                            }
+                        }
+                    }
+                ]
                 
                 onTriggered: {
                     var data = dataModel.data(indexPath);
@@ -159,7 +183,8 @@ Page {
     
     onTagChanged: {
         clear();
-        segments.choose([0]);
+        var selectedChart = segments.selectedOption.value;
+        root.reload(selectedChart);
     }
     
     function chartLoaded(chart) {
