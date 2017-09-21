@@ -215,11 +215,7 @@ TabbedPane {
             
             TopAlbumsPage {
                 onAlbumChosen: {
-                    var ap = albumPage.createObject();
-                    ap.artist = artist;
-                    ap.mbid = mbid;
-                    ap.name = name;
-                    tabbedPane.activePane.push(ap);
+                    tabbedPane.openAlbumPage(artist, name, mbid);
                 }
             }
         },
@@ -347,6 +343,10 @@ TabbedPane {
                 onArtistChosen: {
                     tabbedPane.openArtistPage(name, mbid);
                 }
+                
+                onAlbumChosen: {
+                    tabbedPane.openAlbumPage(artist, name, mbid);
+                }
             }
         },
         
@@ -402,6 +402,14 @@ TabbedPane {
 //        tp.name = name;
 //        tp.artist = artist;
 //        tabbedPane.activePane.push(tp);
+    }
+    
+    function openAlbumPage(artist, name, mbid) {
+        var ap = albumPage.createObject();
+        ap.artist = artist;
+        ap.mbid = mbid;
+        ap.name = name;
+        tabbedPane.activePane.push(ap);
     }
     
     function openArtistPage(name, mbid) {

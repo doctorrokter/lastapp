@@ -16,6 +16,7 @@ Page {
     property bool hasNext: true
     
     signal artistChosen(string name, string mbid)
+    signal albumChosen(variant artist, string name, string mbid)
     
     titleBar: CustomTitleBar {
         title: root.tag
@@ -91,6 +92,9 @@ Page {
                     switch (data.type) {
                         case "artist":
                             root.artistChosen(data.name, data.mbid);
+                            break;
+                        case "album":
+                            root.albumChosen(data.artist, data.name, data.mbid);
                             break;
                     }
                 }
