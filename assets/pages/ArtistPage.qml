@@ -58,7 +58,7 @@ Page {
                     
                     background: ui.palette.background
                     
-                    margin.topOffset: ui.du(28)
+                    margin.topOffset: ui.du(40)
                     
                     Divider {}
                     
@@ -146,15 +146,42 @@ Page {
                     }
                 }
 
+//                Container {
+//                    id: avatarContainer
+//                    
+//                    property double padding: 0.25
+//                    
+//                    verticalAlignment: VerticalAlignment.Top
+//                    
+//                    margin.topOffset: ui.du(5)
+//                    margin.leftOffset: ui.du(2)
+//                    
+//                    leftPadding: ui.du(padding)
+//                    topPadding: ui.du(padding)
+//                    rightPadding: ui.du(padding)
+//                    bottomPadding: ui.du(padding)
+//                    
+//                    background: Color.White
+//                    
+//                    maxWidth: ui.du(25)
+//                    maxHeight: ui.du(25)
+//                    
+//                    WebImageView {
+//                        id: avatar
+//                        image: ""
+//                        minWidth: ui.du(25 - avatarContainer.padding * 2)
+//                        minHeight: ui.du(25 - avatarContainer.padding * 2)
+//                    }
+//                }
                 Container {
                     id: avatarContainer
                     
                     property double padding: 0.25
                     
                     verticalAlignment: VerticalAlignment.Top
+                    horizontalAlignment: HorizontalAlignment.Center
                     
-                    margin.topOffset: ui.du(5)
-                    margin.leftOffset: ui.du(2)
+                    margin.topOffset: ui.du(12)
                     
                     leftPadding: ui.du(padding)
                     topPadding: ui.du(padding)
@@ -163,14 +190,11 @@ Page {
                     
                     background: Color.White
                     
-                    maxWidth: ui.du(25)
-                    maxHeight: ui.du(25)
-                    
                     WebImageView {
                         id: avatar
                         image: ""
-                        minWidth: ui.du(25 - avatarContainer.padding * 2)
-                        minHeight: ui.du(25 - avatarContainer.padding * 2)
+                        minWidth: ui.du(35 - avatarContainer.padding * 2)
+                        minHeight: ui.du(35 - avatarContainer.padding * 2)
                     }
                 }
             }

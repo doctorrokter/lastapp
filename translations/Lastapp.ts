@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../assets/pages/AlbumPage.qml" line="134"/>
-        <location filename="../assets/pages/AlbumPage.qml" line="199"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="223"/>
         <source>page...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -41,7 +41,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="261"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="285"/>
         <source>listeners</source>
         <translation type="unfinished"></translation>
     </message>
