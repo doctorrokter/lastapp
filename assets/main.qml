@@ -43,6 +43,18 @@ TabbedPane {
         
         actions: [
             ActionItem {
+                id: rateAppAction
+                
+                title: qsTr("Rate app") + Retranslate.onLocaleOrLanguageChanged
+                imageSource: "asset:///images/ic_blackberry.png"
+                
+                onTriggered: {
+                    _appConfig.set("app_rated", "true");
+                    bbwInvoke.trigger(bbwInvoke.query.invokeActionId);
+                }
+            },
+            
+            ActionItem {
                 title: qsTr("Send feedback") + Retranslate.onLocaleOrLanguageChanged
                 imageSource: "asset:///images/ic_feedback.png"
                 
@@ -142,6 +154,15 @@ TabbedPane {
                 uri: "mailto:lastapp.bbapp@gmail.com?subject=Last.app:%20Feedback"
                 invokeActionId: "bb.action.SENDEMAIL"
                 invokeTargetId: "sys.pim.uib.email.hybridcomposer"
+            }
+        },
+        
+        Invocation {
+            id: bbwInvoke
+            query {
+                uri: "appworld://content/60004635"
+                invokeActionId: "bb.action.OPEN"
+                invokeTargetId: "sys.appworld"
             }
         },
         

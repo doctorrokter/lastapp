@@ -486,47 +486,52 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../assets/main.qml" line="46"/>
+        <location filename="../assets/main.qml" line="48"/>
+        <source>Rate app</source>
+        <translation type="unfinished">Оценить приложение</translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="58"/>
         <source>Send feedback</source>
         <translation type="unfinished">Обратная связь</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="57"/>
+        <location filename="../assets/main.qml" line="69"/>
         <source>Scrobbles</source>
         <translation type="unfinished">Заскробблено</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="66"/>
+        <location filename="../assets/main.qml" line="78"/>
         <source>Top Artists</source>
         <translation type="unfinished">Топ Артисты</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="75"/>
+        <location filename="../assets/main.qml" line="87"/>
         <source>Top Albums</source>
         <translation type="unfinished">Топ Альбомы</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="84"/>
+        <location filename="../assets/main.qml" line="96"/>
         <source>Top Tracks</source>
         <translation type="unfinished">Топ Треки</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="93"/>
+        <location filename="../assets/main.qml" line="105"/>
         <source>Loved Tracks</source>
         <translation type="unfinished">Любимые Треки</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="102"/>
+        <location filename="../assets/main.qml" line="114"/>
         <source>Charts</source>
         <translation type="unfinished">Чарты</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="111"/>
+        <location filename="../assets/main.qml" line="123"/>
         <source>My Profile</source>
         <translation type="unfinished">Мой профиль</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="120"/>
+        <location filename="../assets/main.qml" line="132"/>
         <source>Friends</source>
         <translation type="unfinished">Друзья</translation>
     </message>

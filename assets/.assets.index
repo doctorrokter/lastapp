@@ -1,5 +1,5 @@
 1
-56
+57
 components/AlbumTrackListItem.qml
 components/ArtistsCarousel.qml
 components/BioContainer.qml
@@ -28,6 +28,7 @@ images/gradient.png
 images/heart_empty.png
 images/heart_filled.png
 images/ic_all.png
+images/ic_blackberry.png
 images/ic_cd.png
 images/ic_chart.png
 images/ic_concerts.png
