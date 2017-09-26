@@ -1,14 +1,16 @@
 1
-57
+59
 components/AlbumTrackListItem.qml
 components/ArtistsCarousel.qml
 components/BioContainer.qml
 components/CustomTitleBar.qml
 components/Friend.qml
+components/Gradient.qml
 components/HorizontalList.qml
 components/ImageBackground.qml
 components/InputTitleBar.qml
 components/LoveTrackActionItem.qml
+components/PageGradient.qml
 components/PeriodsList.qml
 components/RecentTrack.qml
 components/ReloadActionItem.qml

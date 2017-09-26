@@ -4,13 +4,13 @@
 <context>
     <name>AlbumPage</name>
     <message>
-        <location filename="../assets/pages/AlbumPage.qml" line="118"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="120"/>
         <source>Tracks</source>
         <translation type="unfinished">Треки</translation>
     </message>
     <message>
-        <location filename="../assets/pages/AlbumPage.qml" line="134"/>
-        <location filename="../assets/pages/AlbumPage.qml" line="197"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="136"/>
+        <location filename="../assets/pages/AlbumPage.qml" line="199"/>
         <source>page...</source>
         <translation type="unfinished"> - перейти на страницу...</translation>
     </message>
@@ -26,22 +26,22 @@
 <context>
     <name>ArtistPage</name>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="111"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="113"/>
         <source>Top Tracks</source>
         <translation type="unfinished">Топ Треки</translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="125"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="127"/>
         <source>More top tracks...</source>
         <translation type="unfinished">Больше топ треков...</translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="135"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="137"/>
         <source>Similar Artists</source>
         <translation type="unfinished">Похожие Артисты</translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="258"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="260"/>
         <source>listeners</source>
         <translation type="unfinished">слушателей</translation>
     </message>
@@ -194,37 +194,37 @@
 <context>
     <name>MyProfilePage</name>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="84"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="86"/>
         <source>registered</source>
         <translation type="unfinished">зарегистрирован(а)</translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="102"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="104"/>
         <source>COUNTRY</source>
         <translation type="unfinished">СТРАНА</translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="107"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="109"/>
         <source>SCROBBLES</source>
         <translation type="unfinished">ПРОСЛУШКИ</translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="112"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="114"/>
         <source>PLAYLISTS</source>
         <translation type="unfinished">ПЛЕЙЛИСТЫ</translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="127"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="129"/>
         <source>ARTISTS</source>
         <translation type="unfinished">АРТИСТЫ</translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="132"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="134"/>
         <source>LOVED TRACKS</source>
         <translation type="unfinished">ЛЮБИМЫЕ ТРЕКИ</translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="213"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="215"/>
         <source>Not provided</source>
         <translation type="unfinished">Не предоставлено</translation>
     </message>
@@ -358,7 +358,7 @@
 <context>
     <name>TopAlbum</name>
     <message>
-        <location filename="../assets/components/TopAlbum.qml" line="66"/>
+        <location filename="../assets/components/TopAlbum.qml" line="58"/>
         <source>Scrobbles</source>
         <translation type="unfinished">Заскробблено</translation>
     </message>
@@ -374,7 +374,7 @@
 <context>
     <name>TopArtist</name>
     <message>
-        <location filename="../assets/components/TopArtist.qml" line="54"/>
+        <location filename="../assets/components/TopArtist.qml" line="46"/>
         <source>Scrobbles</source>
         <translation type="unfinished">Заскробблено</translation>
     </message>
@@ -414,47 +414,47 @@
 <context>
     <name>UserPage</name>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="86"/>
+        <location filename="../assets/pages/UserPage.qml" line="88"/>
         <source>registered</source>
         <translation type="unfinished">зарегистрирован(а)</translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="104"/>
+        <location filename="../assets/pages/UserPage.qml" line="106"/>
         <source>COUNTRY</source>
         <translation type="unfinished">СТРАНА</translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="109"/>
+        <location filename="../assets/pages/UserPage.qml" line="111"/>
         <source>SCROBBLES</source>
         <translation type="unfinished">ПРОСЛУШКИ</translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="114"/>
+        <location filename="../assets/pages/UserPage.qml" line="116"/>
         <source>PLAYLISTS</source>
         <translation type="unfinished">ПЛЕЙЛИСТЫ</translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="129"/>
+        <location filename="../assets/pages/UserPage.qml" line="131"/>
         <source>ARTISTS</source>
         <translation type="unfinished">АРТИСТЫ</translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="134"/>
+        <location filename="../assets/pages/UserPage.qml" line="136"/>
         <source>LOVED TRACKS</source>
         <translation type="unfinished">ЛЮБИМЫЕ ТРЕКИ</translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="151"/>
+        <location filename="../assets/pages/UserPage.qml" line="153"/>
         <source>Top tracks</source>
         <translation type="unfinished">Топ треки</translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="166"/>
+        <location filename="../assets/pages/UserPage.qml" line="168"/>
         <source>Top artists</source>
         <translation type="unfinished">Топ артисты</translation>
     </message>
     <message>
-        <location filename="../assets/pages/UserPage.qml" line="256"/>
+        <location filename="../assets/pages/UserPage.qml" line="258"/>
         <source>Not provided</source>
         <translation type="unfinished">Не предоставлено</translation>
     </message>

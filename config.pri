@@ -41,10 +41,12 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/BioContainer.qml) \
         $$quote($$BASEDIR/assets/components/CustomTitleBar.qml) \
         $$quote($$BASEDIR/assets/components/Friend.qml) \
+        $$quote($$BASEDIR/assets/components/Gradient.qml) \
         $$quote($$BASEDIR/assets/components/HorizontalList.qml) \
         $$quote($$BASEDIR/assets/components/ImageBackground.qml) \
         $$quote($$BASEDIR/assets/components/InputTitleBar.qml) \
         $$quote($$BASEDIR/assets/components/LoveTrackActionItem.qml) \
+        $$quote($$BASEDIR/assets/components/PageGradient.qml) \
         $$quote($$BASEDIR/assets/components/PeriodsList.qml) \
         $$quote($$BASEDIR/assets/components/RecentTrack.qml) \
         $$quote($$BASEDIR/assets/components/ReloadActionItem.qml) \

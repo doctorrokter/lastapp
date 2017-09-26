@@ -23,15 +23,7 @@ Container {
         image: root.image
     }
     
-    Container {
-        horizontalAlignment: HorizontalAlignment.Fill
-        verticalAlignment: VerticalAlignment.Bottom
-        
-        background: Color.Black
-        
-        preferredHeight: ui.du(14)
-        opacity: 0.5
-    }
+    Gradient {}
     
     Container {
         horizontalAlignment: HorizontalAlignment.Fill

@@ -47,6 +47,8 @@ Page {
                 maxWidth: mainLUH.layoutFrame.width
             }
             
+            PageGradient {}
+            
             Container {
                 horizontalAlignment: HorizontalAlignment.Fill
                 verticalAlignment: VerticalAlignment.Fill
