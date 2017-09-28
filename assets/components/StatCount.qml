@@ -1,4 +1,5 @@
 import bb.cascades 1.4
+import "../js/util.js" as Util;
 
 Container {
     id: root
@@ -21,7 +22,7 @@ Container {
     Container {
         horizontalAlignment: HorizontalAlignment.Center
         Label {
-            text: root.value !== "" ? root.value : root.count
+            text: root.value !== "" ? root.value : Util.abbrNum(root.count, 2)
             textStyle.fontWeight: FontWeight.Bold
         }    
     }                            

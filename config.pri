@@ -66,6 +66,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/gradient.png) \
         $$quote($$BASEDIR/assets/images/heart_empty.png) \
         $$quote($$BASEDIR/assets/images/heart_filled.png) \
+        $$quote($$BASEDIR/assets/images/ic_add_bookmarks.png) \
         $$quote($$BASEDIR/assets/images/ic_all.png) \
         $$quote($$BASEDIR/assets/images/ic_blackberry.png) \
         $$quote($$BASEDIR/assets/images/ic_cd.png) \
@@ -77,10 +78,12 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/ic_groups_white.png) \
         $$quote($$BASEDIR/assets/images/ic_reload.png) \
         $$quote($$BASEDIR/assets/images/opac_bg.png) \
+        $$quote($$BASEDIR/assets/js/util.js) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/AlbumPage.qml) \
         $$quote($$BASEDIR/assets/pages/ArtistPage.qml) \
         $$quote($$BASEDIR/assets/pages/ArtistTopTracks.qml) \
+        $$quote($$BASEDIR/assets/pages/BookmarksPage.qml) \
         $$quote($$BASEDIR/assets/pages/ChartsPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/HelpPage.qml) \
@@ -170,6 +173,9 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/images/*.qml) \
         $$quote($$BASEDIR/../assets/images/*.js) \
         $$quote($$BASEDIR/../assets/images/*.qs) \
+        $$quote($$BASEDIR/../assets/js/*.qml) \
+        $$quote($$BASEDIR/../assets/js/*.js) \
+        $$quote($$BASEDIR/../assets/js/*.qs) \
         $$quote($$BASEDIR/../assets/pages/*.qml) \
         $$quote($$BASEDIR/../assets/pages/*.js) \
         $$quote($$BASEDIR/../assets/pages/*.qs)

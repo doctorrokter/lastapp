@@ -54,6 +54,8 @@ public:
     virtual ~ApplicationUI();
 
     Q_INVOKABLE void toast(const QString& message);
+    Q_INVOKABLE void stopHeadless();
+    Q_INVOKABLE void startHeadless();
     bool isOnline() const;
 
     Q_SIGNALS:

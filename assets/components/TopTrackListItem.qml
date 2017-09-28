@@ -4,8 +4,8 @@ CustomListItem {
     id: root
     
     property int number: 1
-    property int count: 1500
-    property int maxCount: 1500
+    property int count: 0
+    property int maxCount: 0
     property string artist: ""
     property string title: ""
     property string subtitle: ""

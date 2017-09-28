@@ -129,7 +129,7 @@ Page {
                         
                         StatCount {
                             title: qsTr("ARTISTS") + Retranslate.onLocaleOrLanguageChanged
-                            value: root.artists
+                            count: root.artists
                         }
                         
                         StatCount {

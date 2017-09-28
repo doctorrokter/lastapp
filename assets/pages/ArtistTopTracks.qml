@@ -1,5 +1,6 @@
 import bb.cascades 1.4
 import "../components"
+import "../js/util.js" as Util;
 
 Page {
     id: root
@@ -51,7 +52,7 @@ Page {
                         maxCount: ListItemData.maxListeners
                         title: ListItemData.name
                         number: ListItemData.number
-                        subtitle: ListItemData.listeners + " " + (qsTr("listeners") + Retranslate.onLocaleOrLanguageChanged)
+                        subtitle: Util.abbrNum(ListItemData.listeners, 2) + " " + (qsTr("listeners") + Retranslate.onLocaleOrLanguageChanged)
                     }
                 }
             ]

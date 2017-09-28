@@ -1,5 +1,5 @@
 1
-59
+62
 components/AlbumTrackListItem.qml
 components/ArtistsCarousel.qml
 components/BioContainer.qml
@@ -29,6 +29,7 @@ images/concert_bg.jpg
 images/gradient.png
 images/heart_empty.png
 images/heart_filled.png
+images/ic_add_bookmarks.png
 images/ic_all.png
 images/ic_blackberry.png
 images/ic_cd.png
@@ -41,10 +42,12 @@ images/ic_groups_white.png
 images/ic_reload.png
 images/Lastfm_logo.png
 images/opac_bg.png
+js/util.js
 main.qml
 pages/AlbumPage.qml
 pages/ArtistPage.qml
 pages/ArtistTopTracks.qml
+pages/BookmarksPage.qml
 pages/ChartsPage.qml
 pages/FriendsPage.qml
 pages/HelpPage.qml

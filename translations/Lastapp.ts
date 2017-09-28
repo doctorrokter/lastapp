@@ -18,7 +18,7 @@
 <context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="136"/>
+        <location filename="../src/applicationui.cpp" line="135"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -26,22 +26,22 @@
 <context>
     <name>ArtistPage</name>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="113"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="114"/>
         <source>Top Tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="127"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="128"/>
         <source>More top tracks...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="137"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="138"/>
         <source>Similar Artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/ArtistPage.qml" line="260"/>
+        <location filename="../assets/pages/ArtistPage.qml" line="250"/>
         <source>listeners</source>
         <translation type="unfinished"></translation>
     </message>
@@ -49,7 +49,7 @@
 <context>
     <name>ArtistTopTracks</name>
     <message>
-        <location filename="../assets/pages/ArtistTopTracks.qml" line="54"/>
+        <location filename="../assets/pages/ArtistTopTracks.qml" line="55"/>
         <source>listeners</source>
         <translation type="unfinished"></translation>
     </message>
@@ -59,6 +59,29 @@
     <message>
         <location filename="../assets/components/BioContainer.qml" line="19"/>
         <source>Bio</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BookmarksPage</name>
+    <message>
+        <location filename="../assets/pages/BookmarksPage.qml" line="14"/>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/BookmarksPage.qml" line="36"/>
+        <source>Artists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/BookmarksPage.qml" line="42"/>
+        <source>Albums</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/BookmarksPage.qml" line="47"/>
+        <source>Tracks</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -194,37 +217,37 @@
 <context>
     <name>MyProfilePage</name>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="86"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="87"/>
         <source>registered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="104"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="105"/>
         <source>COUNTRY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="109"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="110"/>
         <source>SCROBBLES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="114"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="115"/>
         <source>PLAYLISTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="129"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="130"/>
         <source>ARTISTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="134"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="135"/>
         <source>LOVED TRACKS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/MyProfilePage.qml" line="215"/>
+        <location filename="../assets/pages/MyProfilePage.qml" line="216"/>
         <source>Not provided</source>
         <translation type="unfinished"></translation>
     </message>
@@ -358,7 +381,7 @@
 <context>
     <name>TopAlbum</name>
     <message>
-        <location filename="../assets/components/TopAlbum.qml" line="58"/>
+        <location filename="../assets/components/TopAlbum.qml" line="59"/>
         <source>Scrobbles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -374,7 +397,7 @@
 <context>
     <name>TopArtist</name>
     <message>
-        <location filename="../assets/components/TopArtist.qml" line="46"/>
+        <location filename="../assets/components/TopArtist.qml" line="48"/>
         <source>Scrobbles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -390,7 +413,7 @@
 <context>
     <name>TopTrack</name>
     <message>
-        <location filename="../assets/components/TopTrack.qml" line="66"/>
+        <location filename="../assets/components/TopTrack.qml" line="67"/>
         <source>Scrobbles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -532,12 +555,40 @@
     </message>
     <message>
         <location filename="../assets/main.qml" line="123"/>
-        <source>My Profile</source>
+        <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/main.qml" line="132"/>
+        <source>My Profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="141"/>
         <source>Friends</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>util</name>
+    <message>
+        <location filename="../assets/js/util.js" line="8"/>
+        <source>k</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/js/util.js" line="9"/>
+        <source>m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/js/util.js" line="10"/>
+        <source>b</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/js/util.js" line="11"/>
+        <source>t</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

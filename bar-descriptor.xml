@@ -91,6 +91,16 @@
           <property var="uris" value="data://local" />
         </filter>
         <filter>
+          <action>bb.action.STOP</action>
+          <mime-type>*</mime-type>
+          <property var="uris" value="data://local" />
+        </filter>
+        <filter>
+          <action>bb.action.START</action>
+          <mime-type>*</mime-type>
+          <property var="uris" value="data://local" />
+        </filter>
+        <filter>
             <action>chachkouski.LastappService.START</action>
             <mime-type>*</mime-type>
             <property var="uris" value="headless:" />

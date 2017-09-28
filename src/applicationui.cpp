@@ -91,11 +91,10 @@ ApplicationUI::ApplicationUI(): QObject() {
     rootContext->setContextProperty("_imageService", m_pImageService);
     rootContext->setContextProperty("_lang", lang);
 
-    InvokeRequest request;
-    request.setTarget(LASTAPP_SERVICE);
-    request.setAction(START_APP_ACTION);
-    InvokeTargetReply* reply = m_invokeManager->invoke(request);
-    QObject::connect(reply, SIGNAL(finished()), this, SLOT(headlessInvoked()));
+    QString headlessScrobbling = AppConfig::instance()->get("headless_scrobbling").toString();
+    if (headlessScrobbling.compare("") == 0 || headlessScrobbling.compare("true") == 0) {
+        startHeadless();
+    }
 
     if (AppConfig::instance()->get(LAST_FM_KEY).toString().compare("") == 0) {
         renderLogin();
@@ -152,6 +151,24 @@ void ApplicationUI::renderMain() {
 void ApplicationUI::toast(const QString& message) {
     m_pToast->setBody(message);
     m_pToast->show();
+}
+
+void ApplicationUI::stopHeadless() {
+    logger.info("Stop Headless");
+    InvokeRequest request;
+    request.setTarget(LASTAPP_SERVICE);
+    request.setAction("bb.action.STOP");
+    InvokeTargetReply* reply = m_invokeManager->invoke(request);
+    QObject::connect(reply, SIGNAL(finished()), this, SLOT(headlessInvoked()));
+}
+
+void ApplicationUI::startHeadless() {
+    logger.info("Start Headless");
+    InvokeRequest request;
+    request.setTarget(LASTAPP_SERVICE);
+    request.setAction(START_APP_ACTION);
+    InvokeTargetReply* reply = m_invokeManager->invoke(request);
+    QObject::connect(reply, SIGNAL(finished()), this, SLOT(headlessInvoked()));
 }
 
 bool ApplicationUI::isOnline() const { return m_online; }

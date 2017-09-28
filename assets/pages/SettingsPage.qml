@@ -85,6 +85,36 @@ Page {
                     }
                 }
                 
+//                Container {
+//                    layout: DockLayout {}
+//                    topPadding: ui.du(2)
+//                    bottomPadding: ui.du(2.5)
+//                    leftPadding: ui.du(2.5)
+//                    rightPadding: ui.du(2.5)
+//                    horizontalAlignment: HorizontalAlignment.Fill
+//                    
+//                    Label {
+//                        text: qsTr("Headless scrobbling") + Retranslate.onLocaleOrLanguageChanged
+//                        verticalAlignment: VerticalAlignment.Center
+//                        horizontalAlignment: HorizontalAlignment.Left
+//                    }
+//                    
+//                    ToggleButton {
+//                        id: headlessToggle
+//                        horizontalAlignment: HorizontalAlignment.Right
+//                        
+//                        onCheckedChanged: {
+//                            if (checked) {
+//                                _appConfig.set("headless_scrobbling", "true");
+//                                _app.startHeadless();
+//                            } else {
+//                                _appConfig.set("headless_scrobbling", "false");
+//                                _app.stopHeadless();
+//                            }
+//                        }
+//                    }
+//                }
+                
                 Container {
                     horizontalAlignment: HorizontalAlignment.Fill
                     minHeight: ui.du(20)
@@ -103,8 +133,14 @@ Page {
         notifyToggle.checked = notify === "" || notify === "true";
     }
     
+    function adjustHeadless() {
+        var headless = _appConfig.get("headless_scrobbling");
+        headlessToggle.checked = headless === "" || headless === "true";
+    }
+    
     onCreationCompleted: {
         adjustTheme();
         adjustNotification();
+//        adjustHeadless();
     }
 }

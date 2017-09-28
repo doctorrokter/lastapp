@@ -1,5 +1,6 @@
 import bb.cascades 1.4
 import "../components"
+import "../js/util.js" as Util;
 
 Page {
     id: root
@@ -127,7 +128,7 @@ Page {
                         
                         StatCount {
                             title: qsTr("ARTISTS") + Retranslate.onLocaleOrLanguageChanged
-                            value: root.artists
+                            count: root.artists
                         }
                         
                         StatCount {

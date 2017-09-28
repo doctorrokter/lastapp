@@ -1,6 +1,7 @@
 import bb.cascades 1.4
 import chachkouski.util 1.0
 import "../components"
+import "../js/util.js" as Util;
 
 Page {
     id: root
@@ -231,17 +232,6 @@ Page {
         
         var similarArtists = artist.similar.artist;
         similarContainer.artists = similarArtists;
-//        similarArtists.forEach(function(a, index) {
-//            var sa = topArtist.createObject();
-//            if (index > 0) {
-//                sa.margin.leftOffset = ui.du(0.5);
-//            }
-//            sa.name = a.name;
-//            sa.image = a.image.filter(function(i) {
-//                return i.size === "large";
-//            })[0]["#text"];
-//            similarContainer.add(sa);
-//        });
     }
     
     function setTopTracks(tracks) {
@@ -257,7 +247,7 @@ Page {
             ttli.title = t.name;
             ttli.count = t.listeners;
             ttli.maxCount = maxListeners;
-            ttli.subtitle = t.listeners + " " + (qsTr("listeners") + Retranslate.onLocaleOrLanguageChanged);
+            ttli.subtitle = Util.abbrNum(t.listeners, 2) + " " + (qsTr("listeners") + Retranslate.onLocaleOrLanguageChanged);
             topTracksMainContainer.add(ttli);  
         });
     }    

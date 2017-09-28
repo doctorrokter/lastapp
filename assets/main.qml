@@ -120,6 +120,15 @@ TabbedPane {
     }
     
     Tab {
+        title: qsTr("Bookmarks") + Retranslate.onLocaleOrLanguageChanged
+        imageSource: "asset:///images/ic_add_bookmarks.png"
+        
+        onTriggered: {
+            tabbedPane.changePane(bookmarksPane);
+        }
+    }
+    
+    Tab {
         title: qsTr("My Profile") + Retranslate.onLocaleOrLanguageChanged
         imageSource: "asset:///images/ic_contact.png"
         
@@ -170,11 +179,7 @@ TabbedPane {
             id: scrobblesPane
             
             onPopTransitionEnded: {
-                Application.menuEnabled = true;
-                if (page.cleanUp !== undefined) {
-                    page.cleanUp();
-                }
-                page.destroy();
+                tabbedPane.popPage(page);
             }
             
             ScrobblesPage {
@@ -188,11 +193,7 @@ TabbedPane {
             id: topArtistsPane
             
             onPopTransitionEnded: {
-                Application.menuEnabled = true;
-                if (page.cleanUp !== undefined) {
-                    page.cleanUp();
-                }
-                page.destroy();
+                tabbedPane.popPage(page);
             }
             
             TopArtistsPage {
@@ -206,11 +207,7 @@ TabbedPane {
             id: topAlbumsPane
             
             onPopTransitionEnded: {
-                Application.menuEnabled = true;
-                if (page.cleanUp !== undefined) {
-                    page.cleanUp();
-                }
-                page.destroy();
+                tabbedPane.popPage(page);
             }
             
             TopAlbumsPage {
@@ -224,11 +221,7 @@ TabbedPane {
             id: topTracksPane
             
             onPopTransitionEnded: {
-                Application.menuEnabled = true;
-                if (page.cleanUp !== undefined) {
-                    page.cleanUp();
-                }
-                page.destroy();
+                tabbedPane.popPage(page);
             }
             
             TopTracksPage {
@@ -242,11 +235,7 @@ TabbedPane {
             id: lovedTracksPane
             
             onPopTransitionEnded: {
-                Application.menuEnabled = true;
-                if (page.cleanUp !== undefined) {
-                    page.cleanUp();
-                }
-                page.destroy();
+                tabbedPane.popPage(page);
             }
             
             LovedTracksPage {
@@ -260,11 +249,7 @@ TabbedPane {
             id: chartsPane
             
             onPopTransitionEnded: {
-                Application.menuEnabled = true;
-                if (page.cleanUp !== undefined) {
-                    page.cleanUp();
-                }
-                page.destroy();
+                tabbedPane.popPage(page);
             }
             
             ChartsPage {
@@ -279,14 +264,20 @@ TabbedPane {
         },
         
         NavigationPane {
+            id: bookmarksPane
+            
+            onPopTransitionEnded: {
+                tabbedPane.popPage(page);
+            }
+            
+            BookmarksPage {}    
+        },
+        
+        NavigationPane {
             id: myProfilePane
             
             onPopTransitionEnded: {
-                Application.menuEnabled = true;
-                if (page.cleanUp !== undefined) {
-                    page.cleanUp();
-                }
-                page.destroy();
+                tabbedPane.popPage(page);
             }
             
             MyProfilePage {}
@@ -296,11 +287,7 @@ TabbedPane {
             id: friendsPane
             
             onPopTransitionEnded: {
-                Application.menuEnabled = true;
-                if (page.cleanUp !== undefined) {
-                    page.cleanUp();
-                }
-                page.destroy();
+                tabbedPane.popPage(page);
             }
             
             FriendsPage {
@@ -402,6 +389,14 @@ TabbedPane {
 //        tp.name = name;
 //        tp.artist = artist;
 //        tabbedPane.activePane.push(tp);
+    }
+    
+    function popPage(page) {
+        Application.menuEnabled = true;
+        if (page.cleanUp !== undefined) {
+            page.cleanUp();
+        }
+        page.destroy();
     }
     
     function openAlbumPage(artist, name, mbid) {

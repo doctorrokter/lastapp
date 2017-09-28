@@ -1,4 +1,5 @@
 import bb.cascades 1.4
+import "../js/util.js" as Util;
 
 Container {
     id: root
@@ -43,7 +44,8 @@ Container {
             Label {
                 visible: root.playcount !== 0;
                 verticalAlignment: VerticalAlignment.Bottom
-                text: root.playcount + " " + (qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged)
+//                text: root.playcount + " " + (qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged)
+                text: Util.abbrNum(root.playcount, 2) + " " + (qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged)
                 textStyle.color: ui.palette.textOnPrimary
                 textStyle.base: SystemDefaults.TextStyles.SubtitleText
                 textStyle.fontWeight: FontWeight.W100
