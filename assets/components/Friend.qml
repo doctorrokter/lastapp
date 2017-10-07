@@ -1,4 +1,5 @@
 import bb.cascades 1.4
+import "../js/util.js" as Util;
 
 Container {
     id: root
@@ -60,7 +61,7 @@ Container {
             topPadding: ui.du(0.5)
             
             Label {
-                text: root.playcount + " " + (qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged)
+                text: Util.abbrNum(root.playcount, 2) + " " + (qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged)
                 textStyle.color: ui.palette.secondaryTextOnPlain
                 textStyle.base: SystemDefaults.TextStyles.SmallText
                 verticalAlignment: VerticalAlignment.Center

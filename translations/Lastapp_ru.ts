@@ -111,7 +111,7 @@
 <context>
     <name>Friend</name>
     <message>
-        <location filename="../assets/components/Friend.qml" line="63"/>
+        <location filename="../assets/components/Friend.qml" line="64"/>
         <source>Scrobbles</source>
         <translation type="unfinished">Заскробблено</translation>
     </message>
@@ -119,7 +119,7 @@
 <context>
     <name>FriendsPage</name>
     <message>
-        <location filename="../assets/pages/FriendsPage.qml" line="14"/>
+        <location filename="../assets/pages/FriendsPage.qml" line="15"/>
         <source>Friends</source>
         <translation type="unfinished">Друзья</translation>
     </message>

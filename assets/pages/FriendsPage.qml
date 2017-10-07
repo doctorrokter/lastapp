@@ -1,5 +1,6 @@
 import bb.cascades 1.4
 import "../components"
+import "../js/util.js" as Util;
 
 Page {
     id: root
