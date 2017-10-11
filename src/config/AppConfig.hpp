@@ -26,6 +26,7 @@ public:
     Q_INVOKABLE QVariant get(const QString name) const;
     Q_INVOKABLE void set(const QString name, const QVariant value);
     Q_INVOKABLE QString getPublicAssets() const;
+    Q_INVOKABLE void sync();
 
 Q_SIGNALS:
     void settingsChanged();

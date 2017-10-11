@@ -73,7 +73,7 @@
 	
 	<invoke-target id="chachkouski.LastappService.start">
         <invoke-target-type>application.headless</invoke-target-type>
-        <invoke-target-name>Lastapp Service</invoke-target-name>
+        <!--<invoke-target-name>Lastapp Service</invoke-target-name>-->
         <entry-point-id>LastappService</entry-point-id>
         <filter>
             <action>bb.action.system.STARTED</action>
@@ -105,9 +105,21 @@
             <mime-type>*</mime-type>
             <property var="uris" value="headless:" />
         </filter>
+        <invoke-target-name>
+        	Switch scrobbling
+        	<text xml:lang="ru">Вкл./Выкл. скробблера Last.fm</text>
+        </invoke-target-name>
+        <!--<entry-point-id>LastappService</entry-point-id>-->
+        <icon>
+              <image>icon_shortcut.png</image>
+       	</icon>
+        <filter>
+        	<action>bb.action.SHORTCUT</action>
+        	<mime-type>application/vnd.blackberry.shortcut</mime-type>
+        </filter>
     </invoke-target>
     
-    <invoke-target id="chachkouski.LastappService.scrobbler.switch">
+    <!--<invoke-target id="chachkouski.LastappService.scrobbler.switch">
         <invoke-target-type>application.headless</invoke-target-type>
         <invoke-target-name>
         	Switch scrobbling
@@ -121,7 +133,7 @@
         	<action>bb.action.SHORTCUT</action>
         	<mime-type>application/vnd.blackberry.shortcut</mime-type>
         </filter>
-    </invoke-target>
+    </invoke-target>-->
 
     <!-- The name that is displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->

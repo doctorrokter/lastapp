@@ -30,6 +30,7 @@
 #include "lastfm/TagController.hpp"
 #include "lastfm/AlbumController.hpp"
 #include "services/ImageService.hpp"
+#include "communication/HeadlessCommunication.hpp"
 
 #include "vendor/Console.hpp"
 
@@ -57,6 +58,7 @@ Q_DECL_EXPORT int main(int argc, char **argv) {
     qRegisterMetaType<TagController*>("TagController*");
     qRegisterMetaType<AlbumController*>("AlbumController*");
     qRegisterMetaType<ImageService*>("ImageService*");
+    qRegisterMetaType<HeadlessCommunication*>("HeadlessCommunication*");
     qmlRegisterUncreatableType<TrackController>("lastFM.controllers", 1, 0, "TrackController", "test");
     qmlRegisterUncreatableType<UserController>("lastFM.controllers", 1, 0, "UserController", "test");
     qmlRegisterUncreatableType<ArtistController>("lastFM.controllers", 1, 0, "ArtistController", "test");

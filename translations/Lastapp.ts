@@ -18,7 +18,7 @@
 <context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="135"/>
+        <location filename="../src/applicationui.cpp" line="146"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -341,6 +341,11 @@
         <source>Hub notifications</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../assets/pages/SettingsPage.qml" line="97"/>
+        <source>Scrobbling</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Stats</name>
@@ -551,11 +556,6 @@
     <message>
         <location filename="../assets/main.qml" line="114"/>
         <source>Charts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="123"/>
-        <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

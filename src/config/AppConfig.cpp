@@ -32,4 +32,8 @@ void AppConfig::set(const QString name, const QVariant value) {
     emit settingsChanged();
 }
 
+void AppConfig::sync() {
+    m_settings.sync();
+}
+
 QString AppConfig::getPublicAssets() const { return m_publicAssetsPath; }

@@ -28,6 +28,9 @@
 #include "Common.hpp"
 #include <QDir>
 
+#define SCROBBLER_ENABLE "scrobbler.enable"
+#define SCROBBLER_DISABLE "scrobbler.disable"
+
 #define LASTAPP_SERVICE "chachkouski.LastappService.start"
 #define START_APP_ACTION "chachkouski.LastappService.START"
 
@@ -43,6 +46,10 @@ ApplicationUI::ApplicationUI(): QObject() {
     m_pNetworkConf = new QNetworkConfigurationManager(this);
     m_pToast = new SystemToast(this);
     m_invokeManager = new InvokeManager(this);
+    m_pCommunication = new HeadlessCommunication(this);
+
+    QCoreApplication::setOrganizationName("mikhail.chachkouski");
+    QCoreApplication::setApplicationName("Last.app");
 
     QString theme = AppConfig::instance()->get("theme").toString();
     if (theme.compare("") != 0) {
@@ -65,6 +72,8 @@ ApplicationUI::ApplicationUI(): QObject() {
     res = QObject::connect(m_pLocaleHandler, SIGNAL(systemLanguageChanged()), this, SLOT(onSystemLanguageChanged()));
     Q_ASSERT(res);
     res = QObject::connect(m_pNetworkConf, SIGNAL(onlineStateChanged(bool)), this, SLOT(onOnlineChanged(bool)));
+    Q_ASSERT(res);
+    res = QObject::connect(m_pCommunication, SIGNAL(commandReceived(const QString&)), this, SLOT(processReceivedCommand(const QString&)));
     Q_ASSERT(res);
     Q_UNUSED(res);
 
@@ -90,11 +99,12 @@ ApplicationUI::ApplicationUI(): QObject() {
     rootContext->setContextProperty("_track", m_pLastFM->getTrackController());
     rootContext->setContextProperty("_imageService", m_pImageService);
     rootContext->setContextProperty("_lang", lang);
+    rootContext->setContextProperty("_communication", m_pCommunication);
 
-    QString headlessScrobbling = AppConfig::instance()->get("headless_scrobbling").toString();
-    if (headlessScrobbling.compare("") == 0 || headlessScrobbling.compare("true") == 0) {
+//    QString headlessScrobbling = AppConfig::instance()->get("headless_scrobbling").toString();
+//    if (headlessScrobbling.compare("") == 0 || headlessScrobbling.compare("true") == 0) {
         startHeadless();
-    }
+//    }
 
     if (AppConfig::instance()->get(LAST_FM_KEY).toString().compare("") == 0) {
         renderLogin();
@@ -110,6 +120,7 @@ ApplicationUI::~ApplicationUI() {
     m_pToast->deleteLater();
     m_pLastFM->deleteLater();
     m_invokeManager->deleteLater();
+    m_pCommunication->deleteLater();
     AppConfig::instance()->deleteLater();
 }
 
@@ -177,5 +188,14 @@ void ApplicationUI::onOnlineChanged(bool online) {
     if (m_online != online) {
         m_online = online;
         emit onlineChanged(m_online);
+    }
+}
+
+void ApplicationUI::processReceivedCommand(const QString& command) {
+    logger.info("Received command from headless: " + command);
+    if (command.compare(SCROBBLER_ENABLE) == 0) {
+        AppConfig::instance()->set("scrobbler_enabled", true);
+    } else if (command.compare(SCROBBLER_DISABLE) == 0) {
+        AppConfig::instance()->set("scrobbler_enabled", false);
     }
 }

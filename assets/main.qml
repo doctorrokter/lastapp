@@ -119,14 +119,14 @@ TabbedPane {
         }
     }
     
-    Tab {
-        title: qsTr("Bookmarks") + Retranslate.onLocaleOrLanguageChanged
-        imageSource: "asset:///images/ic_add_bookmarks.png"
-        
-        onTriggered: {
-            tabbedPane.changePane(bookmarksPane);
-        }
-    }
+//    Tab {
+//        title: qsTr("Bookmarks") + Retranslate.onLocaleOrLanguageChanged
+//        imageSource: "asset:///images/ic_add_bookmarks.png"
+//        
+//        onTriggered: {
+//            tabbedPane.changePane(bookmarksPane);
+//        }
+//    }
     
     Tab {
         title: qsTr("My Profile") + Retranslate.onLocaleOrLanguageChanged

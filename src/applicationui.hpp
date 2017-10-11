@@ -26,6 +26,7 @@
 #include <bb/system/InvokeManager>
 #include <bb/system/InvokeRequest>
 #include <bb/system/InvokeTargetReply>
+#include "communication/HeadlessCommunication.hpp"
 
 namespace bb
 {
@@ -66,6 +67,7 @@ private slots:
     void storeAccessToken(const QString& name, const QString& accessToken);
     void onOnlineChanged(bool online);
     void headlessInvoked();
+    void processReceivedCommand(const QString& command);
 
 private:
     QTranslator* m_pTranslator;
@@ -78,6 +80,8 @@ private:
     bool m_online;
 
     InvokeManager* m_invokeManager;
+    HeadlessCommunication* m_pCommunication;
+
     static Logger logger;
 
     void renderLogin();
