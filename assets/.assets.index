@@ -1,8 +1,9 @@
 1
-62
+65
 components/AlbumTrackListItem.qml
 components/ArtistsCarousel.qml
 components/BioContainer.qml
+components/Changelog.qml
 components/CustomTitleBar.qml
 components/Friend.qml
 components/Gradient.qml
@@ -27,6 +28,7 @@ components/UserTopTrack.qml
 components/WebImageView.qml
 images/concert_bg.jpg
 images/gradient.png
+images/grey_pellet.png
 images/heart_empty.png
 images/heart_filled.png
 images/ic_add_bookmarks.png
@@ -48,6 +50,7 @@ pages/AlbumPage.qml
 pages/ArtistPage.qml
 pages/ArtistTopTracks.qml
 pages/BookmarksPage.qml
+pages/ChangelogPage.qml
 pages/ChartsPage.qml
 pages/FriendsPage.qml
 pages/HelpPage.qml

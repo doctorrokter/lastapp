@@ -379,7 +379,17 @@ TabbedPane {
         
         ComponentDefinition {
             id: helpPage
-            HelpPage {}
+            HelpPage {
+                onChangelogPageRequested: {
+                    var cp = changelogPage.createObject();
+                    tabbedPane.activePane.push(cp);
+                }
+            }
+        },
+        
+        ComponentDefinition {
+            id: changelogPage
+            ChangelogPage {}
         }
     ]
     

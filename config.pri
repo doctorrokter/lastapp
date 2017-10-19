@@ -39,6 +39,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/AlbumTrackListItem.qml) \
         $$quote($$BASEDIR/assets/components/ArtistsCarousel.qml) \
         $$quote($$BASEDIR/assets/components/BioContainer.qml) \
+        $$quote($$BASEDIR/assets/components/Changelog.qml) \
         $$quote($$BASEDIR/assets/components/CustomTitleBar.qml) \
         $$quote($$BASEDIR/assets/components/Friend.qml) \
         $$quote($$BASEDIR/assets/components/Gradient.qml) \
@@ -64,6 +65,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/Lastfm_logo.png) \
         $$quote($$BASEDIR/assets/images/concert_bg.jpg) \
         $$quote($$BASEDIR/assets/images/gradient.png) \
+        $$quote($$BASEDIR/assets/images/grey_pellet.png) \
         $$quote($$BASEDIR/assets/images/heart_empty.png) \
         $$quote($$BASEDIR/assets/images/heart_filled.png) \
         $$quote($$BASEDIR/assets/images/ic_add_bookmarks.png) \
@@ -84,6 +86,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/ArtistPage.qml) \
         $$quote($$BASEDIR/assets/pages/ArtistTopTracks.qml) \
         $$quote($$BASEDIR/assets/pages/BookmarksPage.qml) \
+        $$quote($$BASEDIR/assets/pages/ChangelogPage.qml) \
         $$quote($$BASEDIR/assets/pages/ChartsPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/HelpPage.qml) \

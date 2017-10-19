@@ -86,6 +86,45 @@
     </message>
 </context>
 <context>
+    <name>ChangelogPage</name>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="8"/>
+        <source>Changelog</source>
+        <translation type="unfinished">Список изменений</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="19"/>
+        <source>Version 1.1.0</source>
+        <translation type="unfinished">Версия 1.1.0</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="23"/>
+        <source>Added Changelog page :)</source>
+        <translation type="unfinished">Добавлена страница списка изменений :)</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="27"/>
+        <source>Enable/Disable scrobbling in app settings</source>
+        <translation type="unfinished">Включение/Выключение скробблера в настройках приложения.</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="31"/>
+        <source>Added possibility to enable/disable scrobbling via system hot keys without launching UI part of app</source>
+        <translation type="unfinished">Возможность назначения включения/выключения скробблера в системных настройках горячих клавиш. В этом случае регулировка работы скробблера может осуществляться без запуска приложения.</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="35"/>
+        <source>Long numbers converted to short format. 
+Ex.: 10000 became as 10k.</source>
+        <translation type="unfinished">Длинные числа сокращены до коротких форм (Например: 10000 будет выглядеть как 10тыс. и т.д.).</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="39"/>
+        <source>Small UI improvements</source>
+        <translation type="unfinished">Небольшие изменения в интерфейсе, добавлены градиенты к фото.</translation>
+    </message>
+</context>
+<context>
     <name>ChartsPage</name>
     <message>
         <location filename="../assets/pages/ChartsPage.qml" line="21"/>
@@ -127,29 +166,34 @@
 <context>
     <name>HelpPage</name>
     <message>
-        <location filename="../assets/pages/HelpPage.qml" line="10"/>
+        <location filename="../assets/pages/HelpPage.qml" line="12"/>
         <source>About</source>
         <translation type="unfinished">О приложении</translation>
     </message>
     <message>
-        <location filename="../assets/pages/HelpPage.qml" line="32"/>
+        <location filename="../assets/pages/HelpPage.qml" line="33"/>
         <source>Author:</source>
         <translation type="unfinished">Автор: </translation>
     </message>
     <message>
-        <location filename="../assets/pages/HelpPage.qml" line="55"/>
+        <location filename="../assets/pages/HelpPage.qml" line="58"/>
         <source>App name: </source>
         <translation type="unfinished">Название: </translation>
     </message>
     <message>
-        <location filename="../assets/pages/HelpPage.qml" line="59"/>
+        <location filename="../assets/pages/HelpPage.qml" line="62"/>
         <source>App version: </source>
         <translation type="unfinished">Версия: </translation>
     </message>
     <message>
-        <location filename="../assets/pages/HelpPage.qml" line="63"/>
+        <location filename="../assets/pages/HelpPage.qml" line="66"/>
         <source>OS version: </source>
         <translation type="unfinished">Версия ОС: </translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/HelpPage.qml" line="74"/>
+        <source>Changelog</source>
+        <translation type="unfinished">Список изменений</translation>
     </message>
 </context>
 <context>

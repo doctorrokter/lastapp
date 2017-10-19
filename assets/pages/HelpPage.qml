@@ -6,6 +6,8 @@ import "../components"
 Page {
     id: root
     
+    signal changelogPageRequested()
+    
     titleBar: CustomTitleBar {
         title: qsTr("About") + Retranslate.onLocaleOrLanguageChanged
     }
@@ -18,12 +20,11 @@ Page {
         
         Container {
             
-            leftPadding: ui.du(2.5)
-            topPadding: ui.du(2.5)
-            rightPadding: ui.du(2.5)
-            bottomPadding: ui.du(2.5)
-            
             Container {
+                leftPadding: ui.du(2.5)
+                topPadding: ui.du(2.5)
+                rightPadding: ui.du(2.5)
+                
                 layout: StackLayout {
                     orientation: LayoutOrientation.LeftToRight
                 }
@@ -46,11 +47,13 @@ Page {
                         }
                     ]
                 }
-                
-                bottomPadding: ui.du(2.5)
             }
             
             Container {
+                leftPadding: ui.du(2.5)
+                topPadding: ui.du(2.5)
+                rightPadding: ui.du(2.5)
+                
                 Label { 
                     text: (qsTr("App name: ") + Retranslate.onLocaleOrLanguageChanged) + Application.applicationName
                 }
@@ -61,6 +64,19 @@ Page {
                 
                 Label {
                     text: (qsTr("OS version: ") + Retranslate.onLocaleOrLanguageChanged) + platform.osVersion
+                }
+            }
+            
+            Container {
+                topMargin: ui.du(2.5)
+                
+                Header {
+                    title: qsTr("Changelog") + Retranslate.onLocaleOrLanguageChanged
+                    mode: HeaderMode.Interactive
+                    
+                    onClicked: {
+                        root.changelogPageRequested();
+                    }
                 }
             }
         }
