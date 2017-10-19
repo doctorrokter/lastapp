@@ -30,11 +30,8 @@ HeadlessCommunication::~HeadlessCommunication() {
         m_pSocket->close();
         m_pSocket->deleteLater();
     }
-
-    if (m_pServer != NULL) {
-        m_pServer->close();
-        m_pServer->deleteLater();
-    }
+    m_pServer->close();
+    m_pServer->deleteLater();
 }
 
 void HeadlessCommunication::send(const QString& command) {

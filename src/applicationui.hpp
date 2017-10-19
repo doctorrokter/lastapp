@@ -50,6 +50,7 @@ using namespace bb::lastfm;
 class ApplicationUI : public QObject {
     Q_OBJECT
     Q_PROPERTY(bool online READ isOnline NOTIFY onlineChanged)
+    Q_PROPERTY(bool scrobblerEnabled READ isScrobblerEnabled WRITE setScrobblerEnabled NOTIFY scrobblerEnabledChanged)
 public:
     ApplicationUI();
     virtual ~ApplicationUI();
@@ -58,9 +59,12 @@ public:
     Q_INVOKABLE void stopHeadless();
     Q_INVOKABLE void startHeadless();
     bool isOnline() const;
+    bool isScrobblerEnabled() const;
+    void setScrobblerEnabled(const bool& scrobblingEnabled);
 
     Q_SIGNALS:
         void onlineChanged(const bool& online);
+        void scrobblerEnabledChanged(const bool& scrobblerEnabled);
 
 private slots:
     void onSystemLanguageChanged();
@@ -78,6 +82,7 @@ private:
     LastFM* m_pLastFM;
     ImageService* m_pImageService;
     bool m_online;
+    bool m_scrobblerEnabled;
 
     InvokeManager* m_invokeManager;
     HeadlessCommunication* m_pCommunication;

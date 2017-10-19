@@ -18,7 +18,7 @@
 <context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="146"/>
+        <location filename="../src/applicationui.cpp" line="143"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>

@@ -49,7 +49,7 @@ ApplicationUI::ApplicationUI(): QObject() {
     m_pCommunication = new HeadlessCommunication(this);
 
     QCoreApplication::setOrganizationName("mikhail.chachkouski");
-    QCoreApplication::setApplicationName("Last.app");
+    QCoreApplication::setApplicationName("Lastapp");
 
     QString theme = AppConfig::instance()->get("theme").toString();
     if (theme.compare("") != 0) {
@@ -101,10 +101,7 @@ ApplicationUI::ApplicationUI(): QObject() {
     rootContext->setContextProperty("_lang", lang);
     rootContext->setContextProperty("_communication", m_pCommunication);
 
-//    QString headlessScrobbling = AppConfig::instance()->get("headless_scrobbling").toString();
-//    if (headlessScrobbling.compare("") == 0 || headlessScrobbling.compare("true") == 0) {
-        startHeadless();
-//    }
+    startHeadless();
 
     if (AppConfig::instance()->get(LAST_FM_KEY).toString().compare("") == 0) {
         renderLogin();
@@ -191,11 +188,20 @@ void ApplicationUI::onOnlineChanged(bool online) {
     }
 }
 
+bool ApplicationUI::isScrobblerEnabled() const {
+    return m_scrobblerEnabled;
+}
+
+void ApplicationUI::setScrobblerEnabled(const bool& scrobblingEnabled) {
+    m_scrobblerEnabled = scrobblingEnabled;
+    emit scrobblerEnabledChanged(m_scrobblerEnabled);
+}
+
 void ApplicationUI::processReceivedCommand(const QString& command) {
     logger.info("Received command from headless: " + command);
     if (command.compare(SCROBBLER_ENABLE) == 0) {
-        AppConfig::instance()->set("scrobbler_enabled", true);
+        setScrobblerEnabled(true);
     } else if (command.compare(SCROBBLER_DISABLE) == 0) {
-        AppConfig::instance()->set("scrobbler_enabled", false);
+        setScrobblerEnabled(false);
     }
 }

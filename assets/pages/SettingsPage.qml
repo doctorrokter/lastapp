@@ -105,18 +105,15 @@ Page {
                         
                         onCheckedChanged: {
                             if (checked) {
+                                _app.scrobblerEnabled = true;
                                 _communication.send("scrobbler.enable");
                             } else {
+                                _app.scrobblerEnabled = false;
                                 _communication.send("scrobbler.disable");
                             }
-                            _appConfig.set("scrobbler_enabled", checked);
                         }
                         
-                        checked: {
-                            var headless = _appConfig.get("scrobbler_enabled");
-                            console.debug("HEADLESS: " + headless);
-                            return headless === "" || headless === "true";
-                        }
+                        checked: _app.scrobblerEnabled
                     }
                 }
                 
@@ -138,14 +135,8 @@ Page {
         notifyToggle.checked = notify === "" || notify === "true";
     }
     
-    function adjustHeadless() {
-        var headless = _appConfig.get("headless_scrobbling");
-        headlessToggle.checked = headless === "" || headless === "true";
-    }
-    
     onCreationCompleted: {
         adjustTheme();
         adjustNotification();
-//        adjustHeadless();
     }
 }
