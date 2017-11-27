@@ -75,11 +75,15 @@ Page {
                         id: notifyToggle
                         horizontalAlignment: HorizontalAlignment.Right
                         
+                        checked: _app.notificationsEnabled
+                        
                         onCheckedChanged: {
                             if (checked) {
-                                _appConfig.set("notify_now_playing", "true");
+                                _app.notificationsEnabled = true;
+                                _communication.send("hub.notifications.enable");
                             } else {
-                                _appConfig.set("notify_now_playing", "false");
+                                _app.notificationsEnabled = false;
+                                _communication.send("hub.notifications.disable");
                             }
                         }
                     }
@@ -103,6 +107,8 @@ Page {
                         id: headlessToggle
                         horizontalAlignment: HorizontalAlignment.Right
                         
+                        checked: _app.scrobblerEnabled
+                        
                         onCheckedChanged: {
                             if (checked) {
                                 _app.scrobblerEnabled = true;
@@ -112,8 +118,6 @@ Page {
                                 _communication.send("scrobbler.disable");
                             }
                         }
-                        
-                        checked: _app.scrobblerEnabled
                     }
                 }
                 
@@ -130,13 +134,7 @@ Page {
         themeToggle.checked = theme && theme === "DARK";
     }
     
-    function adjustNotification() {
-        var notify = _appConfig.get("notify_now_playing");
-        notifyToggle.checked = notify === "" || notify === "true";
-    }
-    
     onCreationCompleted: {
         adjustTheme();
-        adjustNotification();
     }
 }

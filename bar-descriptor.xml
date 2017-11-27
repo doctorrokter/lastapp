@@ -145,7 +145,7 @@
     <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade.
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
          An updated version of application must have a versionNumber value higher than the previous version. Required. -->
-    <versionNumber>1.1.0</versionNumber>
+    <versionNumber>1.2.0</versionNumber>
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
@@ -202,16 +202,17 @@
     <asset path="translations" dest="qm">
         <include name="*.qm"/>
     </asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/icons/icon_144_x_144.png">icon_144_x_144.png</asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/icons/icon_110_x_110.png">icon_110_x_110.png</asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/icons/icon_96_x_96.png">icon_96_x_96.png</asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/icons/icon_90_x_90.png">icon_90_x_90.png</asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_1440_x_1440.png">splash_1440_x_1440.png</asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_720_x_720.png">splash_720_x_720.png</asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_768_x_1280.png">splash_768_x_1280.png</asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_720_x_1280.png">splash_720_x_1280.png</asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_1280_x_768.png">splash_1280_x_768.png</asset>
-    <asset path="C:/Users/misha/YandexDisk/Dev/LastApp/splashscreens/splash_1280_x_720.png">splash_1280_x_720.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/splashscreens/splash_720_x_720.png">splash_720_x_720.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/splashscreens/splash_720_x_1280.png">splash_720_x_1280.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/splashscreens/splash_768_x_1280.png">splash_768_x_1280.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/splashscreens/splash_1280_x_720.png">splash_1280_x_720.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/splashscreens/splash_1280_x_768.png">splash_1280_x_768.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/splashscreens/splash_1440_x_1440.png">splash_1440_x_1440.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/icons/icon_90_x_90.png">icon_90_x_90.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/icons/icon_96_x_96.png">icon_96_x_96.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/icons/icon_110_x_110.png">icon_110_x_110.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/icons/icon_144_x_144.png">icon_144_x_144.png</asset>
+    <asset path="E:/YandexDisk/Dev/LastApp/icons/icon_480_x_480.png">icon_480_x_480.png</asset>
 
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

@@ -31,6 +31,9 @@
 #define SCROBBLER_ENABLE "scrobbler.enable"
 #define SCROBBLER_DISABLE "scrobbler.disable"
 
+#define HUB_NOTIFICATIONS_ENABLE "hub.notifications.enable"
+#define HUB_NOTIFICATIONS_DISABLE "hub.notifications.disable"
+
 #define LASTAPP_SERVICE "chachkouski.LastappService.start"
 #define START_APP_ACTION "chachkouski.LastappService.START"
 
@@ -197,11 +200,24 @@ void ApplicationUI::setScrobblerEnabled(const bool& scrobblingEnabled) {
     emit scrobblerEnabledChanged(m_scrobblerEnabled);
 }
 
+bool ApplicationUI::isNotificationsEnabled() const {
+    return m_notificationsEnabled;
+}
+
+void ApplicationUI::setNotificationsEnabled(const bool& notificationsEnabled) {
+    m_notificationsEnabled = notificationsEnabled;
+    emit notificationsEnabledChanged(m_notificationsEnabled);
+}
+
 void ApplicationUI::processReceivedCommand(const QString& command) {
     logger.info("Received command from headless: " + command);
     if (command.compare(SCROBBLER_ENABLE) == 0) {
         setScrobblerEnabled(true);
     } else if (command.compare(SCROBBLER_DISABLE) == 0) {
         setScrobblerEnabled(false);
+    } else if (command.compare(HUB_NOTIFICATIONS_ENABLE) == 0) {
+        setNotificationsEnabled(true);
+    } else if (command.compare(HUB_NOTIFICATIONS_DISABLE) == 0) {
+        setNotificationsEnabled(false);
     }
 }

@@ -18,7 +18,7 @@
 <context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="143"/>
+        <location filename="../src/applicationui.cpp" line="146"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -386,7 +386,7 @@ Ex.: 10000 became as 10k.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/SettingsPage.qml" line="97"/>
+        <location filename="../assets/pages/SettingsPage.qml" line="101"/>
         <source>Scrobbling</source>
         <translation type="unfinished"></translation>
     </message>

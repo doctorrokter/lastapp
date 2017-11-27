@@ -51,6 +51,7 @@ class ApplicationUI : public QObject {
     Q_OBJECT
     Q_PROPERTY(bool online READ isOnline NOTIFY onlineChanged)
     Q_PROPERTY(bool scrobblerEnabled READ isScrobblerEnabled WRITE setScrobblerEnabled NOTIFY scrobblerEnabledChanged)
+    Q_PROPERTY(bool notificationsEnabled READ isNotificationsEnabled WRITE setNotificationsEnabled NOTIFY notificationsEnabledChanged)
 public:
     ApplicationUI();
     virtual ~ApplicationUI();
@@ -62,9 +63,13 @@ public:
     bool isScrobblerEnabled() const;
     void setScrobblerEnabled(const bool& scrobblingEnabled);
 
+    bool isNotificationsEnabled() const;
+    void setNotificationsEnabled(const bool& notificationsEnabled);
+
     Q_SIGNALS:
         void onlineChanged(const bool& online);
         void scrobblerEnabledChanged(const bool& scrobblerEnabled);
+        void notificationsEnabledChanged(const bool& notificationsEnabledChanged);
 
 private slots:
     void onSystemLanguageChanged();
@@ -83,6 +88,7 @@ private:
     ImageService* m_pImageService;
     bool m_online;
     bool m_scrobblerEnabled;
+    bool m_notificationsEnabled;
 
     InvokeManager* m_invokeManager;
     HeadlessCommunication* m_pCommunication;
