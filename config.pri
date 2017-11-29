@@ -79,6 +79,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/ic_feedback.png) \
         $$quote($$BASEDIR/assets/images/ic_groups_white.png) \
         $$quote($$BASEDIR/assets/images/ic_reload.png) \
+        $$quote($$BASEDIR/assets/images/ic_search.png) \
         $$quote($$BASEDIR/assets/images/opac_bg.png) \
         $$quote($$BASEDIR/assets/js/util.js) \
         $$quote($$BASEDIR/assets/main.qml) \
@@ -94,6 +95,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/LovedTracksPage.qml) \
         $$quote($$BASEDIR/assets/pages/MyProfilePage.qml) \
         $$quote($$BASEDIR/assets/pages/ScrobblesPage.qml) \
+        $$quote($$BASEDIR/assets/pages/SearchPage.qml) \
         $$quote($$BASEDIR/assets/pages/SettingsPage.qml) \
         $$quote($$BASEDIR/assets/pages/TagPage.qml) \
         $$quote($$BASEDIR/assets/pages/TopAlbumsPage.qml) \

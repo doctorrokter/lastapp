@@ -119,6 +119,15 @@ TabbedPane {
         }
     }
     
+    Tab {
+        title: qsTr("Search") + Retranslate.onLocaleOrLanguageChanged
+        imageSource: "asset:///images/ic_search.png"
+        
+        onTriggered: {
+            tabbedPane.changePane(searchPane);
+        }
+    }
+    
 //    Tab {
 //        title: qsTr("Bookmarks") + Retranslate.onLocaleOrLanguageChanged
 //        imageSource: "asset:///images/ic_add_bookmarks.png"
@@ -243,6 +252,28 @@ TabbedPane {
                     tabbedPane.openTrackPage(name, mbid, artist);
                 }
             }  
+        },
+        
+        NavigationPane {
+            id: searchPane
+            
+            onPopTransitionEnded: {
+                tabbedPane.popPage(page);
+            }
+            
+            SearchPage {
+                onArtistChosen: {
+                    tabbedPane.openArtistPage(name, mbid);
+                }    
+                
+                onAlbumChosen: {
+                    tabbedPane.openAlbumPage(artist, name, mbid);
+                }
+                
+                onTrackChosen: {
+                    tabbedPane.openTrackPage(name, mbid, artist);
+                }
+            }     
         },
         
         NavigationPane {

@@ -3,6 +3,9 @@ import bb.cascades 1.4
 TitleBar {
     id: root
     
+    property string hintText: ""
+    property bool showCancel: true
+    
     signal cancel();
     signal typing(string text);
 
@@ -26,6 +29,7 @@ TitleBar {
                 
                 backgroundVisible: false
                 inputMode: TextFieldInputMode.Text
+                hintText: root.hintText
                 
                 input {
                     keyLayout: KeyLayout.Text
@@ -43,9 +47,10 @@ TitleBar {
             }
             
             Button {
-                text: qsTr("Cancel") + Retranslate.onLocaleOrLanguageChanged
-                maxWidth: ui.du(20)
+                text: "X"
+                maxWidth: ui.du(8)
                 color: ui.palette.primary
+                visible: root.showCancel
                 
                 onClicked: {
                     tasksInputField.resetText();
@@ -61,5 +66,9 @@ TitleBar {
     
     function reset() {
         tasksInputField.resetText();
+    }
+    
+    function value() {
+        return tasksInputField.text;
     }
 }

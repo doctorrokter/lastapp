@@ -1,5 +1,5 @@
 1
-65
+67
 components/AlbumTrackListItem.qml
 components/ArtistsCarousel.qml
 components/BioContainer.qml
@@ -42,6 +42,7 @@ images/ic_favorite.png
 images/ic_feedback.png
 images/ic_groups_white.png
 images/ic_reload.png
+images/ic_search.png
 images/Lastfm_logo.png
 images/opac_bg.png
 js/util.js
@@ -58,6 +59,7 @@ pages/Login.qml
 pages/LovedTracksPage.qml
 pages/MyProfilePage.qml
 pages/ScrobblesPage.qml
+pages/SearchPage.qml
 pages/SettingsPage.qml
 pages/TagPage.qml
 pages/TopAlbumsPage.qml

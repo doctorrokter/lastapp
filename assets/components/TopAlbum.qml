@@ -12,6 +12,7 @@ Container {
         url: ""
     }
     property int playcount: 0
+    property int listeners: 0
     property string url: ""
     property string image: ""
     
@@ -57,6 +58,15 @@ Container {
                 visible: root.playcount !== 0
                 verticalAlignment: VerticalAlignment.Bottom
                 text: Util.abbrNum(root.playcount, 2) + " " + (qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged)
+                textStyle.color: ui.palette.textOnPrimary
+                textStyle.base: SystemDefaults.TextStyles.SubtitleText
+                textStyle.fontWeight: FontWeight.W100
+            }
+            
+            Label {
+                visible: root.listeners !== 0
+                verticalAlignment: VerticalAlignment.Bottom
+                text: Util.abbrNum(root.listeners, 2) + " " + (qsTr("listeners") + Retranslate.onLocaleOrLanguageChanged)
                 textStyle.color: ui.palette.textOnPrimary
                 textStyle.base: SystemDefaults.TextStyles.SubtitleText
                 textStyle.fontWeight: FontWeight.W100

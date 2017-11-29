@@ -199,9 +199,8 @@ Ex.: 10000 became as 10k.</source>
 <context>
     <name>InputTitleBar</name>
     <message>
-        <location filename="../assets/components/InputTitleBar.qml" line="46"/>
         <source>Cancel</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation type="obsolete">Отмена</translation>
     </message>
 </context>
 <context>
@@ -359,6 +358,49 @@ Ex.: 10000 became as 10k.</source>
     </message>
 </context>
 <context>
+    <name>SearchPage</name>
+    <message>
+        <location filename="../assets/pages/SearchPage.qml" line="24"/>
+        <source>Artist name</source>
+        <translation type="unfinished">Название артиста</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/SearchPage.qml" line="46"/>
+        <source>Artists</source>
+        <translation type="unfinished">Артисты</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/SearchPage.qml" line="51"/>
+        <source>Tracks</source>
+        <translation type="unfinished">Треки</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/SearchPage.qml" line="56"/>
+        <source>Albums</source>
+        <translation type="unfinished">Альбомы</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/SearchPage.qml" line="66"/>
+        <source>Aritst name</source>
+        <translation type="unfinished">Название артиста</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/SearchPage.qml" line="69"/>
+        <source>Track name or &apos;Artist name - Track name&apos;</source>
+        <translation type="unfinished">Nhtr или &apos;Артист - Трек&apos;</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/SearchPage.qml" line="72"/>
+        <source>Album name</source>
+        <translation type="unfinished">Название альбома</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/SearchPage.qml" line="210"/>
+        <source>Search</source>
+        <translation type="unfinished">Поиск</translation>
+    </message>
+</context>
+<context>
     <name>SettingsPage</name>
     <message>
         <location filename="../assets/pages/SettingsPage.qml" line="11"/>
@@ -430,9 +472,14 @@ Ex.: 10000 became as 10k.</source>
 <context>
     <name>TopAlbum</name>
     <message>
-        <location filename="../assets/components/TopAlbum.qml" line="59"/>
+        <location filename="../assets/components/TopAlbum.qml" line="60"/>
         <source>Scrobbles</source>
         <translation type="unfinished">Заскробблено</translation>
+    </message>
+    <message>
+        <location filename="../assets/components/TopAlbum.qml" line="69"/>
+        <source>listeners</source>
+        <translation type="unfinished">слушателей</translation>
     </message>
 </context>
 <context>
@@ -462,9 +509,14 @@ Ex.: 10000 became as 10k.</source>
 <context>
     <name>TopTrack</name>
     <message>
-        <location filename="../assets/components/TopTrack.qml" line="67"/>
+        <location filename="../assets/components/TopTrack.qml" line="68"/>
         <source>Scrobbles</source>
         <translation type="unfinished">Заскробблено</translation>
+    </message>
+    <message>
+        <location filename="../assets/components/TopTrack.qml" line="76"/>
+        <source>listeners</source>
+        <translation type="unfinished">слушателей</translation>
     </message>
 </context>
 <context>
@@ -550,12 +602,12 @@ Ex.: 10000 became as 10k.</source>
 <context>
     <name>bb::lastfm::controllers::TrackController</name>
     <message>
-        <location filename="../src/lastfm/TrackController.cpp" line="239"/>
+        <location filename="../src/lastfm/TrackController.cpp" line="273"/>
         <source>Track loved!</source>
         <translation type="unfinished">Трек отмечен как понравившийся!</translation>
     </message>
     <message>
-        <location filename="../src/lastfm/TrackController.cpp" line="252"/>
+        <location filename="../src/lastfm/TrackController.cpp" line="286"/>
         <source>Track unloved</source>
         <translation type="unfinished">Трек убран из понравившихся</translation>
     </message>
@@ -603,12 +655,17 @@ Ex.: 10000 became as 10k.</source>
         <translation type="unfinished">Чарты</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="132"/>
+        <location filename="../assets/main.qml" line="123"/>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="141"/>
         <source>My Profile</source>
         <translation type="unfinished">Мой профиль</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="141"/>
+        <location filename="../assets/main.qml" line="150"/>
         <source>Friends</source>
         <translation type="unfinished">Друзья</translation>
     </message>

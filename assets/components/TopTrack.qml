@@ -12,6 +12,7 @@ Container {
         url: ""
     }
     property int playcount: 0
+    property int listeners: 0
     property int maxCount: 0
     property string image: ""
     property string url: ""
@@ -65,6 +66,14 @@ Container {
             Label {
                 visible: root.playcount !== 0
                 text: Util.abbrNum(root.playcount, 2) + " " + (qsTr("Scrobbles") + Retranslate.onLocaleOrLanguageChanged)
+                textStyle.color: ui.palette.secondaryTextOnPlain
+                textStyle.base: SystemDefaults.TextStyles.SmallText
+                verticalAlignment: VerticalAlignment.Center
+            }
+            
+            Label {
+                visible: root.listeners !== 0
+                text: Util.abbrNum(root.listeners, 2) + " " + (qsTr("listeners") + Retranslate.onLocaleOrLanguageChanged)
                 textStyle.color: ui.palette.secondaryTextOnPlain
                 textStyle.base: SystemDefaults.TextStyles.SmallText
                 verticalAlignment: VerticalAlignment.Center

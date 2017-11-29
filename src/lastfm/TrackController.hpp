@@ -31,6 +31,7 @@ public:
     Q_INVOKABLE void love(const QString& artist, const QString& track);
     Q_INVOKABLE void unlove(const QString& artist, const QString& track);
     Q_INVOKABLE void getInfo(const QString& track, const QString& artist, const QString& mbid = "", const QString& username = "", const int& autocorrect = 1);
+    Q_INVOKABLE void search(const QString& track, const QString& artist = "", const int& page = 1, const int& limit = 50);
 
     Q_SIGNALS:
         void nowPlayingUpdated();
@@ -38,6 +39,7 @@ public:
         void loved(const QString& artist, const QString& track);
         void unloved(const QString& artist, const QString& track);
         void infoLoaded(const QVariantMap& track);
+        void searchLoaded(const QVariantList& searchResult);
         void error();
 
 private slots:
@@ -46,6 +48,7 @@ private slots:
     void onLoved();
     void onUnloved();
     void onInfoLoaded();
+    void onSearchLoaded();
     void onError(QNetworkReply::NetworkError e);
 
 private:

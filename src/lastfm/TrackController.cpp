@@ -220,6 +220,40 @@ void TrackController::onInfoLoaded() {
     reply->deleteLater();
 }
 
+void TrackController::search(const QString& track, const QString& artist, const int& page, const int& limit) {
+    QUrl url = LastFM::defaultUrl(TRACK_SEARCH);
+    url.addQueryItem("page", QString::number(page));
+    url.addQueryItem("limit", QString::number(limit));
+    url.addQueryItem("track", track);
+    if (!artist.isEmpty()) {
+        url.addQueryItem("artist", artist);
+    }
+
+    logger.info(url);
+
+    QNetworkRequest req;
+    req.setUrl(url);
+
+    QNetworkReply* reply = m_pNetwork->get(req);
+    bool res = QObject::connect(reply, SIGNAL(finished()), this, SLOT(onSearchLoaded()));
+    Q_ASSERT(res);
+    res = QObject::connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(onError(QNetworkReply::NetworkError)));
+    Q_ASSERT(res);
+    Q_UNUSED(res);
+}
+
+void TrackController::onSearchLoaded() {
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
+
+    if (reply->error() == QNetworkReply::NoError) {
+        JsonDataAccess jda;
+        QVariantList tracks = jda.loadFromBuffer(reply->readAll()).toMap().value("results").toMap().value("trackmatches").toMap().value("track").toList();
+        emit searchLoaded(tracks);
+    }
+
+    reply->deleteLater();
+}
+
 void TrackController::onScrobbled() {
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
 

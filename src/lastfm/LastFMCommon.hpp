@@ -22,6 +22,7 @@
 #define TRACK_LOVE "track.love"
 #define TRACK_UNLOVE "track.unlove"
 #define TRACK_GET_INFO "track.getInfo"
+#define TRACK_SEARCH "track.search"
 
 #define USER_GET_RECENT_TRACKS "user.getRecentTracks"
 #define USER_GET_TOP_ARTISTS "user.getTopArtists"
@@ -33,6 +34,7 @@
 
 #define ARTIST_GET_INFO "artist.getInfo"
 #define ARTIST_GET_TOP_TRACKS "artist.getTopTracks"
+#define ARTIST_SEARCH "artist.search"
 
 #define CHART_GET_TOP_ARTISTS "chart.getTopArtists"
 #define CHART_GET_TOP_TAGS "chart.getTopTags"
@@ -43,5 +45,6 @@
 #define TAG_GET_TOP_TRACKS "tag.getTopTracks"
 
 #define ALBUM_GET_INFO "album.getInfo"
+#define ALBUM_SEARCH "album.search"
 
 #endif /* LASTFMCOMMON_HPP_ */

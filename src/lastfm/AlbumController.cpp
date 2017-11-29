@@ -67,6 +67,37 @@ namespace bb {
                 reply->deleteLater();
             }
 
+            void AlbumController::search(const QString& album, const int& page, const int& limit) {
+                QUrl url = LastFM::defaultUrl(ALBUM_SEARCH);
+                url.addQueryItem("page", QString::number(page));
+                url.addQueryItem("limit", QString::number(limit));
+                url.addQueryItem("album", album);
+
+                logger.info(url);
+
+                QNetworkRequest req;
+                req.setUrl(url);
+
+                QNetworkReply* reply = m_pNetwork->get(req);
+                bool res = QObject::connect(reply, SIGNAL(finished()), this, SLOT(onSearchLoaded()));
+                Q_ASSERT(res);
+                res = QObject::connect(reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(onError(QNetworkReply::NetworkError)));
+                Q_ASSERT(res);
+                Q_UNUSED(res);
+            }
+
+            void AlbumController::onSearchLoaded() {
+                QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
+
+                if (reply->error() == QNetworkReply::NoError) {
+                    JsonDataAccess jda;
+                    QVariantList albums = jda.loadFromBuffer(reply->readAll()).toMap().value("results").toMap().value("albummatches").toMap().value("album").toList();
+                    emit searchLoaded(albums);
+                }
+
+                reply->deleteLater();
+            }
+
             void AlbumController::onError(QNetworkReply::NetworkError e) {
                 QNetworkReply* reply = qobject_cast<QNetworkReply*>(QObject::sender());
                 logger.error(e);
