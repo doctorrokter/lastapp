@@ -15,6 +15,19 @@ Page {
         scrollRole: ScrollRole.Main
         
         Container {
+            
+            Header {
+                title: qsTr("Version 1.2.0") + Retranslate.onLocaleOrLanguageChanged
+            }
+            
+            Changelog {
+                description: qsTr("Added Search for artist, albums and tracks.")
+            }
+            
+            Changelog {
+                description: qsTr("Fixed bugs") + Retranslate.onLocaleOrLanguageChanged
+            }
+            
             Header {
                 title: qsTr("Version 1.1.0") + Retranslate.onLocaleOrLanguageChanged
             }

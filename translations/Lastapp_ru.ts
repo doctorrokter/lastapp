@@ -72,12 +72,12 @@
     <message>
         <location filename="../assets/pages/BookmarksPage.qml" line="36"/>
         <source>Artists</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Артисты</translation>
     </message>
     <message>
         <location filename="../assets/pages/BookmarksPage.qml" line="42"/>
         <source>Albums</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Альбомы</translation>
     </message>
     <message>
         <location filename="../assets/pages/BookmarksPage.qml" line="47"/>
@@ -93,33 +93,48 @@
         <translation type="unfinished">Список изменений</translation>
     </message>
     <message>
-        <location filename="../assets/pages/ChangelogPage.qml" line="19"/>
+        <location filename="../assets/pages/ChangelogPage.qml" line="20"/>
+        <source>Version 1.2.0</source>
+        <translation type="unfinished">Версия 1.2.0</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="24"/>
+        <source>Added Search for artist, albums and tracks.</source>
+        <translation type="unfinished">Добавлен поиск для артистов, альбомов и треков.</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="28"/>
+        <source>Fixed bugs</source>
+        <translation type="unfinished">Исправлены ошибки</translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/ChangelogPage.qml" line="32"/>
         <source>Version 1.1.0</source>
         <translation type="unfinished">Версия 1.1.0</translation>
     </message>
     <message>
-        <location filename="../assets/pages/ChangelogPage.qml" line="23"/>
+        <location filename="../assets/pages/ChangelogPage.qml" line="36"/>
         <source>Added Changelog page :)</source>
         <translation type="unfinished">Добавлена страница списка изменений :)</translation>
     </message>
     <message>
-        <location filename="../assets/pages/ChangelogPage.qml" line="27"/>
+        <location filename="../assets/pages/ChangelogPage.qml" line="40"/>
         <source>Enable/Disable scrobbling in app settings</source>
         <translation type="unfinished">Включение/Выключение скробблера в настройках приложения.</translation>
     </message>
     <message>
-        <location filename="../assets/pages/ChangelogPage.qml" line="31"/>
+        <location filename="../assets/pages/ChangelogPage.qml" line="44"/>
         <source>Added possibility to enable/disable scrobbling via system hot keys without launching UI part of app</source>
         <translation type="unfinished">Возможность назначения включения/выключения скробблера в системных настройках горячих клавиш. В этом случае регулировка работы скробблера может осуществляться без запуска приложения.</translation>
     </message>
     <message>
-        <location filename="../assets/pages/ChangelogPage.qml" line="35"/>
+        <location filename="../assets/pages/ChangelogPage.qml" line="48"/>
         <source>Long numbers converted to short format. 
 Ex.: 10000 became as 10k.</source>
         <translation type="unfinished">Длинные числа сокращены до коротких форм (Например: 10000 будет выглядеть как 10тыс. и т.д.).</translation>
     </message>
     <message>
-        <location filename="../assets/pages/ChangelogPage.qml" line="39"/>
+        <location filename="../assets/pages/ChangelogPage.qml" line="52"/>
         <source>Small UI improvements</source>
         <translation type="unfinished">Небольшие изменения в интерфейсе, добавлены градиенты к фото.</translation>
     </message>
@@ -370,12 +385,12 @@ Ex.: 10000 became as 10k.</source>
         <translation type="unfinished">Артисты</translation>
     </message>
     <message>
-        <location filename="../assets/pages/SearchPage.qml" line="51"/>
+        <location filename="../assets/pages/SearchPage.qml" line="56"/>
         <source>Tracks</source>
         <translation type="unfinished">Треки</translation>
     </message>
     <message>
-        <location filename="../assets/pages/SearchPage.qml" line="56"/>
+        <location filename="../assets/pages/SearchPage.qml" line="51"/>
         <source>Albums</source>
         <translation type="unfinished">Альбомы</translation>
     </message>
@@ -657,7 +672,7 @@ Ex.: 10000 became as 10k.</source>
     <message>
         <location filename="../assets/main.qml" line="123"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Поиск</translation>
     </message>
     <message>
         <location filename="../assets/main.qml" line="141"/>
