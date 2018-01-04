@@ -27,6 +27,8 @@ namespace bb {
                 Q_INVOKABLE void getInfo(const QString& artist, const QString& album, const QString& mbid = "", const int& autocorrect = 1, const QString& username = "", const QString& lang = "en");
                 Q_INVOKABLE void search(const QString& album, const int& page = 1, const int& limit = 50);
 
+                void setAccessToken(const QString& accessToken);
+
                 Q_SIGNALS:
                     void infoLoaded(const QVariantMap& info);
                     void searchLoaded(const QVariantList& searchResult);
@@ -40,6 +42,7 @@ namespace bb {
             private:
                 static Logger logger;
                 QNetworkAccessManager* m_pNetwork;
+                QString m_accessToken;
             };
 
         } /* namespace controllers */

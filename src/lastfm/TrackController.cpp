@@ -9,7 +9,6 @@
 
 #include "TrackController.hpp"
 #include "LastFMCommon.hpp"
-#include "../config/AppConfig.hpp"
 #include <QUrl>
 #include <QCryptographicHash>
 #include <QDebug>
@@ -41,7 +40,7 @@ void TrackController::updateNowPlaying(const QString& artist, const QString& tra
     req.setUrl(url);
     req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    QString sk = AppConfig::instance()->get(LAST_FM_KEY).toString();
+    QString sk = m_accessToken;
     QString sig = QString("api_key").append(API_KEY)
                 .append("artist").append(artist.toUtf8())
                 .append("method").append(TRACK_UPDATE_NOW_PLAYING)
@@ -84,7 +83,7 @@ void TrackController::scrobble(const QString& artist, const QString& track, cons
     req.setUrl(url);
     req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    QString sk = AppConfig::instance()->get(LAST_FM_KEY).toString();
+    QString sk = m_accessToken;
     QString sig = QString("api_key").append(API_KEY)
                     .append("artist").append(artist.toUtf8())
                     .append("method").append(TRACK_SCROBBLE)
@@ -119,7 +118,7 @@ void TrackController::love(const QString& artist, const QString& track) {
     req.setUrl(url);
     req.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    QString sk = AppConfig::instance()->get(LAST_FM_KEY).toString();
+    QString sk = m_accessToken;
     QString sig = QString("api_key").append(API_KEY)
                         .append("artist").append(artist.toUtf8())
                         .append("method").append(TRACK_LOVE)
@@ -148,7 +147,7 @@ void TrackController::love(const QString& artist, const QString& track) {
 }
 
 void TrackController::unlove(const QString& artist, const QString& track) {
-    QString sk = AppConfig::instance()->get(LAST_FM_KEY).toString();
+    QString sk = m_accessToken;
     QString sig = QString("api_key").append(API_KEY)
                             .append("artist").append(artist.toUtf8())
                             .append("method").append(TRACK_UNLOVE)
@@ -297,6 +296,10 @@ void TrackController::onError(QNetworkReply::NetworkError e) {
     logger.error(reply->errorString());
     reply->deleteLater();
     emit error();
+}
+
+void TrackController::setAccessToken(const QString& accessToken) {
+    m_accessToken = accessToken;
 }
         }
     }

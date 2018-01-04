@@ -23,16 +23,12 @@
 #include <bb/cascades/DevelopmentSupport>
 #include <bb/cascades/ThemeSupport>
 
-#include "config/AppConfig.hpp"
 #include "lastfm/LastFMCommon.hpp"
 #include "Common.hpp"
 #include <QDir>
 
-#define SCROBBLER_ENABLE "scrobbler.enable"
-#define SCROBBLER_DISABLE "scrobbler.disable"
-
-#define HUB_NOTIFICATIONS_ENABLE "hub.notifications.enable"
-#define HUB_NOTIFICATIONS_DISABLE "hub.notifications.disable"
+#define SETTINGS_SCROBBLER_KEY "scrobbler.enabled"
+#define SETTINGS_NOW_PLAYING_KEY "notify_now_playing"
 
 #define LASTAPP_SERVICE "chachkouski.LastappService.start"
 #define START_APP_ACTION "chachkouski.LastappService.START"
@@ -49,12 +45,13 @@ ApplicationUI::ApplicationUI(): QObject() {
     m_pNetworkConf = new QNetworkConfigurationManager(this);
     m_pToast = new SystemToast(this);
     m_invokeManager = new InvokeManager(this);
-    m_pCommunication = new HeadlessCommunication(this);
+    m_scrobblerEnabled = true;
+    m_notificationsEnabled = true;
 
     QCoreApplication::setOrganizationName("mikhail.chachkouski");
     QCoreApplication::setApplicationName("Lastapp");
 
-    QString theme = AppConfig::instance()->get("theme").toString();
+    QString theme = m_settings.value("theme", "DARK").toString();
     if (theme.compare("") != 0) {
         if (theme.compare("DARK") == 0) {
             Application::instance()->themeSupport()->setVisualStyle(VisualStyle::Dark);
@@ -62,6 +59,11 @@ ApplicationUI::ApplicationUI(): QObject() {
             Application::instance()->themeSupport()->setVisualStyle(VisualStyle::Bright);
         }
     }
+
+    m_pLastFM->setAccessToken(prop(LAST_FM_KEY).toString());
+
+    setScrobblerEnabled(prop(SETTINGS_SCROBBLER_KEY, true).toBool());
+    setNotificationsEnabled(prop(SETTINGS_NOW_PLAYING_KEY, true).toBool());
 
     QString imagesPath = QDir::currentPath().append(IMAGES_LOCATION);
     QDir images(imagesPath);
@@ -75,8 +77,6 @@ ApplicationUI::ApplicationUI(): QObject() {
     res = QObject::connect(m_pLocaleHandler, SIGNAL(systemLanguageChanged()), this, SLOT(onSystemLanguageChanged()));
     Q_ASSERT(res);
     res = QObject::connect(m_pNetworkConf, SIGNAL(onlineStateChanged(bool)), this, SLOT(onOnlineChanged(bool)));
-    Q_ASSERT(res);
-    res = QObject::connect(m_pCommunication, SIGNAL(commandReceived(const QString&)), this, SLOT(processReceivedCommand(const QString&)));
     Q_ASSERT(res);
     Q_UNUSED(res);
 
@@ -92,7 +92,6 @@ ApplicationUI::ApplicationUI(): QObject() {
     QDeclarativeEngine* engine = QmlDocument::defaultDeclarativeEngine();
     QDeclarativeContext* rootContext = engine->rootContext();
     rootContext->setContextProperty("_app", this);
-    rootContext->setContextProperty("_appConfig", AppConfig::instance());
     rootContext->setContextProperty("_lastFM", m_pLastFM);
     rootContext->setContextProperty("_user", m_pLastFM->getUserController());
     rootContext->setContextProperty("_artist", m_pLastFM->getArtistController());
@@ -102,11 +101,10 @@ ApplicationUI::ApplicationUI(): QObject() {
     rootContext->setContextProperty("_track", m_pLastFM->getTrackController());
     rootContext->setContextProperty("_imageService", m_pImageService);
     rootContext->setContextProperty("_lang", lang);
-    rootContext->setContextProperty("_communication", m_pCommunication);
 
     startHeadless();
 
-    if (AppConfig::instance()->get(LAST_FM_KEY).toString().compare("") == 0) {
+    if (prop(LAST_FM_KEY).toString().compare("") == 0) {
         renderLogin();
     } else {
         renderMain();
@@ -120,8 +118,6 @@ ApplicationUI::~ApplicationUI() {
     m_pToast->deleteLater();
     m_pLastFM->deleteLater();
     m_invokeManager->deleteLater();
-    m_pCommunication->deleteLater();
-    AppConfig::instance()->deleteLater();
 }
 
 void ApplicationUI::headlessInvoked() {
@@ -140,8 +136,9 @@ void ApplicationUI::onSystemLanguageChanged() {
 }
 
 void ApplicationUI::storeAccessToken(const QString& name, const QString& accessToken) {
-    AppConfig::instance()->set(LAST_FM_KEY, accessToken);
-    AppConfig::instance()->set(LAST_FM_NAME, name);
+    m_pLastFM->setAccessToken(accessToken);
+    setProp(LAST_FM_KEY, accessToken);
+    setProp(LAST_FM_NAME, name);
     Application::instance()->scene()->deleteLater();
     toast(tr("Logged in as: ") + name);
     renderMain();
@@ -182,6 +179,24 @@ void ApplicationUI::startHeadless() {
     QObject::connect(reply, SIGNAL(finished()), this, SLOT(headlessInvoked()));
 }
 
+QVariant ApplicationUI::prop(const QString& key, const QVariant& defaultValue) {
+    return m_settings.value(key, defaultValue);
+}
+
+void ApplicationUI::setProp(const QString& key, const QVariant& val) {
+    logger.debug("Settings changed: " + key + " = " + val.toString());
+
+    if (key.compare(SETTINGS_SCROBBLER_KEY) == 0) {
+        setScrobblerEnabled(val.toBool());
+    } else if (key.compare(SETTINGS_NOW_PLAYING_KEY) == 0) {
+        setNotificationsEnabled(val.toBool());
+    }
+
+    m_settings.setValue(key, val);
+    m_settings.sync();
+    emit propChanged(key, val);
+}
+
 bool ApplicationUI::isOnline() const { return m_online; }
 
 void ApplicationUI::onOnlineChanged(bool online) {
@@ -196,8 +211,10 @@ bool ApplicationUI::isScrobblerEnabled() const {
 }
 
 void ApplicationUI::setScrobblerEnabled(const bool& scrobblingEnabled) {
-    m_scrobblerEnabled = scrobblingEnabled;
-    emit scrobblerEnabledChanged(m_scrobblerEnabled);
+    if (m_scrobblerEnabled != scrobblingEnabled) {
+        m_scrobblerEnabled = scrobblingEnabled;
+        emit scrobblerEnabledChanged(m_scrobblerEnabled);
+    }
 }
 
 bool ApplicationUI::isNotificationsEnabled() const {
@@ -205,19 +222,8 @@ bool ApplicationUI::isNotificationsEnabled() const {
 }
 
 void ApplicationUI::setNotificationsEnabled(const bool& notificationsEnabled) {
-    m_notificationsEnabled = notificationsEnabled;
-    emit notificationsEnabledChanged(m_notificationsEnabled);
-}
-
-void ApplicationUI::processReceivedCommand(const QString& command) {
-    logger.info("Received command from headless: " + command);
-    if (command.compare(SCROBBLER_ENABLE) == 0) {
-        setScrobblerEnabled(true);
-    } else if (command.compare(SCROBBLER_DISABLE) == 0) {
-        setScrobblerEnabled(false);
-    } else if (command.compare(HUB_NOTIFICATIONS_ENABLE) == 0) {
-        setNotificationsEnabled(true);
-    } else if (command.compare(HUB_NOTIFICATIONS_DISABLE) == 0) {
-        setNotificationsEnabled(false);
+    if (m_notificationsEnabled != notificationsEnabled) {
+        m_notificationsEnabled = notificationsEnabled;
+        emit notificationsEnabledChanged(m_notificationsEnabled);
     }
 }

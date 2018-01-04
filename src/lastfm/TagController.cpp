@@ -99,6 +99,10 @@ namespace bb {
                 }
             }
 
+            void TagController::setAccessToken(const QString& accessToken) {
+                m_accessToken = accessToken;
+            }
+
         } /* namespace controllers */
     } /* namespace lastfm */
 } /* namespace bb */

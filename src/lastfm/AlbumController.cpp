@@ -106,6 +106,9 @@ namespace bb {
                 emit error();
             }
 
+            void AlbumController::setAccessToken(const QString& accessToken) {
+                m_accessToken = accessToken;
+            }
         } /* namespace controllers */
     } /* namespace lastfm */
 } /* namespace bb */

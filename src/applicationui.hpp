@@ -26,7 +26,7 @@
 #include <bb/system/InvokeManager>
 #include <bb/system/InvokeRequest>
 #include <bb/system/InvokeTargetReply>
-#include "communication/HeadlessCommunication.hpp"
+#include <QSettings>
 
 namespace bb
 {
@@ -59,6 +59,9 @@ public:
     Q_INVOKABLE void toast(const QString& message);
     Q_INVOKABLE void stopHeadless();
     Q_INVOKABLE void startHeadless();
+    Q_INVOKABLE QVariant prop(const QString& key, const QVariant& defaultValue = "");
+    Q_INVOKABLE void setProp(const QString& key, const QVariant& val);
+
     bool isOnline() const;
     bool isScrobblerEnabled() const;
     void setScrobblerEnabled(const bool& scrobblingEnabled);
@@ -70,13 +73,13 @@ public:
         void onlineChanged(const bool& online);
         void scrobblerEnabledChanged(const bool& scrobblerEnabled);
         void notificationsEnabledChanged(const bool& notificationsEnabledChanged);
+        void propChanged(const QString& key, const QVariant& val);
 
 private slots:
     void onSystemLanguageChanged();
     void storeAccessToken(const QString& name, const QString& accessToken);
     void onOnlineChanged(bool online);
     void headlessInvoked();
-    void processReceivedCommand(const QString& command);
 
 private:
     QTranslator* m_pTranslator;
@@ -91,7 +94,7 @@ private:
     bool m_notificationsEnabled;
 
     InvokeManager* m_invokeManager;
-    HeadlessCommunication* m_pCommunication;
+    QSettings m_settings;
 
     static Logger logger;
 

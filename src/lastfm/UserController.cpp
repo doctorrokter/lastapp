@@ -7,13 +7,13 @@
 
 #include "UserController.hpp"
 #include "LastFMCommon.hpp"
-#include "../config/AppConfig.hpp"
 #include <QUrl>
 #include <QDebug>
 #include <QVariantMap>
 #include <bb/data/JsonDataAccess>
 #include <bb/cascades/QmlDocument>
 #include "LastFM.hpp"
+#include <QSettings>
 
 using namespace bb::cascades;
 using namespace bb::data;
@@ -278,6 +278,10 @@ namespace bb {
                 logger.error(reply->errorString());
                 reply->deleteLater();
                 emit error();
+            }
+
+            void UserController::setAccessToken(const QString& accessToken) {
+                m_accessToken = accessToken;
             }
 
         } /* namespace controllers */

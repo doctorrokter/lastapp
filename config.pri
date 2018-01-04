@@ -109,8 +109,6 @@ config_pri_source_group1 {
     SOURCES += \
         $$quote($$BASEDIR/src/Logger.cpp) \
         $$quote($$BASEDIR/src/applicationui.cpp) \
-        $$quote($$BASEDIR/src/communication/HeadlessCommunication.cpp) \
-        $$quote($$BASEDIR/src/config/AppConfig.cpp) \
         $$quote($$BASEDIR/src/lastfm/AlbumController.cpp) \
         $$quote($$BASEDIR/src/lastfm/ArtistController.cpp) \
         $$quote($$BASEDIR/src/lastfm/ChartController.cpp) \
@@ -126,8 +124,6 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/Common.hpp) \
         $$quote($$BASEDIR/src/Logger.hpp) \
         $$quote($$BASEDIR/src/applicationui.hpp) \
-        $$quote($$BASEDIR/src/communication/HeadlessCommunication.hpp) \
-        $$quote($$BASEDIR/src/config/AppConfig.hpp) \
         $$quote($$BASEDIR/src/lastfm/AlbumController.hpp) \
         $$quote($$BASEDIR/src/lastfm/ArtistController.hpp) \
         $$quote($$BASEDIR/src/lastfm/ChartController.hpp) \
@@ -151,16 +147,6 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../src/*.cc) \
         $$quote($$BASEDIR/../src/*.cpp) \
         $$quote($$BASEDIR/../src/*.cxx) \
-        $$quote($$BASEDIR/../src/communication/*.c) \
-        $$quote($$BASEDIR/../src/communication/*.c++) \
-        $$quote($$BASEDIR/../src/communication/*.cc) \
-        $$quote($$BASEDIR/../src/communication/*.cpp) \
-        $$quote($$BASEDIR/../src/communication/*.cxx) \
-        $$quote($$BASEDIR/../src/config/*.c) \
-        $$quote($$BASEDIR/../src/config/*.c++) \
-        $$quote($$BASEDIR/../src/config/*.cc) \
-        $$quote($$BASEDIR/../src/config/*.cpp) \
-        $$quote($$BASEDIR/../src/config/*.cxx) \
         $$quote($$BASEDIR/../src/lastfm/*.c) \
         $$quote($$BASEDIR/../src/lastfm/*.c++) \
         $$quote($$BASEDIR/../src/lastfm/*.cc) \

@@ -119,5 +119,13 @@ TagController* LastFM::getTagController() const { return m_pTag; }
 
 AlbumController* LastFM::getAlbumController() const { return m_pAlbum; }
 
+void LastFM::setAccessToken(const QString& accessToken) {
+    m_pTrack->setAccessToken(accessToken);
+    m_pUser->setAccessToken(accessToken);
+    m_pArtist->setAccessToken(accessToken);
+    m_pTag->setAccessToken(accessToken);
+    m_pAlbum->setAccessToken(accessToken);
+}
+
     }
 }

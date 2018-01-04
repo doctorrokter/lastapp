@@ -145,7 +145,7 @@ Page {
     }
     
     onNameChanged: {
-        _track.getInfo(root.name, root.artist.name, root.mbid, _appConfig.get("lastfm_name"));
+        _track.getInfo(root.name, root.artist.name, root.mbid, _app.prop("lastfm_name"));
     }
     
     onImagesChanged: {

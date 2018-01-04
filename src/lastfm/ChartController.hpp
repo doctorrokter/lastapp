@@ -28,6 +28,8 @@ namespace bb {
                 Q_INVOKABLE void getTopTracks(const int& page = 1, const int& limit = 50);
                 Q_INVOKABLE void getTopTags(const int& page = 1, const int& limit = 50);
 
+                void setAccessToken(const QString& accessToken);
+
                 Q_SIGNALS:
                     void chartLoaded(const QVariantList& chartData);
                     void error();
@@ -39,6 +41,7 @@ namespace bb {
             private:
                 static Logger logger;
                 QNetworkAccessManager* m_pNetwork;
+                QString m_accessToken;
 
                 void invoke(const QString& method, const int& page = 1, const int& limit = 50);
                 void prepareChartData(const QVariantList& source, QVariantList& chartData, const QString& type);

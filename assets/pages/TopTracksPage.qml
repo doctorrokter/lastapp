@@ -98,7 +98,7 @@ Page {
                 
                 function load() {
                     spinner.start();
-                    _user.getTopTracks(_appConfig.get("lastfm_name"), ++mainListView.page, mainListView.limit, period);
+                    _user.getTopTracks(_app.prop("lastfm_name"), ++mainListView.page, mainListView.limit, period);
                 }
                 
                 function topTracksLoaded(tracks, period, user) {

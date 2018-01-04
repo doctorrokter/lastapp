@@ -113,7 +113,7 @@ Page {
     function loadRecentTracks() {
         if (root.hasNext && !spinner.running) {
             spinner.start();
-            _user.getRecentTracks(_appConfig.get("lastfm_name"), ++root.page, root.limit);
+            _user.getRecentTracks(_app.prop("lastfm_name"), ++root.page, root.limit);
         }
     }
     

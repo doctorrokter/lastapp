@@ -91,7 +91,7 @@ Page {
     
     function load() {
         spinner.start();
-        _user.getFriends(_appConfig.get("lastfm_name"), ++root.page, root.limit);
+        _user.getFriends(_app.prop("lastfm_name"), ++root.page, root.limit);
     }
     
     function friendsLoaded(friends) {

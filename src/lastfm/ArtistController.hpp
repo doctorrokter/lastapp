@@ -27,6 +27,8 @@ namespace bb {
                 Q_INVOKABLE void getTopTracks(const QString& artist, const QString& mbid = "", const int& autocorrect = 1, const int& page = 1, const int& limit = 50);
                 Q_INVOKABLE void search(const QString& artist, const int& page = 1, const int& limit = 50);
 
+                void setAccessToken(const QString& accessToken);
+
                 Q_SIGNALS:
                     void infoLoaded(const QVariantMap& info);
                     void topTracksLoaded(const QVariantList& topTracks);
@@ -41,6 +43,7 @@ namespace bb {
 
             private:
                 QNetworkAccessManager* m_pNetwork;
+                QString m_accessToken;
 
                 static Logger logger;
             };

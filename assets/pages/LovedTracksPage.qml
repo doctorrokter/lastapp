@@ -139,6 +139,6 @@ Page {
     
     function load() {
         spinner.start();
-        _user.getLovedTracks(_appConfig.get("lastfm_name"), ++root.page, root.limit);
+        _user.getLovedTracks(_app.prop("lastfm_name"), ++root.page, root.limit);
     }
 }

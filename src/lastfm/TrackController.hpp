@@ -33,6 +33,8 @@ public:
     Q_INVOKABLE void getInfo(const QString& track, const QString& artist, const QString& mbid = "", const QString& username = "", const int& autocorrect = 1);
     Q_INVOKABLE void search(const QString& track, const QString& artist = "", const int& page = 1, const int& limit = 50);
 
+    void setAccessToken(const QString& accessToken);
+
     Q_SIGNALS:
         void nowPlayingUpdated();
         void scrobbled();
@@ -55,6 +57,8 @@ private:
     static Logger logger;
     QNetworkAccessManager* m_pNetwork;
     SystemToast m_toast;
+
+    QString m_accessToken;
 };
         }
     }

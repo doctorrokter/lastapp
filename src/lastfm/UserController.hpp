@@ -32,6 +32,8 @@ namespace bb {
                 Q_INVOKABLE void getInfo(const QString& user);
                 Q_INVOKABLE void getLovedTracks(const QString& user, const int& page = 1, const int& limit = 50);
 
+                void setAccessToken(const QString& accessToken);
+
                 Q_SIGNALS:
                     void recentTracksLoaded(const QVariantList& recentTracks);
                     void topArtistsLoaded(const QVariantList& topArtists, const QString& period, const QString& user, const int& total);
@@ -54,6 +56,7 @@ namespace bb {
 
             private:
                 QNetworkAccessManager* m_pNetwork;
+                QString m_accessToken;
 
                 static Logger logger;
             };

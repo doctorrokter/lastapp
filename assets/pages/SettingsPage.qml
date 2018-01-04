@@ -44,10 +44,10 @@ Page {
                         onCheckedChanged: {
                             if (checked) {
                                 Application.themeSupport.setVisualStyle(VisualStyle.Dark);
-                                _appConfig.set("theme", "DARK");
+                                _app.setProp("theme", "DARK");
                             } else {
                                 Application.themeSupport.setVisualStyle(VisualStyle.Bright);
-                                _appConfig.set("theme", "BRIGHT");
+                                _app.setProp("theme", "BRIGHT");
                             }
                         }
                     }
@@ -78,12 +78,8 @@ Page {
                         checked: _app.notificationsEnabled
                         
                         onCheckedChanged: {
-                            if (checked) {
-                                _app.notificationsEnabled = true;
-                                _communication.send("hub.notifications.enable");
-                            } else {
-                                _app.notificationsEnabled = false;
-                                _communication.send("hub.notifications.disable");
+                            if (checked !== _app.notificationsEnabled) {
+                                _app.setProp("notify_now_playing", checked);
                             }
                         }
                     }
@@ -110,12 +106,8 @@ Page {
                         checked: _app.scrobblerEnabled
                         
                         onCheckedChanged: {
-                            if (checked) {
-                                _app.scrobblerEnabled = true;
-                                _communication.send("scrobbler.enable");
-                            } else {
-                                _app.scrobblerEnabled = false;
-                                _communication.send("scrobbler.disable");
+                            if (checked !== _app.scrobblerEnabled) {
+                                _app.setProp("scrobbler.enabled", checked);
                             }
                         }
                     }
@@ -130,9 +122,13 @@ Page {
     }
     
     function adjustTheme() {
-        var theme = _appConfig.get("theme");
+        var theme = _app.prop("theme");
         themeToggle.checked = theme && theme === "DARK";
     }
+    
+//    function onScrobblerEnabledChanged(scrobblerEnabled) {
+//        
+//    }
     
     onCreationCompleted: {
         adjustTheme();

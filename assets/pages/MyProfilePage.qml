@@ -200,15 +200,15 @@ Page {
     
     function init() {
         spinner.start();
-        _user.getInfo(_appConfig.get("lastfm_name"));
-        _user.getTopTracks(_appConfig.get("lastfm_name"), 1, 1, "7day");
-        _user.getLovedTracks(_appConfig.get("lastfm_name"), 1, 1);
-        _user.getTopArtists(_appConfig.get("lastfm_name"), 1, 1);
+        _user.getInfo(_app.prop("lastfm_name"));
+        _user.getTopTracks(_app.prop("lastfm_name"), 1, 1, "7day");
+        _user.getLovedTracks(_app.prop("lastfm_name"), 1, 1);
+        _user.getTopArtists(_app.prop("lastfm_name"), 1, 1);
     }
     
     function setUser(user) {
         spinner.stop();
-        if (root.name === "" || user.name.toLowerCase() === _appConfig.get("lastfm_name").toLowerCase()) {
+        if (root.name === "" || user.name.toLowerCase() === _app.prop("lastfm_name").toLowerCase()) {
             root.name = user.name || "";
             root.realname = user.realname || "";
             root.images = user.image;
@@ -220,7 +220,7 @@ Page {
     }
     
     function setTopTrack(tracks, period, username) {
-        if (username.toLowerCase() === _appConfig.get("lastfm_name").toLowerCase()) {
+        if (username.toLowerCase() === _app.prop("lastfm_name").toLowerCase()) {
             if (tracks.length !== 0) {
                 var track = tracks[0];
                 topTrackContainer.name = track.name;
@@ -231,7 +231,7 @@ Page {
     }
     
     function setLovedTracks(tracks, user, total) {
-        if (user.toLowerCase() === _appConfig.get("lastfm_name").toLowerCase()) {
+        if (user.toLowerCase() === _app.prop("lastfm_name").toLowerCase()) {
             root.lovedTracks = total;
         }
     }

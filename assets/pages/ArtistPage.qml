@@ -210,7 +210,7 @@ Page {
     }
     
     onNameChanged: {
-        _artist.getInfo(root.name, root.mbid, _lang, 1, _appConfig.get("lastfm_name"));
+        _artist.getInfo(root.name, root.mbid, _lang, 1, _app.prop("lastfm_name"));
         _artist.getTopTracks(root.name, root.mbid, 1, 1, 5);
     }
     

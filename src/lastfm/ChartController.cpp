@@ -101,6 +101,10 @@ namespace bb {
                 }
             }
 
+            void ChartController::setAccessToken(const QString& accessToken) {
+                m_accessToken = accessToken;
+            }
+
         } /* namespace controllers */
     } /* namespace lastfm */
 } /* namespace bb */

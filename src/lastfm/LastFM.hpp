@@ -50,6 +50,8 @@ public:
     Q_INVOKABLE TagController* getTagController() const;
     Q_INVOKABLE AlbumController* getAlbumController() const;
 
+    void setAccessToken(const QString& accessToken);
+
     Q_SIGNALS:
         void accessTokenObtained(const QString& name, const QString& accessToken);
         void authFinished(const QString& message, const bool& success);

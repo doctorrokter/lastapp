@@ -106,7 +106,7 @@ Page {
                 
                 function load() {
                     spinner.start();
-                    _user.getTopArtists(_appConfig.get("lastfm_name"), ++mainListView.page, mainListView.limit, period);
+                    _user.getTopArtists(_app.prop("lastfm_name"), ++mainListView.page, mainListView.limit, period);
                 }
                 
                 function topArtistsLoaded(artists, period) {

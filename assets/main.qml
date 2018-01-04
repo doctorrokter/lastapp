@@ -49,7 +49,7 @@ TabbedPane {
                 imageSource: "asset:///images/ic_blackberry.png"
                 
                 onTriggered: {
-                    _appConfig.set("app_rated", "true");
+                    _app.setProp("app_rated", "true");
                     bbwInvoke.trigger(bbwInvoke.query.invokeActionId);
                 }
             },

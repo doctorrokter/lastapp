@@ -192,7 +192,7 @@ Page {
     }
     
     onNameChanged: {
-        _album.getInfo(root.artist.name, root.name, root.mbid, 1, _appConfig.get("lastfm_name"), _lang);
+        _album.getInfo(root.artist.name, root.name, root.mbid, 1, _app.prop("lastfm_name"), _lang);
     }
     
     onArtistChanged: {

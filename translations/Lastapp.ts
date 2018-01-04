@@ -18,7 +18,7 @@
 <context>
     <name>ApplicationUI</name>
     <message>
-        <location filename="../src/applicationui.cpp" line="146"/>
+        <location filename="../src/applicationui.cpp" line="143"/>
         <source>Logged in as: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -436,7 +436,7 @@ Ex.: 10000 became as 10k.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/SettingsPage.qml" line="101"/>
+        <location filename="../assets/pages/SettingsPage.qml" line="97"/>
         <source>Scrobbling</source>
         <translation type="unfinished"></translation>
     </message>
@@ -610,12 +610,12 @@ Ex.: 10000 became as 10k.</source>
 <context>
     <name>bb::lastfm::controllers::TrackController</name>
     <message>
-        <location filename="../src/lastfm/TrackController.cpp" line="273"/>
+        <location filename="../src/lastfm/TrackController.cpp" line="272"/>
         <source>Track loved!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lastfm/TrackController.cpp" line="286"/>
+        <location filename="../src/lastfm/TrackController.cpp" line="285"/>
         <source>Track unloved</source>
         <translation type="unfinished"></translation>
     </message>
