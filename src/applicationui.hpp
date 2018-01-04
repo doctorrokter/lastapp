@@ -27,6 +27,7 @@
 #include <bb/system/InvokeRequest>
 #include <bb/system/InvokeTargetReply>
 #include <QSettings>
+#include <QFileSystemWatcher>
 
 namespace bb
 {
@@ -80,12 +81,14 @@ private slots:
     void storeAccessToken(const QString& name, const QString& accessToken);
     void onOnlineChanged(bool online);
     void headlessInvoked();
+    void onFileChanged(const QString& path);
 
 private:
     QTranslator* m_pTranslator;
     LocaleHandler* m_pLocaleHandler;
     QNetworkConfigurationManager* m_pNetworkConf;
     SystemToast* m_pToast;
+    QFileSystemWatcher* m_pWatcher;
 
     LastFM* m_pLastFM;
     ImageService* m_pImageService;

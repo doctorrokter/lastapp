@@ -45,6 +45,7 @@ ApplicationUI::ApplicationUI(): QObject() {
     m_pNetworkConf = new QNetworkConfigurationManager(this);
     m_pToast = new SystemToast(this);
     m_invokeManager = new InvokeManager(this);
+    m_pWatcher = new QFileSystemWatcher(this);
     m_scrobblerEnabled = true;
     m_notificationsEnabled = true;
 
@@ -78,7 +79,11 @@ ApplicationUI::ApplicationUI(): QObject() {
     Q_ASSERT(res);
     res = QObject::connect(m_pNetworkConf, SIGNAL(onlineStateChanged(bool)), this, SLOT(onOnlineChanged(bool)));
     Q_ASSERT(res);
+    res = QObject::connect(m_pWatcher, SIGNAL(fileChanged(const QString&)), this, SLOT(onFileChanged(const QString&)));
+    Q_ASSERT(res);
     Q_UNUSED(res);
+
+    m_pWatcher->addPath(m_settings.fileName());
 
     onSystemLanguageChanged();
     DevelopmentSupport::install();
@@ -118,6 +123,7 @@ ApplicationUI::~ApplicationUI() {
     m_pToast->deleteLater();
     m_pLastFM->deleteLater();
     m_invokeManager->deleteLater();
+    m_pWatcher->deleteLater();
 }
 
 void ApplicationUI::headlessInvoked() {
@@ -225,5 +231,12 @@ void ApplicationUI::setNotificationsEnabled(const bool& notificationsEnabled) {
     if (m_notificationsEnabled != notificationsEnabled) {
         m_notificationsEnabled = notificationsEnabled;
         emit notificationsEnabledChanged(m_notificationsEnabled);
+    }
+}
+
+void ApplicationUI::onFileChanged(const QString& path) {
+    if (path.contains(".conf")) {
+        m_settings.sync();
+        setScrobblerEnabled(prop(SETTINGS_SCROBBLER_KEY).toBool());
     }
 }
